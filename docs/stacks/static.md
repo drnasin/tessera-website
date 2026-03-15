@@ -1,7 +1,5 @@
 ---
 title: Static Site
-parent: Stacks
-nav_order: 5
 ---
 
 # Static Site (HTML + Tailwind)

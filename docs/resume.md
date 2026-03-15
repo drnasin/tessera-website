@@ -1,6 +1,5 @@
 ---
 title: Resume & Recovery
-nav_order: 4
 ---
 
 # Resume & Recovery

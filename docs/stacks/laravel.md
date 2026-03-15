@@ -1,7 +1,5 @@
 ---
 title: Laravel
-parent: Stacks
-nav_order: 1
 ---
 
 # Laravel + Filament

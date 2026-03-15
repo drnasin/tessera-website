@@ -1,6 +1,5 @@
 ---
 title: Creating a Project
-nav_order: 2
 ---
 
 # Creating a Project

@@ -1,6 +1,5 @@
 ---
 title: License
-nav_order: 10
 ---
 
 # License
@@ -27,20 +26,25 @@ Tessera is licensed under the **PolyForm Noncommercial License 1.0.0**.
 
 ## FAQ
 
-**Can I use Tessera to build my personal blog?**
+::: details Can I use Tessera to build my personal blog?
 Yes — personal use is always free.
+:::
 
-**Can I use it to learn Laravel/Filament?**
+::: details Can I use it to learn Laravel/Filament?
 Yes — educational use is free.
+:::
 
-**Can I build a client's e-commerce site with it?**
+::: details Can I build a client's e-commerce site with it?
 That's commercial use — you need a commercial license.
+:::
 
-**Can I contribute to Tessera without a license?**
+::: details Can I contribute to Tessera without a license?
 Yes — open-source contributions don't require a license.
+:::
 
-**What about the generated code?**
+::: details What about the generated code?
 The code Tessera generates belongs to you. The license covers the Tessera installer tool itself, not the projects it creates.
+:::
 
 ## Get a Commercial License
 

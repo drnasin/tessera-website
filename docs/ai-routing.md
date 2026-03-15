@@ -1,6 +1,5 @@
 ---
 title: AI Routing
-nav_order: 3
 ---
 
 # Intelligent Cross-Tool Routing

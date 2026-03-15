@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Tessera = small stone in a mosaic. Logo: 4 mosaic tiles forming a T shape -->
+  <!-- Top row: 3 tiles -->
+  <rect x="2" y="2" width="8" height="8" rx="1.5" fill="#f97316"/>
+  <rect x="12" y="2" width="8" height="8" rx="1.5" fill="#fb923c"/>
+  <rect x="22" y="2" width="8" height="8" rx="1.5" fill="#f97316"/>
+  <!-- Middle: 1 center tile -->
+  <rect x="12" y="12" width="8" height="8" rx="1.5" fill="#ea580c"/>
+  <!-- Bottom: 1 center tile -->
+  <rect x="12" y="22" width="8" height="8" rx="1.5" fill="#f97316"/>
+</svg>

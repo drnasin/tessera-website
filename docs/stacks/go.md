@@ -1,7 +1,5 @@
 ---
 title: Go
-parent: Stacks
-nav_order: 3
 ---
 
 # Go (Backend / API / Microservice)

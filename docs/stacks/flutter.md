@@ -1,7 +1,5 @@
 ---
 title: Flutter
-parent: Stacks
-nav_order: 4
 ---
 
 # Flutter (Mobile + Web App)

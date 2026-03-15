@@ -1,7 +1,5 @@
 ---
 title: Node.js
-parent: Stacks
-nav_order: 2
 ---
 
 # Node.js (Next.js / Express)
