@@ -1,8 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  // Remove base when custom domain (tessera-ai.net) is active
-  base: process.env.CUSTOM_DOMAIN ? '/' : '/tessera-website/',
+  base: '/',
 
   title: 'Tessera',
   description: 'AI-Native CMS & E-Commerce Platform. Describe what you need, AI builds it.',
