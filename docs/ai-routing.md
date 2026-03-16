@@ -64,6 +64,29 @@ After generating the frontend theme and admin panel, a **different AI** reviews 
 
 This built-in peer review catches issues that a single AI pass would miss — similar to human code review, but instant.
 
+## Check Your Routing
+
+Run `tessera tools` to see which AI tools are installed and how tasks will be routed:
+
+```bash
+tessera tools
+```
+
+```
+Available AI tools:
+✓ claude: 2.1.75
+✓ gemini: 0.32.1
+✓ codex: 0.98.0
+
+AI routing:
+  plans: claude=max (unlimited), codex=plus (generous), gemini=free (limited)
+  simple: claude (claude-haiku-4-5-20251001)
+  medium: claude (claude-sonnet-4-20250514)
+  complex: claude (claude-opus-4-20250514)
+```
+
+This is useful after installing a new AI tool, or to verify your plan configuration is correct.
+
 ## Usage Summary
 
 At the end of each build, Tessera shows how many calls each tool handled:

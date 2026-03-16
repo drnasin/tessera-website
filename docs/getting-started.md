@@ -92,5 +92,6 @@ The installer asks about your AI subscription plans during setup. If you have Cl
 ## Next Steps
 
 - [Creating a Project](/docs/creating-project) — see the full build process from conversation to working app
+- [After Building](/docs/after-building) — what to do once your project is generated
 - [AI Routing](/docs/ai-routing) — understand how Tessera picks the best AI for each task
 - [Resume & Recovery](/docs/resume) — what happens when builds fail or get interrupted

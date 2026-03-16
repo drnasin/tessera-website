@@ -106,6 +106,26 @@ The AI code generator knows which payment providers are popular in each country:
 | UK | Stripe, GoCardless, PayPal |
 | USA | Stripe, Square, PayPal |
 
+## Database Setup
+
+During preflight, Tessera detects which databases are available on your system (MySQL, MariaDB, PostgreSQL, SQLite). If you pick MySQL or PostgreSQL, Tessera asks for your credentials and tests the connection.
+
+If something goes wrong:
+- **Wrong credentials** — retry with different credentials
+- **Can't create database** — Tessera waits for you to create it manually, then verifies
+- **Can't connect at all** — falls back to SQLite so the build can continue
+
+You won't lose progress — the database choice is saved and can be changed later in the `.env` file.
+
+## Built-in Safeguards
+
+After generating code, Tessera runs automatic checks before handing the project to you:
+
+- **PHP Lint** — runs `php -l` on every generated file to catch syntax errors instantly (zero AI tokens)
+- **Namespace Auto-Fix** — scans generated files against `vendor/` to fix incorrect class imports (common across framework versions)
+- **Self-Healing Tests** — generates tests, runs them, and if any fail, AI fixes the issue automatically (up to 3 attempts)
+- **Version-Agnostic Prompts** — AI verifies package versions from your actual `vendor/` directory, so prompts stay correct across Laravel, Filament, and Livewire upgrades
+
 ## Your Requests Are Respected
 
 If you tell AI to use a specific package, approach, or style — it will. For example:
@@ -119,3 +139,8 @@ These are passed to all AI build steps as mandatory instructions.
 ## What Happens If Something Goes Wrong?
 
 Tessera saves progress after every step. If a build fails or you interrupt it, [resume from where it stopped](/docs/resume) — no wasted AI tokens, no lost work.
+
+## Next Steps
+
+- [After Building](/docs/after-building) — what to do once the build finishes
+- [AI Routing](/docs/ai-routing) — how Tessera picks the best AI for each task

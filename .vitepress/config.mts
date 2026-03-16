@@ -56,6 +56,7 @@ export default defineConfig({
         items: [
           { text: 'Installation & Setup', link: '/docs/getting-started' },
           { text: 'Creating a Project', link: '/docs/creating-project' },
+          { text: 'After Building', link: '/docs/after-building' },
         ]
       },
       {
