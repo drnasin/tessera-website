@@ -1,5 +1,5 @@
 ---
-title: "Installation & Setup — Get Started with Tessera AI Project Generator"
+title: "Getting Started"
 description: "Install Tessera CLI in under a minute. Requires PHP, Composer, and at least one AI tool (Claude, Codex, or Gemini). Generate your first project today."
 ---
 

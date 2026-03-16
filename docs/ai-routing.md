@@ -1,5 +1,5 @@
 ---
-title: "AI Routing — How Tessera Picks the Best AI Model for Each Task"
+title: "Smart Model Routing"
 description: "Tessera routes each code generation task to the best AI tool and model — Claude, Gemini, or Codex. Plan-aware routing, rate limit handling, and AI peer review."
 ---
 

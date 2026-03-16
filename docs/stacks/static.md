@@ -1,5 +1,5 @@
 ---
-title: "Static Stack — AI Generates Landing Pages and Portfolio Sites"
+title: "Static Stack"
 description: "Tessera generates static sites with HTML, Tailwind CSS, and Alpine.js. SEO-optimized, ready to deploy on Netlify, Vercel, or GitHub Pages."
 ---
 

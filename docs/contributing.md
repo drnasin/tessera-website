@@ -1,5 +1,5 @@
 ---
-title: "Contributing to Tessera — Add Stacks and Improve the AI Generator"
+title: "Contributing"
 description: "Contribute to Tessera's open-source AI project generator. Add new technology stacks, improve AI prompts, or fix bugs. 131 tests, zero AI tokens needed to run them."
 ---
 

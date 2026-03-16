@@ -1,5 +1,5 @@
 ---
-title: "Flutter Stack — AI Generates Cross-Platform Mobile Apps"
+title: "Flutter Stack"
 description: "Tessera generates Flutter apps for iOS, Android, and Web with Riverpod, Material 3, navigation, and tests. AI builds the entire mobile app from a conversation."
 ---
 

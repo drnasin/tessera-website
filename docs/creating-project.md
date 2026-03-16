@@ -1,5 +1,5 @@
 ---
-title: "Creating a Project — AI Generates Your Entire Web Application"
+title: "Creating a Project"
 description: "See how Tessera's AI project generator builds a complete web app from a conversation. Models, theme, admin panel, tests, and deployment — all automated."
 ---
 

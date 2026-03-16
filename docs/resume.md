@@ -1,5 +1,5 @@
 ---
-title: "Resume & Recovery — Never Lose Build Progress"
+title: "Resume & Recovery"
 description: "Tessera saves progress after every step. If a build fails, times out, or gets interrupted, resume from where it stopped — no wasted AI tokens."
 ---
 

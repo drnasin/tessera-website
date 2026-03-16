@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "Tessera — AI Project Generator That Builds Complete Web Apps From a Conversation"
+title: "Tessera"
 description: "Tessera is an AI-powered CLI tool that generates complete web projects from a conversation. Describe what you need — AI builds models, themes, admin panels, tests, and more."
 
 hero:

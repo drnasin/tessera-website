@@ -1,5 +1,5 @@
 ---
-title: "Go Stack — AI Generates High-Performance Go Backends"
+title: "Go Stack"
 description: "Tessera generates production-ready Go backends with Chi/Gin router, database layer, Docker, structured logging, and tests. Built for high-concurrency systems."
 ---
 

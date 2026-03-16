@@ -1,5 +1,5 @@
 ---
-title: "Laravel Stack — AI Generates Complete Laravel + Filament Applications"
+title: "Laravel Stack"
 description: "Tessera's Laravel stack generates a full application with Filament admin, Tailwind theme, e-commerce, tests, and deployment docs. AI builds everything from a conversation."
 ---
 

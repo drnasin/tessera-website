@@ -1,5 +1,5 @@
 ---
-title: "Node.js Stack — AI Generates Next.js and Express Applications"
+title: "Node.js Stack"
 description: "Tessera generates complete Node.js projects with TypeScript, Prisma, authentication, Docker, and tests. AI picks Next.js or Express based on your requirements."
 ---
 

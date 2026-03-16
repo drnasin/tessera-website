@@ -1,5 +1,5 @@
 ---
-title: "Disclaimer — AI-Generated Code and Token Usage"
+title: "Disclaimer"
 description: "Important information about AI token consumption, generated code quality, third-party integrations, and warranty limitations when using Tessera."
 ---
 
