@@ -50,6 +50,7 @@ export default defineConfig({
         text: 'More',
         items: [
           { text: 'License', link: '/docs/license' },
+          { text: 'Disclaimer', link: '/docs/disclaimer' },
           { text: 'Contributing', link: '/docs/contributing' },
         ]
       },
@@ -60,7 +61,7 @@ export default defineConfig({
     ],
 
     footer: {
-      message: 'Free for non-commercial use under <a href="/docs/license">PolyForm Noncommercial License</a>.',
+      message: 'Free for non-commercial use under <a href="/docs/license">PolyForm Noncommercial License</a>. <a href="/docs/disclaimer">Disclaimer</a>.',
       copyright: '© 2026 Ante Drnasin',
     },
 
