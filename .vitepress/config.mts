@@ -3,6 +3,12 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   base: '/',
 
+  vite: {
+    server: {
+      host: 'tessera-website.test',
+    },
+  },
+
   title: 'Tessera',
   titleTemplate: ':title | Tessera — AI Project Generator',
   description: 'Tessera is an AI-powered CLI tool that generates complete web projects from a conversation. Supports Laravel, Node.js, Go, Flutter, and static sites.',
@@ -91,8 +97,8 @@ export default defineConfig({
     ],
 
     footer: {
-      message: 'Free for non-commercial use under <a href="/docs/license">PolyForm Noncommercial License</a>. <a href="/docs/disclaimer">Disclaimer</a>.',
-      copyright: '© 2026 Ante Drnasin',
+      message: 'Built by Ante Drnasin · Licensed under <a href="/docs/license">PolyForm Noncommercial</a> · <a href="/docs/disclaimer">Disclaimer</a>',
+      copyright: '© 2026 Tessera',
     },
 
     search: {

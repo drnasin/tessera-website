@@ -7,7 +7,7 @@ description: "Tessera is an AI-powered CLI tool that generates complete web proj
 hero:
   name: Tessera
   text: Describe it. AI builds it.
-  tagline: An AI project generator that builds complete web applications from a single conversation. You describe what the client needs — AI creates models, themes, admin panels, tests, and deployment docs.
+  tagline: You describe what the client needs — AI generates models, themes, admin panels, tests, and deployment docs. One conversation. One command.
   actions:
     - theme: brand
       text: Get Started
@@ -16,26 +16,11 @@ hero:
       text: View on GitHub
       link: https://github.com/drnasin/tessera-installer
 
-features:
-  - icon: 🧠
-    title: AI Generates the Entire Project
-    details: Describe your project in plain language. The AI code generator creates models, theme, admin panel, tests, and deployment docs — no boilerplate, no copy-paste.
-  - icon: 🔄
-    title: Smart Cross-Tool AI Routing
-    details: Routes tasks to Claude, Gemini, and Codex intelligently — each step gets the best AI model. Rate limits? Auto-switches to the next available tool.
-  - icon: 👥
-    title: AI Peer Review Built In
-    details: A different AI reviews what the first one generated. Two perspectives catch mistakes one would miss — quality assurance without human overhead.
-  - icon: 🔁
-    title: Resume on Failure
-    details: Build fails or you press Ctrl+C? Progress is saved. Run the same command — it resumes from where it stopped. No wasted AI tokens.
-  - icon: 🏗️
-    title: 5 Technology Stacks
-    details: "Laravel, Node.js, Go, Flutter, Static — AI picks the best stack for your project or you choose your own."
-  - icon: 🛡️
-    title: Self-Healing Builds
-    details: Tests fail? AI fixes them. Syntax errors? Auto-detected and corrected. Wrong namespaces? Auto-resolved. The build keeps going.
 ---
+
+<div class="section-divider"></div>
+
+<div class="install-section">
 
 ## Install in 10 seconds
 
@@ -43,6 +28,10 @@ features:
 composer global require tessera/installer
 tessera new my-project
 ```
+
+</div>
+
+<div class="section-divider"></div>
 
 <div class="how-it-works">
 
@@ -75,7 +64,66 @@ tessera new my-project
 </div>
 </div>
 
+<div class="section-divider"></div>
+
+<div class="features-section">
+
+## Why Tessera?
+
+<div class="features-grid">
+<div class="feature-card">
+<div class="feature-icon">🧠</div>
+<h3>AI Generates the Entire Project</h3>
+<p>Describe your project in plain language. The AI code generator creates models, theme, admin panel, tests, and deployment docs — no boilerplate, no copy-paste.</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">🔄</div>
+<h3>Smart Cross-Tool AI Routing</h3>
+<p>Routes tasks to Claude, Gemini, and Codex intelligently — each step gets the best AI model. Rate limits? Auto-switches to the next available tool.</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">👥</div>
+<h3>AI Peer Review Built In</h3>
+<p>A different AI reviews what the first one generated. Two perspectives catch mistakes one would miss — quality assurance without human overhead.</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">🔁</div>
+<h3>Resume on Failure</h3>
+<p>Build fails or you press Ctrl+C? Progress is saved. Run the same command — it resumes from where it stopped. No wasted AI tokens.</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">🏗️</div>
+<h3>5 Technology Stacks</h3>
+<p>Laravel, Node.js, Go, Flutter, Static — AI picks the best stack for your project or you choose your own.</p>
+</div>
+
+<div class="feature-card">
+<div class="feature-icon">🛡️</div>
+<h3>Self-Healing Builds</h3>
+<p>Tests fail? AI fixes them. Syntax errors? Auto-detected and corrected. Wrong namespaces? Auto-resolved. The build keeps going.</p>
+</div>
+</div>
+</div>
+
+<div class="section-divider"></div>
+
+<div class="cta-section">
+<h2>Ready to build?</h2>
+<p>One command to install. One conversation to generate a complete project.</p>
+<a class="cta-button" href="/docs/getting-started">Get Started</a>
+</div>
+
 <style>
+.section-divider {
+  border-top: 1px solid var(--vp-c-divider);
+  width: 100%;
+  margin: 0;
+}
+
 .how-it-works {
   max-width: 1100px;
   margin: 0 auto;
@@ -85,6 +133,9 @@ tessera new my-project
 .how-it-works h2 {
   text-align: center;
   margin-bottom: 2.5rem;
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 .steps {
@@ -134,5 +185,131 @@ tessera new my-project
   .steps {
     grid-template-columns: 1fr;
   }
+}
+
+.features-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 2rem;
+}
+
+.features-section h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.feature-card {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: var(--vp-c-bg-soft);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.feature-card:hover {
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.feature-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.feature-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.feature-card p {
+  color: var(--vp-c-text-2);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.install-section {
+  width: 100%;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.install-section h2 {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.install-section div[class*="language-"] {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.install-section h2 {
+  margin-bottom: 1.5rem;
+}
+
+.install-section div[class*="language-"] {
+  text-align: left;
+}
+
+.cta-section {
+  text-align: center;
+  padding: 2rem 1.5rem 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.cta-section p {
+  color: var(--vp-c-text-2);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: var(--vp-c-brand-1);
+  color: white !important;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.25s, box-shadow 0.25s;
+}
+
+.cta-button:hover {
+  background: var(--vp-c-brand-2);
+  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.3);
 }
 </style>

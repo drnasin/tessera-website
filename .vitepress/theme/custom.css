@@ -14,6 +14,14 @@
   --vp-home-hero-image-filter: blur(40px);
 }
 
+.VPFooter.has-sidebar {
+  display: block !important;
+}
+
+.VPHome {
+  margin-bottom: 32px !important;
+}
+
 .dark {
   --vp-c-brand-1: #fb923c;
   --vp-c-brand-2: #f97316;
