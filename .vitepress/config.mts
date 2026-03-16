@@ -7,6 +7,7 @@ export default defineConfig({
   description: 'AI-Native CMS & E-Commerce Platform. Describe what you need, AI builds it.',
 
   head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.bunny.net' }],
     ['link', { href: 'https://fonts.bunny.net/css?family=inter:300,400,500,600,700,800&display=swap', rel: 'stylesheet' }],
   ],
