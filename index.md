@@ -1,6 +1,7 @@
 ---
 layout: home
-title: "Tessera"
+title: "Tessera — AI Project Generator"
+titleTemplate: false
 description: "Tessera is an AI-powered CLI tool that generates complete web projects from a conversation. Describe what you need — AI builds models, themes, admin panels, tests, and more."
 
 hero:
