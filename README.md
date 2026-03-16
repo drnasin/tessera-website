@@ -1,0 +1,22 @@
+# Tessera Website
+
+Website: [tessera-ai.net](https://tessera-ai.net)
+
+Marketing and documentation site for [Tessera Installer](https://github.com/drnasin/tessera-installer) — an AI-powered CLI that generates complete web projects from a conversation.
+
+Built with [VitePress](https://vitepress.dev/).
+
+## Development
+
+```bash
+npm install
+npm run docs:dev
+```
+
+## Deployment
+
+Hosted on GitHub Pages. Pushes to `main` auto-deploy via GitHub Actions.
+
+## License
+
+© 2026 Ante Drnasin
