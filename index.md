@@ -109,13 +109,6 @@ tessera new my-project
 </div>
 </div>
 
-<div class="section-divider"></div>
-
-<div class="cta-section">
-<h2>Ready to build?</h2>
-<p>One command to install. One conversation to generate a complete project.</p>
-<a class="cta-button" href="/docs/getting-started">Get Started</a>
-</div>
 
 <style>
 .section-divider {
@@ -275,41 +268,4 @@ tessera new my-project
   text-align: left;
 }
 
-.cta-section {
-  text-align: center;
-  padding: 2rem 1.5rem 0;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.cta-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
-  border-top: none;
-  padding-top: 0;
-  margin-top: 0;
-}
-
-.cta-section p {
-  color: var(--vp-c-text-2);
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.cta-button {
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  background: var(--vp-c-brand-1);
-  color: white !important;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: background 0.25s, box-shadow 0.25s;
-}
-
-.cta-button:hover {
-  background: var(--vp-c-brand-2);
-  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.3);
-}
 </style>
