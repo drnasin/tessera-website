@@ -139,7 +139,7 @@ function runAnimation() {
     let lineIndex = 2
     function addLine() {
       if (lineIndex >= lines.length) {
-        setTimeout(() => { runAnimation() }, 3000)
+        setTimeout(() => { runAnimation() }, 5000)
         return
       }
       const line = lines[lineIndex]
