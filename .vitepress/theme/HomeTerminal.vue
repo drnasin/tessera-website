@@ -63,21 +63,30 @@ const lines = [
   { type: 'success', text: '╚══════════════════════════════════╝' },
 ]
 
-onMounted(() => {
+
+function runAnimation() {
   const terminal = terminalBody.value
   const tw = typewriter.value
   if (!terminal || !tw) return
+
+  typing.value = true
+  tw.textContent = ''
+
+  terminal.innerHTML = '<div class="line"><span class="prompt">$</span> <span class="command" ref="typewriter"></span><span class="cursor">|</span></div>'
+  const commandSpan = terminal.querySelector('.command')
+  const cursorSpan = terminal.querySelector('.cursor')
 
   const command = lines[0].text
   let charIndex = 0
 
   function typeCommand() {
     if (charIndex < command.length) {
-      tw.textContent += command[charIndex]
+      commandSpan.textContent += command[charIndex]
       charIndex++
       setTimeout(typeCommand, lines[0].delay)
     } else {
       typing.value = false
+      if (cursorSpan) cursorSpan.remove()
       setTimeout(showOutput, lines[1].delay)
     }
   }
@@ -87,7 +96,10 @@ onMounted(() => {
 
     let lineIndex = 2
     function addLine() {
-      if (lineIndex >= lines.length) return
+      if (lineIndex >= lines.length) {
+        setTimeout(() => { runAnimation() }, 3000)
+        return
+      }
       const line = lines[lineIndex]
       const div = document.createElement('div')
       div.className = 'line'
@@ -106,21 +118,26 @@ onMounted(() => {
   }
 
   setTimeout(typeCommand, 800)
+}
+
+onMounted(() => {
+  runAnimation()
 })
 </script>
 
 <style scoped>
-.terminal-wrapper {
-  width: 100%;
-  padding-left: 1rem;
-  margin-right: -4rem;
-}
-
 .terminal {
+  position: relative;
   width: 100%;
   border-radius: 0.75rem;
   overflow: hidden;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.terminal-wrapper {
+  width: 100%;
+  padding-left: 1rem;
+  margin-right: -4rem;
 }
 
 .terminal-body {
@@ -129,9 +146,16 @@ onMounted(() => {
 }
 
 @media (max-width: 960px) {
+  .terminal-body {
+    height: 280px;
+  }
+}
+
+@media (max-width: 960px) {
   .terminal-wrapper {
     padding-left: 0;
-    padding-top: 2rem;
+    margin-right: 0;
+    padding-top: 1.5rem;
   }
 }
 </style>
