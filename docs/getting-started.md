@@ -5,7 +5,7 @@ description: "Install Tessera CLI in under a minute. Requires PHP, Composer, and
 
 # Get Started with Tessera
 
-Tessera is an AI project generator that runs as a CLI tool on your machine. Install it globally with Composer and start generating complete web projects from a conversation.
+Tessera is an AI project generator that runs as a CLI tool on your machine. Install it globally with Composer and start generating complete web projects from a conversation. New to Tessera? Read [What is Tessera?](/docs/what-is-tessera) first.
 
 ## Installation
 
@@ -62,15 +62,43 @@ Optional (depends on stack):
 ## Prerequisites
 
 **Required:**
-- PHP 8.2+
-- Composer
-- At least one AI CLI tool:
 
-| Tool | Installation |
-|---|---|
-| Claude | `npm install -g @anthropic-ai/claude-code` |
-| Codex | `npm install -g @openai/codex` |
-| Gemini | `npm install -g @google/gemini-cli` |
+### PHP 8.2+
+
+PHP is the programming language Tessera is built with. Check if you have it:
+
+```bash
+php -v
+```
+
+If not installed:
+- **Windows:** `scoop install php` or download from [php.net](https://www.php.net/downloads)
+- **macOS:** `brew install php`
+- **Linux (Ubuntu/Debian):** `sudo apt install php php-cli php-mbstring php-xml php-curl php-zip`
+
+### Composer
+
+Composer is PHP's package manager — it installs Tessera and its dependencies. Check if you have it:
+
+```bash
+composer --version
+```
+
+If not installed: follow the [official Composer install guide](https://getcomposer.org/download/). On macOS you can also run `brew install composer`.
+
+### At least one AI CLI tool
+
+Tessera uses AI tools installed on your machine. You need at least one:
+
+| Tool | Installation | Free plan? |
+|---|---|---|
+| Claude | `npm install -g @anthropic-ai/claude-code` | Limited |
+| Codex | `npm install -g @openai/codex` | Limited |
+| Gemini | `npm install -g @google/gemini-cli` | Yes |
+
+::: info Don't have npm?
+These AI tools are installed via npm (Node.js package manager). If you don't have it, install Node.js first from [nodejs.org](https://nodejs.org/) — npm comes bundled with it.
+:::
 
 **Optional** (auto-installed if missing):
 - Node.js — for frontend assets and the [Node.js stack](/docs/stacks/nodejs)

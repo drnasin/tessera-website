@@ -63,7 +63,7 @@ export default defineConfig({
     siteTitle: 'Tessera',
 
     nav: [
-      { text: 'Docs', link: '/docs/getting-started' },
+      { text: 'Docs', link: '/docs/what-is-tessera' },
       { text: 'Stacks', link: '/docs/stacks/laravel' },
       { text: 'License', link: '/docs/license' },
     ],
@@ -72,9 +72,11 @@ export default defineConfig({
       {
         text: 'Getting Started',
         items: [
+          { text: 'What is Tessera?', link: '/docs/what-is-tessera' },
           { text: 'Installation & Setup', link: '/docs/getting-started' },
           { text: 'Creating a Project', link: '/docs/creating-project' },
           { text: 'After Building', link: '/docs/after-building' },
+          { text: 'Troubleshooting', link: '/docs/troubleshooting' },
         ]
       },
       {
