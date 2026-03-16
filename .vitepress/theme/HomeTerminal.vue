@@ -64,17 +64,58 @@ const lines = [
 ]
 
 
+function createLine(type, text) {
+  const div = document.createElement('div')
+  div.className = 'line'
+  if (text === '') {
+    div.textContent = '\u00A0'
+  } else {
+    const span = document.createElement('span')
+    span.className = type
+    span.textContent = text
+    div.appendChild(span)
+  }
+  return div
+}
+
+function createCommandLine(command) {
+  const div = document.createElement('div')
+  div.className = 'line'
+  const prompt = document.createElement('span')
+  prompt.className = 'prompt'
+  prompt.textContent = '$'
+  const cmd = document.createElement('span')
+  cmd.className = 'command'
+  cmd.textContent = command
+  div.appendChild(prompt)
+  div.appendChild(document.createTextNode(' '))
+  div.appendChild(cmd)
+  return div
+}
+
 function runAnimation() {
   const terminal = terminalBody.value
-  const tw = typewriter.value
-  if (!terminal || !tw) return
+  if (!terminal) return
 
   typing.value = true
-  tw.textContent = ''
 
-  terminal.innerHTML = '<div class="line"><span class="prompt">$</span> <span class="command" ref="typewriter"></span><span class="cursor">|</span></div>'
-  const commandSpan = terminal.querySelector('.command')
-  const cursorSpan = terminal.querySelector('.cursor')
+  while (terminal.firstChild) terminal.removeChild(terminal.firstChild)
+
+  const firstLine = document.createElement('div')
+  firstLine.className = 'line'
+  const prompt = document.createElement('span')
+  prompt.className = 'prompt'
+  prompt.textContent = '$'
+  const commandSpan = document.createElement('span')
+  commandSpan.className = 'command'
+  const cursorSpan = document.createElement('span')
+  cursorSpan.className = 'cursor'
+  cursorSpan.textContent = '|'
+  firstLine.appendChild(prompt)
+  firstLine.appendChild(document.createTextNode(' '))
+  firstLine.appendChild(commandSpan)
+  firstLine.appendChild(cursorSpan)
+  terminal.appendChild(firstLine)
 
   const command = lines[0].text
   let charIndex = 0
@@ -86,13 +127,14 @@ function runAnimation() {
       setTimeout(typeCommand, lines[0].delay)
     } else {
       typing.value = false
-      if (cursorSpan) cursorSpan.remove()
+      cursorSpan.remove()
       setTimeout(showOutput, lines[1].delay)
     }
   }
 
   function showOutput() {
-    terminal.innerHTML = '<div class="line"><span class="prompt">$</span> <span class="command">' + command + '</span></div>'
+    while (terminal.firstChild) terminal.removeChild(terminal.firstChild)
+    terminal.appendChild(createCommandLine(command))
 
     let lineIndex = 2
     function addLine() {
@@ -101,14 +143,7 @@ function runAnimation() {
         return
       }
       const line = lines[lineIndex]
-      const div = document.createElement('div')
-      div.className = 'line'
-      if (line.text === '') {
-        div.innerHTML = '&nbsp;'
-      } else {
-        div.innerHTML = '<span class="' + line.type + '">' + line.text + '</span>'
-      }
-      terminal.appendChild(div)
+      terminal.appendChild(createLine(line.type, line.text))
       terminal.scrollTop = terminal.scrollHeight
       lineIndex++
       const delay = line.type === 'success' ? 300 : line.type === 'accent' ? 200 : 150
@@ -149,9 +184,7 @@ onMounted(() => {
   .terminal-body {
     height: 280px;
   }
-}
 
-@media (max-width: 960px) {
   .terminal-wrapper {
     padding-left: 0;
     margin-right: 0;
