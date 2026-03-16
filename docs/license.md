@@ -49,7 +49,23 @@ The code Tessera generates belongs to you. The license covers the Tessera instal
 
 ## Get a Commercial License
 
-Contact [drnasin on GitHub](https://github.com/drnasin) for commercial licensing.
+For commercial licensing inquiries:
+
+- **GitHub**: [drnasin](https://github.com/drnasin) — open an issue or send a message
+- **Email**: <span id="contact-email" style="cursor:pointer; color: var(--vp-c-brand-1); text-decoration: underline;">Click to reveal email</span>
+
+<script setup>
+import { onMounted } from 'vue'
+onMounted(() => {
+  const el = document.getElementById('contact-email')
+  if (el) {
+    el.addEventListener('click', () => {
+      const u = 'support'; const d = 'tessera-ai.net'
+      el.innerHTML = '<a href="mai' + 'lto:' + u + '@' + d + '">' + u + '@' + d + '</a>'
+    })
+  }
+})
+</script>
 
 ## Full License Text
 
