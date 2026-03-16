@@ -29,6 +29,8 @@ composer global require tessera/installer
 tessera new my-project
 ```
 
+Need PHP and Composer? See the [full setup guide](/docs/getting-started).
+
 </div>
 
 <div class="section-divider"></div>
@@ -253,18 +255,12 @@ tessera new my-project
   border-top: none;
   padding-top: 0;
   margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
 .install-section div[class*="language-"] {
   max-width: 600px;
   margin: 0 auto;
-}
-
-.install-section h2 {
-  margin-bottom: 1.5rem;
-}
-
-.install-section div[class*="language-"] {
   text-align: left;
 }
 

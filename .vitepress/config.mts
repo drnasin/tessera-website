@@ -1,5 +1,7 @@
 import { defineConfig } from 'vitepress'
 
+const hostname = 'https://tessera-ai.net'
+
 export default defineConfig({
   base: '/',
 
@@ -17,30 +19,40 @@ export default defineConfig({
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.bunny.net' }],
     ['link', { href: 'https://fonts.bunny.net/css?family=inter:300,400,500,600,700,800&display=swap', rel: 'stylesheet' }],
-    ['link', { rel: 'canonical', href: 'https://tessera-ai.net' }],
 
-    // Open Graph
+    // Open Graph (static)
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: 'Tessera' }],
-    ['meta', { property: 'og:title', content: 'Tessera — AI Project Generator That Builds Web Apps From a Conversation' }],
-    ['meta', { property: 'og:description', content: 'AI-powered CLI tool that generates complete web projects. Describe what you need — AI builds models, themes, admin panels, tests, and deployment docs.' }],
-    ['meta', { property: 'og:url', content: 'https://tessera-ai.net' }],
-    ['meta', { property: 'og:image', content: 'https://tessera-ai.net/og-image.png' }],
+    ['meta', { property: 'og:image', content: `${hostname}/og-image.png` }],
     ['meta', { property: 'og:image:width', content: '1200' }],
     ['meta', { property: 'og:image:height', content: '630' }],
     ['meta', { property: 'og:locale', content: 'en_US' }],
 
-    // Twitter Card
+    // Twitter Card (static)
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'twitter:title', content: 'Tessera — AI Project Generator That Builds Web Apps From a Conversation' }],
-    ['meta', { name: 'twitter:description', content: 'AI-powered CLI tool that generates complete web projects. Describe what you need — AI builds models, themes, admin panels, tests, and deployment docs.' }],
-    ['meta', { name: 'twitter:image', content: 'https://tessera-ai.net/og-image.png' }],
+    ['meta', { name: 'twitter:image', content: `${hostname}/og-image.png` }],
 
     // Additional SEO
-    ['meta', { name: 'keywords', content: 'AI project generator, AI code generator, AI website builder, AI scaffolding tool, Laravel AI generator, automated code generation, CLI code generator, AI developer tool' }],
     ['meta', { name: 'author', content: 'Ante Drnasin' }],
     ['meta', { name: 'robots', content: 'index, follow' }],
   ],
+
+  transformPageData(pageData) {
+    const pagePath = pageData.relativePath.replace(/index\.md$/, '').replace(/\.md$/, '')
+    const pageUrl = `${hostname}/${pagePath}`
+    const title = pageData.title || 'Tessera — AI Project Generator'
+    const description = pageData.description || 'AI-powered CLI tool that generates complete web projects from a conversation.'
+
+    pageData.frontmatter.head ??= []
+    pageData.frontmatter.head.push(
+      ['link', { rel: 'canonical', href: pageUrl }],
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: description }],
+      ['meta', { property: 'og:url', content: pageUrl }],
+      ['meta', { name: 'twitter:title', content: title }],
+      ['meta', { name: 'twitter:description', content: description }],
+    )
+  },
 
   sitemap: {
     hostname: 'https://tessera-ai.net',

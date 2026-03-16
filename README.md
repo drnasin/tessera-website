@@ -14,7 +14,7 @@ Built with [VitePress](https://vitepress.dev/).
 
 ```bash
 npm install
-npm run docs:dev
+npm run dev
 ```
 
 ## Deployment
