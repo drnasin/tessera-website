@@ -1,12 +1,15 @@
 ---
-title: Creating a Project
+title: "Creating a Project — AI Generates Your Entire Web Application"
+description: "See how Tessera's AI project generator builds a complete web app from a conversation. Models, theme, admin panel, tests, and deployment — all automated."
 ---
 
-# Creating a Project
+# Creating a Project with AI
+
+Tessera generates complete web projects through a short conversation. You describe the business, AI picks the best technology stack, and builds everything — models, theme, admin panel, content, tests, and deployment docs.
 
 ## The Conversation
 
-When you run `tessera new`, AI leads a natural conversation to understand your project:
+When you run `tessera new`, the AI code generator leads a natural conversation to understand your project:
 
 ```
 $ tessera new my-restaurant
@@ -42,7 +45,7 @@ AI asks about 5 mandatory topics:
 
 ## The Build
 
-After the conversation, AI picks the best technology stack and builds everything:
+After the conversation, AI picks the best technology stack and builds everything automatically:
 
 ```
 AI recommends: Laravel + Filament (Tessera CMS)
@@ -81,18 +84,20 @@ Continue? [Y/n]: Y
 
 ## What Gets Generated
 
-For a Laravel project, AI creates:
+For a [Laravel project](/docs/stacks/laravel), AI creates:
 
 - **Models & migrations** — Page, Block, Navigation + project-specific models
 - **Theme** — Responsive Tailwind CSS frontend with block views
-- **Admin panel** — Filament resources for every model
+- **Admin panel** — Filament resources for every model with dashboard widgets
 - **Content** — Realistic seeded content (no lorem ipsum)
 - **Tests** — PHPUnit feature tests that pass
 - **SETUP.md** — Developer handoff document with everything needed for deployment
 
+Other stacks generate equivalent output — see [Node.js](/docs/stacks/nodejs), [Go](/docs/stacks/go), [Flutter](/docs/stacks/flutter), and [Static](/docs/stacks/static) for details.
+
 ## Country-Aware Payments
 
-AI knows which payment providers are popular in each country:
+The AI code generator knows which payment providers are popular in each country:
 
 | Country | Suggested providers |
 |---|---|
@@ -109,4 +114,8 @@ If you tell AI to use a specific package, approach, or style — it will. For ex
 - "I want a dark theme"
 - "Use PostgreSQL, not MySQL"
 
-These are passed to all AI steps as mandatory instructions.
+These are passed to all AI build steps as mandatory instructions.
+
+## What Happens If Something Goes Wrong?
+
+Tessera saves progress after every step. If a build fails or you interrupt it, [resume from where it stopped](/docs/resume) — no wasted AI tokens, no lost work.

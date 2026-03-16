@@ -1,5 +1,6 @@
 ---
-title: Disclaimer
+title: "Disclaimer — AI-Generated Code and Token Usage"
+description: "Important information about AI token consumption, generated code quality, third-party integrations, and warranty limitations when using Tessera."
 ---
 
 # Disclaimer
@@ -10,14 +11,14 @@ Tessera calls AI CLI tools installed on your system (Claude, Gemini, Codex) to g
 
 - Tessera does not provide, manage, or pay for AI access
 - You are responsible for understanding your plan's limits, costs, and terms of service
-- A typical project build uses 5–10 AI calls depending on project complexity
-- The [plan selection](/docs/ai-routing#plan-aware-routing) during setup helps Tessera route tasks efficiently based on your subscriptions
+- A typical project build uses 5-10 AI calls depending on project complexity
+- The [plan-aware routing](/docs/ai-routing#plan-aware-routing) during setup helps Tessera route tasks efficiently based on your subscriptions
 
 ## Generated Code
 
 All code produced by Tessera is **AI-generated**. While Tessera includes multiple safeguards:
 
-- AI peer review (different tool reviews the output)
+- [AI peer review](/docs/ai-routing#ai-peer-review) (different tool reviews the output)
 - PHP lint on all generated files
 - Automated test generation and execution
 - Filament namespace auto-fix

@@ -1,8 +1,11 @@
 ---
-title: Getting Started
+title: "Installation & Setup — Get Started with Tessera AI Project Generator"
+description: "Install Tessera CLI in under a minute. Requires PHP, Composer, and at least one AI tool (Claude, Codex, or Gemini). Generate your first project today."
 ---
 
-# Getting Started
+# Get Started with Tessera
+
+Tessera is an AI project generator that runs as a CLI tool on your machine. Install it globally with Composer and start generating complete web projects from a conversation.
 
 ## Installation
 
@@ -22,7 +25,7 @@ tessera --version
 
 ## System Check
 
-Before creating your first project, check if your system is ready:
+Before creating your first project, run the built-in diagnostics to check that your system has everything Tessera needs:
 
 ```bash
 tessera doctor
@@ -70,9 +73,9 @@ Optional (depends on stack):
 | Gemini | `npm install -g @google/gemini-cli` |
 
 **Optional** (auto-installed if missing):
-- Node.js — for frontend assets and Node.js stack
-- Go — for Go stack
-- Flutter SDK — for Flutter stack
+- Node.js — for frontend assets and the [Node.js stack](/docs/stacks/nodejs)
+- Go — for the [Go stack](/docs/stacks/go)
+- Flutter SDK — for the [Flutter stack](/docs/stacks/flutter)
 
 ## Create Your First Project
 
@@ -80,7 +83,14 @@ Optional (depends on stack):
 tessera new my-project
 ```
 
-AI will ask you about your project — what it does, what languages, what payment provider, what design style — and build everything.
+AI will lead a natural conversation — asking about the business, languages, payments, design style — and then [build everything automatically](/docs/creating-project). The entire process takes a few minutes.
 
-{: .tip }
-The installer asks about your AI subscription plans during setup. If you have Claude Max (unlimited), it will prefer Claude for all tasks since there's no cost concern.
+::: tip
+The installer asks about your AI subscription plans during setup. If you have Claude Max (unlimited), it will prefer Claude for all tasks since there's no cost concern. Learn more about [AI routing](/docs/ai-routing).
+:::
+
+## Next Steps
+
+- [Creating a Project](/docs/creating-project) — see the full build process from conversation to working app
+- [AI Routing](/docs/ai-routing) — understand how Tessera picks the best AI for each task
+- [Resume & Recovery](/docs/resume) — what happens when builds fail or get interrupted

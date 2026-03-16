@@ -1,5 +1,6 @@
 ---
-title: License
+title: "License — Free for Non-Commercial Use"
+description: "Tessera is free for personal projects, learning, and open source under the PolyForm Noncommercial License. Commercial use requires a separate license."
 ---
 
 # License

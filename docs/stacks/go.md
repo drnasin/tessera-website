@@ -1,24 +1,31 @@
 ---
-title: Go
+title: "Go Stack — AI Generates High-Performance Go Backends"
+description: "Tessera generates production-ready Go backends with Chi/Gin router, database layer, Docker, structured logging, and tests. Built for high-concurrency systems."
 ---
 
-# Go (Backend / API / Microservice)
+# Go Stack (Backend / API / Microservice)
 
-High-performance backends for systems with thousands of concurrent users.
+Tessera's AI project generator builds high-performance Go backends for systems that need to handle thousands of concurrent users reliably.
 
 ## What Gets Generated
 
-- Go project with Chi/Gin router
-- GORM or sqlc for database
-- Docker + PostgreSQL
+- Go project with Chi or Gin router
+- GORM or sqlc for database access
+- Docker + PostgreSQL setup
 - Structured logging (slog)
 - Health check endpoints
 - Makefile for common tasks
-- Tests and SETUP.md
+- Tests and SETUP.md with deployment instructions
 
-## When AI Picks This
+## When AI Picks This Stack
 
-- You mention "high performance", "microservice", "concurrent users"
+Tessera recommends Go when you describe:
+- High performance or low latency requirements
+- Microservice architecture
 - 1000+ expected concurrent users
-- IoT, payment processing, real-time systems
-- Go expertise preference
+- IoT, payment processing, or real-time systems
+- Go as a language preference
+
+## Related Stacks
+
+Need something different? Tessera also supports [Laravel](/docs/stacks/laravel) for content-managed websites, [Node.js](/docs/stacks/nodejs) for SaaS platforms, [Flutter](/docs/stacks/flutter) for mobile apps, and [Static](/docs/stacks/static) for landing pages.

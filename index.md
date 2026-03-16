@@ -1,10 +1,12 @@
 ---
 layout: home
+title: "Tessera — AI Project Generator That Builds Complete Web Apps From a Conversation"
+description: "Tessera is an AI-powered CLI tool that generates complete web projects from a conversation. Describe what you need — AI builds models, themes, admin panels, tests, and more."
 
 hero:
   name: Tessera
   text: Describe it. AI builds it.
-  tagline: AI-native platform that builds complete web projects from a conversation. You describe what the client needs — AI creates everything.
+  tagline: An AI project generator that builds complete web applications from a single conversation. You describe what the client needs — AI creates models, themes, admin panels, tests, and deployment docs.
   actions:
     - theme: brand
       text: Get Started
@@ -15,21 +17,21 @@ hero:
 
 features:
   - icon: 🧠
-    title: AI Does the Work
-    details: Describe your project in plain language. AI creates models, theme, admin panel, tests, and deployment docs.
+    title: AI Generates the Entire Project
+    details: Describe your project in plain language. The AI code generator creates models, theme, admin panel, tests, and deployment docs — no boilerplate, no copy-paste.
   - icon: 🔄
-    title: Smart Cross-Tool Routing
-    details: Uses Claude, Gemini, and Codex intelligently — each task gets the best tool and model. Rate limits? Auto-switches.
+    title: Smart Cross-Tool AI Routing
+    details: Routes tasks to Claude, Gemini, and Codex intelligently — each step gets the best AI model. Rate limits? Auto-switches to the next available tool.
   - icon: 👥
-    title: AI Peer Review
-    details: A different AI reviews what the first one generated. Two perspectives catch mistakes one would miss.
+    title: AI Peer Review Built In
+    details: A different AI reviews what the first one generated. Two perspectives catch mistakes one would miss — quality assurance without human overhead.
   - icon: 🔁
     title: Resume on Failure
-    details: Build fails or you press Ctrl+C? Progress is saved. Run the same command — it resumes from where it stopped.
+    details: Build fails or you press Ctrl+C? Progress is saved. Run the same command — it resumes from where it stopped. No wasted AI tokens.
   - icon: 🏗️
     title: 5 Technology Stacks
-    details: Laravel, Node.js, Go, Flutter, Static — AI picks the best stack for your project.
+    details: "Laravel, Node.js, Go, Flutter, Static — AI picks the best stack for your project or you choose your own."
   - icon: 🛡️
-    title: Self-Healing
-    details: Tests fail? AI fixes them. Syntax errors? Auto-detected. Wrong namespaces? Auto-corrected.
+    title: Self-Healing Builds
+    details: Tests fail? AI fixes them. Syntax errors? Auto-detected and corrected. Wrong namespaces? Auto-resolved. The build keeps going.
 ---
