@@ -59,7 +59,7 @@ export default defineConfig({
   },
 
   themeConfig: {
-    logo: '/logo.svg',
+    logo: { src: '/logo.svg', width: 24, height: 24 },
     siteTitle: 'Tessera',
 
     nav: [
