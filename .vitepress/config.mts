@@ -35,6 +35,10 @@ export default defineConfig({
     // Additional SEO
     ['meta', { name: 'author', content: 'Ante Drnasin' }],
     ['meta', { name: 'robots', content: 'index, follow' }],
+
+    // Google Analytics 4
+    ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-NF081F4E54' }],
+    ['script', {}, "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-NF081F4E54')"],
   ],
 
   transformPageData(pageData) {
