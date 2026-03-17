@@ -14,6 +14,7 @@
           <span class="cursor" v-if="typing">|</span>
         </div>
       </div>
+      <button v-if="showReplay" class="replay-btn" @click="runAnimation" title="Replay">&#8635;</button>
     </div>
   </div>
 </template>
@@ -24,6 +25,7 @@ import { ref, onMounted } from 'vue'
 const terminalBody = ref(null)
 const typewriter = ref(null)
 const typing = ref(true)
+const showReplay = ref(false)
 
 const lines = [
   { type: 'command', text: 'tessera new my-restaurant', delay: 80 },
@@ -98,6 +100,7 @@ function runAnimation() {
   if (!terminal) return
 
   typing.value = true
+  showReplay.value = false
 
   while (terminal.firstChild) terminal.removeChild(terminal.firstChild)
 
@@ -139,6 +142,7 @@ function runAnimation() {
     let lineIndex = 2
     function addLine() {
       if (lineIndex >= lines.length) {
+        setTimeout(() => { showReplay.value = true }, 1000)
         return
       }
       const line = lines[lineIndex]
@@ -166,6 +170,29 @@ onMounted(() => {
   border-radius: 0.75rem;
   overflow: hidden;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.replay-btn {
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  color: #9ca3af;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.replay-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #f97316;
 }
 
 .terminal-wrapper {
