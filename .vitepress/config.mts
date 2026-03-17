@@ -36,6 +36,37 @@ export default defineConfig({
     ['meta', { name: 'author', content: 'Ante Drnasin' }],
     ['meta', { name: 'robots', content: 'index, follow' }],
 
+    // JSON-LD structured data
+    ['script', { type: 'application/ld+json' }, JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'Tessera',
+      description: 'AI-powered CLI tool that generates complete web projects from a conversation. Supports Laravel, Node.js, Go, Flutter, and static sites.',
+      url: hostname,
+      applicationCategory: 'DeveloperApplication',
+      operatingSystem: 'Windows, macOS, Linux',
+      author: {
+        '@type': 'Person',
+        name: 'Ante Drnasin',
+      },
+      offers: [
+        {
+          '@type': 'Offer',
+          name: 'Noncommercial',
+          price: '0',
+          priceCurrency: 'EUR',
+          description: 'Free for personal and noncommercial use',
+        },
+        {
+          '@type': 'Offer',
+          name: 'Commercial License',
+          price: '250',
+          priceCurrency: 'EUR',
+          description: 'License for commercial use',
+        },
+      ],
+    })],
+
     // Google Analytics 4
     ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-NF081F4E54' }],
     ['script', {}, "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-NF081F4E54')"],
