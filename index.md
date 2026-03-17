@@ -321,7 +321,7 @@ tessera new my-project
 .install-hint {
   margin-top: 1rem;
   font-size: 0.85rem;
-  color: var(--vp-c-text-3);
+  color: var(--vp-c-text-2);
 }
 
 .install-hint a {
