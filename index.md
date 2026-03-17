@@ -7,7 +7,7 @@ description: "Tessera is an AI-powered CLI tool that generates complete web proj
 hero:
   name: Tessera
   text: Describe it. AI builds it.
-  tagline: You describe what the client needs — AI generates models, themes, admin panels, tests, and deployment docs. One conversation. One command.
+  tagline: From a 5-minute conversation to a complete, deployable web app — models, admin panel, tests, and docs included.
   actions:
     - theme: brand
       text: Get Started
@@ -29,7 +29,7 @@ composer global require tessera/installer
 tessera new my-project
 ```
 
-Need PHP and Composer? See the [full setup guide](/docs/getting-started).
+<p class="install-hint">Need PHP and Composer? Follow the <a href="/docs/getting-started">step-by-step setup guide</a>.</p>
 
 </div>
 
@@ -46,17 +46,23 @@ Need PHP and Composer? See the [full setup guide](/docs/getting-started).
 <p>One Composer command. Works on Windows, macOS, and Linux. Needs PHP 8.2+ and at least one AI tool (Claude, Gemini, or Codex).</p>
 </div>
 
+<div class="step-arrow">&#8594;</div>
+
 <div class="step">
 <div class="step-number">2</div>
 <h3>Describe</h3>
 <p>Tell AI about the project in plain language. What the client does, which languages, payments, design style. AI asks the right questions.</p>
 </div>
 
+<div class="step-arrow">&#8594;</div>
+
 <div class="step">
 <div class="step-number">3</div>
 <h3>AI Builds</h3>
 <p>AI picks the best tech stack and generates everything — models, theme, admin panel, content, tests. A second AI reviews the output for quality.</p>
 </div>
+
+<div class="step-arrow">&#8594;</div>
 
 <div class="step">
 <div class="step-number">4</div>
@@ -72,13 +78,13 @@ Need PHP and Composer? See the [full setup guide](/docs/getting-started).
 
 ## Why Tessera?
 
-<div class="features-grid">
-<div class="feature-card">
+<div class="feature-hero">
 <div class="feature-icon">🧠</div>
 <h3>AI Generates the Entire Project</h3>
 <p>Describe your project in plain language. The AI code generator creates models, theme, admin panel, tests, and deployment docs — no boilerplate, no copy-paste.</p>
 </div>
 
+<div class="features-grid">
 <div class="feature-card">
 <div class="feature-icon">🔄</div>
 <h3>Smart Cross-Tool AI Routing</h3>
@@ -135,8 +141,18 @@ Need PHP and Composer? See the [full setup guide](/docs/getting-started).
 
 .steps {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  gap: 0.5rem;
+}
+
+.step-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vp-c-brand-1);
+  font-size: 1.75rem;
+  height: 48px;
+  margin-top: 1.5rem;
 }
 
 .step {
@@ -174,6 +190,10 @@ Need PHP and Composer? See the [full setup guide](/docs/getting-started).
   .steps {
     grid-template-columns: 1fr 1fr;
   }
+
+  .step-arrow {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -196,10 +216,56 @@ Need PHP and Composer? See the [full setup guide](/docs/getting-started).
   margin-top: 0;
 }
 
+.feature-hero {
+  border: 1px solid var(--vp-c-brand-1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  background: var(--vp-c-bg-soft);
+  text-align: center;
+}
+
+.feature-hero .feature-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.feature-hero h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.feature-hero p {
+  color: var(--vp-c-text-2);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
 .features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
+  justify-content: center;
+}
+
+.features-grid .feature-card {
+  flex: 0 1 calc(33.333% - 1rem);
+  min-width: 250px;
+}
+
+@media (max-width: 768px) {
+  .features-grid .feature-card {
+    flex: 0 1 calc(50% - 0.75rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .features-grid .feature-card {
+    flex: 0 1 100%;
+  }
 }
 
 .feature-card {
@@ -233,18 +299,6 @@ Need PHP and Composer? See the [full setup guide](/docs/getting-started).
   margin: 0;
 }
 
-@media (max-width: 768px) {
-  .features-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .install-section {
   width: 100%;
   padding: 2rem 0;
@@ -262,6 +316,22 @@ Need PHP and Composer? See the [full setup guide](/docs/getting-started).
   max-width: 600px;
   margin: 0 auto;
   text-align: left;
+}
+
+.install-hint {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--vp-c-text-3);
+}
+
+.install-hint a {
+  color: var(--vp-c-brand-1);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.install-hint a:hover {
+  color: var(--vp-c-brand-2);
 }
 
 </style>
