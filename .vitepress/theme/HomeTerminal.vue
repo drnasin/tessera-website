@@ -14,8 +14,8 @@
           <span class="cursor" v-if="typing">|</span>
         </div>
       </div>
-      <button v-if="showReplay" class="replay-btn" @click="runAnimation" title="Replay">&#8635;</button>
     </div>
+    <button v-if="showReplay" class="replay-btn" @click="runAnimation">&#9654; Replay</button>
   </div>
 </template>
 
@@ -173,26 +173,22 @@ onMounted(() => {
 }
 
 .replay-btn {
-  position: absolute;
-  bottom: 16px;
-  right: 20px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.08);
-  color: #9ca3af;
-  font-size: 1.1rem;
+  display: block;
+  margin: 0.75rem auto 0;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 20px;
+  padding: 4px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--vp-c-text-2);
+  background: transparent;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s, color 0.2s;
+  transition: color 0.25s, border-color 0.25s;
 }
 
 .replay-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: #f97316;
+  color: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
 }
 
 .terminal-wrapper {
