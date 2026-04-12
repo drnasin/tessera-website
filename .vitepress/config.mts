@@ -17,8 +17,6 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
-    ['link', { rel: 'preconnect', href: 'https://fonts.bunny.net', crossorigin: '' }],
-    ['link', { href: 'https://fonts.bunny.net/css?family=inter:300,400,500,600,700,800&display=swap', rel: 'stylesheet', media: 'print', onload: "this.media='all'" }],
 
     // Open Graph (static)
     ['meta', { property: 'og:type', content: 'website' }],
