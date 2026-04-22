@@ -181,7 +181,8 @@ Useful for testing different AI configurations:
 | `TESSERA_GEMINI_PLAN` | `pro`, `free` | Override Gemini plan detection |
 | `TESSERA_TOOL_PREFERENCE` | `claude,gemini,codex` | Custom tool order |
 | `TESSERA_TOOL_EXCLUDE` | `codex` | Tools to never use |
-| `TESSERA_AI_TIMEOUT` | `300` | AI step timeout in seconds |
+| `TESSERA_AI_TIMEOUT` | `900` | AI step timeout in seconds (default 900) |
+| `TESSERA_SAFE_AI` | `1` | Opt out of `--dangerously-skip-permissions` for Claude — AI will pause on each action for approval. See [Security Model](/docs/disclaimer#security-model). |
 
 ## Related
 
