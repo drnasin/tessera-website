@@ -105,11 +105,11 @@ TESSERA_CODEX_PLAN=plus       # plus | free
 TESSERA_GEMINI_PLAN=free      # pro | free
 TESSERA_TOOL_PREFERENCE=gemini,claude,codex  # custom order
 TESSERA_TOOL_EXCLUDE=codex    # never use this tool
-TESSERA_SAFE_AI=1             # require per-action approval (off by default)
+TESSERA_SAFE_AI=1             # Claude only — strip --dangerously-skip-permissions
 TESSERA_AI_TIMEOUT=900        # seconds per AI step (default 900)
 ```
 
-See [Security Model](/docs/disclaimer#security-model) for what `TESSERA_SAFE_AI` changes and how AI credentials are isolated between subprocesses.
+See [Security Model](/docs/disclaimer#security-model) for what `TESSERA_SAFE_AI` changes, why it currently affects Claude only, and how AI credentials are isolated between subprocesses.
 
 ## Related
 

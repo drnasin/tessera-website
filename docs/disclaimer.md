@@ -43,17 +43,24 @@ Tessera runs AI CLI tools and build commands as subprocesses of itself. Those su
 - **Database credentials.** When configuring MySQL/MariaDB/PostgreSQL, passwords travel through the engine's designated env var (`PGPASSWORD`, `MYSQL_PWD`) — never as argv flags that would appear in `ps` or Task Manager. Database and user names are validated against a strict allowlist before being embedded in `CREATE DATABASE`. `.env` values are safely quoted and escaped.
 - **Directory guard.** `tessera new --force` can only remove directories inside the current working directory and never follows symlinks.
 
-### AI Permission Mode
+### AI Permission Mode (Claude only)
 
-By default, Tessera launches Claude with `--dangerously-skip-permissions` so the installer can scaffold without a prompt on every file write. That grants AI full filesystem and shell access for the duration of the build — this is what non-interactive scaffolding requires.
+By default, Tessera launches Claude with `--dangerously-skip-permissions` so the installer can scaffold without a prompt on every file write. That grants Claude full filesystem and shell access for the duration of the build — this is what non-interactive scaffolding requires.
 
-If you prefer to approve each AI action manually, set `TESSERA_SAFE_AI=1`:
+If you prefer to approve each Claude action manually, set `TESSERA_SAFE_AI=1`:
 
 ```bash
 TESSERA_SAFE_AI=1 tessera new my-project
 ```
 
-Claude will then pause and wait for your approval on each action. The installer fails loudly rather than silently hanging if AI tries to do something that needs permission.
+Claude will then pause and wait for your approval on each action. The installer fails loudly rather than silently hanging if Claude tries to do something that needs permission.
+
+**Codex and Gemini.** `TESSERA_SAFE_AI` affects only Claude today, because Claude is the only AI CLI Tessera launches with a permission-bypass flag. The others have their own permission models that Tessera does not currently configure:
+
+- **Codex** runs via `codex exec` with its own sandbox (approval-on-request by default). Tessera does not pass `--dangerously-bypass-approvals-and-sandbox`. Whether Codex prompts depends on your Codex version's defaults.
+- **Gemini** is invoked without any permission flag; its behaviour is whatever the Gemini CLI default is on your system.
+
+Setting `TESSERA_SAFE_AI=1` has no effect on Codex or Gemini. Per-action approval for those CLIs may land in a future release.
 
 Either way, **you should review AI-generated code before deploying it** — no permission model replaces that.
 
