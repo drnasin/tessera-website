@@ -43,9 +43,10 @@
       <!-- A stylised mock of the generated bakery site. Not a real screenshot —
            hand-built CSS preview that mirrors the AI output's color palette
            (warm brown, cream, terracotta) without depending on a binary
-           asset that drifts when the AI re-runs. -->
-      <div class="proof-art" aria-hidden="true">
-        <div class="window">
+           asset that drifts when the AI re-runs. Real screenshots live on
+           the case-study page (/docs/case/bakery). -->
+      <div class="proof-art">
+        <div class="window" aria-hidden="true">
           <div class="window-bar">
             <span class="dot red"></span>
             <span class="dot yellow"></span>
@@ -104,6 +105,11 @@
             Alpine.js
           </span>
         </div>
+
+        <p class="art-caption">
+          Stylised preview of the AI's actual colour and layout choices.
+          <a href="/docs/case/bakery">See annotated screenshots in the case study →</a>
+        </p>
       </div>
     </div>
   </section>
@@ -114,7 +120,7 @@
 <style scoped>
 .proof {
   max-width: 1152px;
-  margin: 4.5rem auto 0;
+  margin: 4.5rem auto 4rem;
   padding: 0 1.5rem;
 }
 
@@ -415,6 +421,26 @@
   height: 6px;
   border-radius: 50%;
   background: var(--vp-c-brand-1);
+}
+
+.art-caption {
+  margin: 0.85rem 0 0;
+  text-align: center;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--vp-c-text-3);
+  line-height: 1.5;
+}
+
+.art-caption a {
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.art-caption a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 960px) {

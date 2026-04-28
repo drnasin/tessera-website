@@ -19,7 +19,7 @@ tessera new pekarnica-ognjiste --stack=static --requirements-fixture=req.json
 
 ```json
 {
-  "description": "Mala obiteljska pekara u Splitu od 1968. Kruh od divljeg kvasca, kroasani s francuskim maslcem, tradicionalna dalmatinska peciva. Tri lokacije: Riva, Bačvice, Žnjan. Catering za vjenčanja.",
+  "description": "Mala obiteljska pekara u Splitu od 1968. Kruh od divljeg kvasca, kroasani s francuskim maslacem, tradicionalna dalmatinska peciva. Tri lokacije: Riva, Bačvice, Žnjan. Catering za vjenčanja.",
   "languages": ["hr"],
   "design_style": "warm and rustic, hand-drawn feel, natural textures",
   "design_colors": "cream, warm brown, terracotta, hint of sage green",
