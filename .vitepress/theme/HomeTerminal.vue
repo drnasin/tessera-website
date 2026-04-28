@@ -202,6 +202,7 @@ onUnmounted(() => {
 <style scoped>
 .terminal-wrapper {
   width: 100%;
+  padding-left: 1.5rem;
 }
 
 .terminal {
@@ -248,6 +249,7 @@ onUnmounted(() => {
   }
 
   .terminal-wrapper {
+    padding-left: 0;
     padding-top: 1.5rem;
   }
 }

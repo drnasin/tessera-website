@@ -292,14 +292,31 @@ Probably, as the orchestrator becomes more capable. **Existing licences keep the
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
   margin: 2.5rem 0 1rem;
+  /* Push the grid out of the narrow VitePress doc column so each card has
+     real breathing room. The negative margins centre the wider grid back
+     under the page heading. */
+  width: calc(100% + 12rem);
+  margin-left: -6rem;
+  margin-right: -6rem;
+}
+
+@media (max-width: 1280px) {
+  .pricing-grid {
+    width: calc(100% + 4rem);
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
 }
 
 @media (max-width: 900px) {
   .pricing-grid {
     grid-template-columns: 1fr;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -307,7 +324,7 @@ Probably, as the orchestrator becomes more capable. **Existing licences keep the
   position: relative;
   border: 1px solid var(--vp-c-divider);
   border-radius: 14px;
-  padding: 2rem 1.5rem;
+  padding: 2.25rem 1.75rem 2rem;
   background: var(--vp-c-bg-soft);
   display: flex;
   flex-direction: column;
@@ -323,21 +340,26 @@ Probably, as the orchestrator becomes more capable. **Existing licences keep the
 .pricing-card-featured {
   border-color: var(--vp-c-brand-1);
   border-width: 2px;
+  /* Extra top padding so the absolutely-positioned "Most popular" badge
+     never overlaps the tier name. */
+  padding-top: 3rem;
 }
 
 .tier-badge {
   position: absolute;
-  top: -12px;
+  top: -14px;
   left: 50%;
   transform: translateX(-50%);
   background: var(--vp-c-brand-1);
   color: white;
-  padding: 0.25rem 0.85rem;
+  padding: 0.3rem 0.95rem;
   border-radius: 999px;
   font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px -4px rgba(249, 115, 22, 0.5);
 }
 
 .tier-name {

@@ -2,15 +2,17 @@
   <section class="proof" aria-labelledby="proof-heading">
     <div class="proof-inner">
       <div class="proof-copy">
-        <div class="eyebrow">Built with Tessera</div>
+        <div class="eyebrow">Built with Tessera · real run</div>
         <h2 id="proof-heading">
           A Croatian bakery website,
           <span class="accent">generated in 9 minutes 39 seconds.</span>
         </h2>
         <p class="lede">
-          One <code>tessera new</code> call. A Laravel + Filament project with custom Tailwind theme,
-          Croatian copy, JSON-LD schema, mobile menu, and a junior-friendly SETUP.md — all written
-          by AI, all reviewed by deterministic quality gates.
+          The fixture said <code>languages: ["hr"]</code>, so the AI wrote real Croatian copy —
+          the bakery's name, the Split locations, the opening pitch. That's why the preview on
+          the right looks the way it does. One <code>tessera new</code> call produced the full
+          static project: Tailwind theme, JSON-LD schema, mobile menu, and a junior-friendly
+          SETUP.md, with every step audited by deterministic quality gates.
         </p>
 
         <ul class="metrics">
