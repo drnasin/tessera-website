@@ -18,7 +18,7 @@ Tessera calls AI CLI tools installed on your system (Claude, Gemini, Codex) to g
 
 All code produced by Tessera is **AI-generated**. While Tessera includes multiple safeguards:
 
-- [AI peer review](/docs/ai-routing#ai-peer-review) (different tool reviews the output)
+- [Quality gates](/docs/ai-routing#quality-gates-catching-done-when-nothing-exists) (deterministic post-checks declared in YAML)
 - PHP lint on all generated files
 - Automated test generation and execution
 - Filament namespace auto-fix

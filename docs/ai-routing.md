@@ -1,6 +1,6 @@
 ---
 title: "Smart Model Routing"
-description: "Tessera routes each code generation task to the best AI tool and model — Claude, Gemini, or Codex. Plan-aware routing, rate limit handling, and AI peer review."
+description: "Tessera routes each code generation task to the best AI tool and model — Claude, Gemini, or Codex. Plan-aware routing, rate limit handling, and deterministic quality gates."
 ---
 
 # Intelligent Cross-Tool AI Routing
@@ -46,23 +46,20 @@ If a tool hits rate limits mid-build, Tessera handles it automatically:
 
 No manual intervention needed. The build keeps going.
 
-## AI Peer Review
+## Quality gates — catching "done!" when nothing exists
 
-After generating the frontend theme and admin panel, a **different AI** reviews the output for quality assurance:
+After every AI step finishes, Tessera runs **quality gates** declared in the stack's YAML manifest. A gate is a deterministic post-check — no AI, no judgement — that asks: did the AI actually do what it said it did?
 
 ```
-✓ Designing frontend theme           (claude opus)
-⏳ Peer review: frontend theme
-  Reviewer: gemini (gemini-2.0-flash)
-  Review found 2 issue(s) — applying fixes...
-  ✓ Review fixes applied (2 issues)
+✓ Designing frontend theme            (claude opus, 4m 12s)
+   gate: exists_any [resources/views/themes/default/layouts/master.blade.php] → pass
+✓ Building admin panel                (claude opus, 6m 03s)
+   gate: exists_any [app/Filament/Resources/PageResource.php] → pass
 ```
 
-- Multiple tools available: different tool reviews (Claude generates, Gemini reviews)
-- Single tool available: lighter model reviews (Opus generates, Haiku reviews)
-- Cost: 1 cheap AI call per reviewed step
+A `hard` gate failure halts the step. A `soft` gate failure is logged and the build continues. Sprint 1 supports `exists_any` and `exists_all`; Sprint 2 adds `not_empty`, `contains`, `min_size`, and `command_passes` (e.g., "step passes only if `php -l` succeeds on every changed file").
 
-This built-in peer review catches issues that a single AI pass would miss — similar to human code review, but instant.
+This replaces the older "peer review" approach (a second AI grading the first AI's output): gates are deterministic, cost no tokens, and produce machine-readable evidence in `events.jsonl` that you can audit later. See [build trace & events](/docs/architecture/build-trace) for the full event shape.
 
 ## Check Your Routing
 

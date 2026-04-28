@@ -63,6 +63,15 @@ npx prisma migrate dev  # Run migrations
 npm run dev             # Start dev server
 ```
 
+## How the build is described
+
+The Node.js AI pipeline is declared in `stacks/node.yaml` (4 steps: `scaffold`, `tests`, `tests_fixed`, `setup_md`). Inspect or edit it like any other manifest — see [YAML stack manifests](/docs/architecture/yaml-manifests). To preview what `tessera new --stack=node` will dispatch:
+
+```bash
+tessera plan compile stacks/node.yaml
+tessera plan show
+```
+
 ## Related Stacks
 
 Need a different approach? Tessera also supports [Laravel](/docs/stacks/laravel) for content-managed websites, [Go](/docs/stacks/go) for high-performance microservices, [Flutter](/docs/stacks/flutter) for mobile apps, and [Static](/docs/stacks/static) for landing pages.

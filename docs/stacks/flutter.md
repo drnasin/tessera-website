@@ -64,6 +64,15 @@ flutter build ios        # Build iOS
 flutter build web        # Build web
 ```
 
+## How the build is described
+
+The Flutter AI pipeline lives at `stacks/flutter.yaml` (4 steps). The `flutter create` shell command stays in `FlutterStack.php` because it must run before the manifest engine; iOS code-signing and Android keystore work also remain in PHP because they're too platform-quirky for YAML. See [YAML stack manifests](/docs/architecture/yaml-manifests).
+
+```bash
+tessera plan compile stacks/flutter.yaml
+tessera plan show
+```
+
 ## Related Stacks
 
 Need a different approach? Tessera also supports [Laravel](/docs/stacks/laravel) for content-managed websites, [Node.js](/docs/stacks/nodejs) for JavaScript full-stack, [Go](/docs/stacks/go) for high-performance backends, and [Static](/docs/stacks/static) for landing pages.

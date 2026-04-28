@@ -53,14 +53,33 @@ export default defineConfig({
           name: 'Noncommercial',
           price: '0',
           priceCurrency: 'EUR',
-          description: 'Free for personal and noncommercial use',
+          description: 'Free for personal, learning, open-source, non-profit and government use under PolyForm Noncommercial 1.0.0',
+          url: `${hostname}/docs/license`,
         },
         {
           '@type': 'Offer',
-          name: 'Commercial License',
-          price: '250',
+          name: 'Solo Commercial Licence',
+          price: '249',
           priceCurrency: 'EUR',
-          description: 'License for commercial use',
+          description: 'Annual commercial licence for 1 developer, unlimited client projects, all stacks, perpetual fallback to last released version',
+          url: `${hostname}/docs/pricing`,
+          eligibleQuantity: { '@type': 'QuantitativeValue', value: 1, unitText: 'developer' },
+        },
+        {
+          '@type': 'Offer',
+          name: 'Studio Commercial Licence',
+          price: '799',
+          priceCurrency: 'EUR',
+          description: 'Annual commercial licence for up to 10 developers, priority support, early release access, perpetual fallback',
+          url: `${hostname}/docs/pricing`,
+          eligibleQuantity: { '@type': 'QuantitativeValue', maxValue: 10, unitText: 'developers' },
+        },
+        {
+          '@type': 'Offer',
+          name: 'Enterprise Commercial Licence',
+          priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'EUR', price: 'Custom' },
+          description: 'Custom commercial licence with negotiated developer count, custom SLA, private stack registry, white-label option',
+          url: `${hostname}/docs/pricing`,
         },
       ],
     })],
@@ -98,6 +117,7 @@ export default defineConfig({
     nav: [
       { text: 'Docs', link: '/docs/what-is-tessera' },
       { text: 'Stacks', link: '/docs/stacks/laravel' },
+      { text: 'Pricing', link: '/docs/pricing' },
       { text: 'License', link: '/docs/license' },
     ],
 
@@ -120,6 +140,20 @@ export default defineConfig({
         ]
       },
       {
+        text: 'CLI Reference',
+        items: [
+          { text: 'tessera plan', link: '/docs/cli/plan' },
+        ]
+      },
+      {
+        text: 'Architecture',
+        items: [
+          { text: 'YAML stack manifests', link: '/docs/architecture/yaml-manifests' },
+          { text: 'Build trace & events', link: '/docs/architecture/build-trace' },
+          { text: 'Adapter system', link: '/docs/architecture/adapter-system' },
+        ]
+      },
+      {
         text: 'Stacks',
         items: [
           { text: 'Laravel + Filament', link: '/docs/stacks/laravel' },
@@ -130,9 +164,16 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Pricing & License',
+        items: [
+          { text: 'Pricing', link: '/docs/pricing' },
+          { text: 'License Overview', link: '/docs/license' },
+          { text: 'Commercial License Agreement', link: '/docs/commercial-license' },
+        ]
+      },
+      {
         text: 'More',
         items: [
-          { text: 'License', link: '/docs/license' },
           { text: 'Disclaimer', link: '/docs/disclaimer' },
           { text: 'Contributing', link: '/docs/contributing' },
         ]

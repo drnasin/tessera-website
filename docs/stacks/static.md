@@ -65,6 +65,17 @@ npm run build     # Build for production (dist/)
 
 Deploy `dist/` to Netlify, Vercel, or GitHub Pages.
 
+## How the build is described
+
+The Static AI pipeline lives at `stacks/static.yaml` (3 steps: `scaffold`, `polish`, `setup_md`). It's the smallest manifest — a great starting point if you want to author your own stack.
+
+```bash
+tessera plan compile stacks/static.yaml
+tessera plan show
+```
+
+See [YAML stack manifests](/docs/architecture/yaml-manifests) for the field-by-field walkthrough.
+
 ## Related Stacks
 
 Need more than a static site? Tessera also supports [Laravel](/docs/stacks/laravel) for content-managed websites, [Node.js](/docs/stacks/nodejs) for JavaScript full-stack, [Go](/docs/stacks/go) for high-performance backends, and [Flutter](/docs/stacks/flutter) for mobile apps.

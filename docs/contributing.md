@@ -1,6 +1,6 @@
 ---
 title: "Contributing"
-description: "Contribute to Tessera's open-source AI project generator. Add new technology stacks, improve AI prompts, or fix bugs. 131 tests, zero AI tokens needed to run them."
+description: "Contribute to Tessera's open-source AI project generator. Add new technology stacks, improve AI prompts, or fix bugs. 403 tests, zero AI tokens needed to run them."
 ---
 
 # Contributing to Tessera
@@ -21,7 +21,7 @@ composer install
 vendor/bin/phpunit
 ```
 
-You should see 131 tests passing. All tests run with **zero AI tokens** — no API keys or AI tools needed for development.
+You should see 403 tests passing. All tests run with **zero AI tokens** — no API keys or AI tools needed for development.
 
 ## Project Structure
 
@@ -73,7 +73,7 @@ tessera-installer/
 
 2. **Make your changes** and write tests if applicable
 
-3. **Run the test suite** — all 131 tests must pass:
+3. **Run the test suite** — all 403 tests must pass:
    ```bash
    vendor/bin/phpunit
    ```
@@ -149,9 +149,10 @@ These principles guide all contributions:
 
 - **Principle-based prompts** — use 2-3 universal rules instead of long checklists. AI works better with principles than instructions.
 - **Version-agnostic** — never hardcode framework versions. Read them from `vendor/` or `package.json` at runtime.
-- **Peer review** — different AI tools review each other's output. Don't skip this step.
-- **Atomic state** — use temp file + rename for crash safety. Never write state directly.
-- **Zero-dependency** — Tessera has no runtime dependencies beyond PHP 8.2. Keep it that way.
+- **Deterministic gates over AI grading** — every meaningful step ends with a `gates:` block in YAML. Prefer `exists_any` / `exists_all` / `command_passes` over a second AI call to "review" the first.
+- **Schema-versioned artefacts** — every persistent file (`state.json`, `events.jsonl`, `plan.json`) carries `tessera.<artifact>/v<N>`. Bump the version, never silently change the shape.
+- **Atomic state** — use temp file + rename for crash safety. Never write state directly. Memory writes happen *before* the matching audit event so resume stays correct on Ctrl+C.
+- **Minimal dependencies** — runtime is PHP 8.2+ and `symfony/yaml`. Adding a third dependency requires a strong reason.
 
 ## What to Avoid
 

@@ -64,9 +64,11 @@ If an AI tool hits its rate limit, Tessera automatically switches to the next av
 ### AI generates incorrect code
 
 Tessera has [built-in safeguards](/docs/creating-project#built-in-safeguards):
-- PHP Lint catches syntax errors
-- Namespace auto-fix corrects wrong imports
-- Self-healing tests fix failing tests automatically
+- [Quality gates](/docs/architecture/yaml-manifests#gates-catching-done-when-nothing-exists) catch the AI claiming "done!" when nothing was created
+- For Laravel: a 3-attempt self-healing test loop
+- Skippable enrichment steps don't halt the build on transient AI failures
+
+When AI generated something but the build still failed, the [build trace](/docs/architecture/build-trace) tells you exactly where it broke. Look at `.tessera/events.jsonl` and search for `step.fail` or `gate.fail`.
 
 If something still goes wrong, the issue is usually in the generated content, not the structure. You can fix it with:
 
@@ -125,7 +127,7 @@ AI calls can take 30–90 seconds each. If a step takes more than 3 minutes:
 
 ### Tests fail after build
 
-Tessera runs self-healing tests with up to 3 fix attempts. If tests still fail after that:
+For Laravel projects, Tessera runs a 3-attempt self-healing test loop. For other stacks, the `tests_fixed` step in the YAML manifest does the same. If tests still fail after that:
 
 ```bash
 cd my-project

@@ -59,6 +59,17 @@ make run          # Start server
 # API at http://localhost:8080
 ```
 
+## How the build is described
+
+The Go AI pipeline lives at `stacks/go.yaml` (4 steps). Edit or preview it via [`tessera plan`](/docs/cli/plan):
+
+```bash
+tessera plan compile stacks/go.yaml
+tessera plan show
+```
+
+To author your own Go variant, see [YAML stack manifests](/docs/architecture/yaml-manifests).
+
 ## Related Stacks
 
 Need a different approach? Tessera also supports [Laravel](/docs/stacks/laravel) for content-managed websites, [Node.js](/docs/stacks/nodejs) for JavaScript full-stack, [Flutter](/docs/stacks/flutter) for mobile apps, and [Static](/docs/stacks/static) for landing pages.

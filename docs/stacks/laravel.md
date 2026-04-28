@@ -22,7 +22,7 @@ The most complete stack in Tessera's AI project generator. Websites, CMS, e-comm
 | Component | Version |
 |---|---|
 | PHP | 8.2+ |
-| Laravel | 12 |
+| Laravel | 13 |
 | Filament | 5 |
 | Livewire | 4 |
 | Tailwind CSS | 4 |
@@ -50,6 +50,19 @@ Tessera recommends Laravel + Filament when your project needs:
 - E-commerce with payments and shipping
 - Multi-language support
 - A backend with authentication and authorization
+
+## How the build is described
+
+Every Tessera stack — Laravel included — describes its AI build steps in a YAML file at `stacks/laravel.yaml`. Inspect what the AI is about to do before the run:
+
+```bash
+tessera plan compile stacks/laravel.yaml
+tessera plan show
+```
+
+The Laravel manifest currently declares six AI steps (`core_models`, `theme`, `admin`, `content`, `tests`, `setup_md`) plus a post-AI test-fix loop. The pre-AI shell sequence (composer create-project, package install, filament:install, configs, structure, db config) lives in `LaravelStack.php` because those steps are too tool-specific for the YAML engine.
+
+To author your own stack, see [YAML stack manifests](/docs/architecture/yaml-manifests).
 
 ## Related Stacks
 

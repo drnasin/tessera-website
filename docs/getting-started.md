@@ -117,9 +117,51 @@ AI will lead a natural conversation — asking about the business, languages, pa
 The installer asks about your AI subscription plans during setup. If you have Claude Max (unlimited), it will prefer Claude for all tasks since there's no cost concern. Learn more about [AI routing](/docs/ai-routing).
 :::
 
+## Skipping the conversation (dev mode)
+
+If you already know which stack you want and you don't need AI to interview you, two flags speed things up:
+
+```bash
+# Pick the stack yourself — no AI stack-selection call.
+tessera new my-shop --stack=laravel
+
+# Skip the interactive Q&A by loading requirements from JSON.
+tessera new my-shop \
+  --stack=laravel \
+  --requirements-fixture=./req.json
+```
+
+A minimal `req.json`:
+
+```json
+{
+  "description": "Online wine shop in Croatia, three categories, Croatian + English",
+  "languages": ["hr", "en"],
+  "design_style": "elegant, refined",
+  "design_colors": "burgundy, cream",
+  "needs_shop": true,
+  "country": "HR",
+  "payment_providers": ["corvuspay", "bank_transfer"]
+}
+```
+
+This is mostly useful for repeated dev iterations and CI smoke runs.
+
+## Inspect the build before tokens are spent
+
+Tessera lets you compile and inspect the AI plan **without invoking any AI**:
+
+```bash
+tessera plan compile stacks/laravel.yaml
+tessera plan show
+```
+
+The plan tells you exactly which steps run, in which order, with which prompt, against which AI. See [`tessera plan`](/docs/cli/plan) for the full reference.
+
 ## Next Steps
 
 - [Creating a Project](/docs/creating-project) — see the full build process from conversation to working app
 - [After Building](/docs/after-building) — what to do once your project is generated
 - [AI Routing](/docs/ai-routing) — understand how Tessera picks the best AI for each task
 - [Resume & Recovery](/docs/resume) — what happens when builds fail or get interrupted
+- [Build trace & events](/docs/architecture/build-trace) — read `events.jsonl` to debug a finished build

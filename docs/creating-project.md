@@ -59,11 +59,10 @@ Continue? [Y/n]: Y
 [6/8] AI is building your project...
   ✓ Creating database models            (claude opus)
   ✓ Designing frontend theme            (claude opus)
-  ✓ Peer review: frontend theme         (gemini flash)
-  ✓ Building admin panel                (claude sonnet)
+  ✓ Building admin panel                (claude opus)
   ✓ Writing content and seeding data    (claude sonnet)
   ✓ Generating tests                    (claude sonnet)
-  ✓ All tests passing
+  ✓ All gates passed (file checks)
   ✓ Setup instructions                  (claude haiku)
 [7/8] Running migrations                ✓
 [8/8] Seeding database                  ✓
@@ -121,10 +120,10 @@ You won't lose progress — the database choice is saved and can be changed late
 
 After generating code, Tessera runs automatic checks before handing the project to you:
 
-- **PHP Lint** — runs `php -l` on every generated file to catch syntax errors instantly (zero AI tokens)
-- **Namespace Auto-Fix** — scans generated files against `vendor/` to fix incorrect class imports (common across framework versions)
-- **Self-Healing Tests** — generates tests, runs them, and if any fail, AI fixes the issue automatically (up to 3 attempts)
-- **Version-Agnostic Prompts** — AI verifies package versions from your actual `vendor/` directory, so prompts stay correct across Laravel, Filament, and Livewire upgrades
+- **Quality gates** — every step declares post-checks in YAML (e.g., "did the AI actually create `index.html`?"). Hard gates halt the build; soft gates log a warning and continue. See the [build trace](/docs/architecture/build-trace) page for what gets recorded.
+- **Self-healing tests (Laravel)** — after the AI portion finishes, Tessera runs `php artisan test`; if anything fails the output is fed back to the AI and a fix attempt is made, up to 3 times.
+- **Skippable enrichment** — steps marked `skippable: true` in YAML (lint passes, polish phases, SETUP.md generators) don't halt the build if they fail — typical when an AI tool hits a transient rate limit. The core scaffolding step is never skippable.
+- **Version-agnostic prompts** — AI verifies package versions from your actual `vendor/` directory, so prompts stay correct across Laravel, Filament, and Livewire upgrades.
 
 ## Your Requests Are Respected
 
