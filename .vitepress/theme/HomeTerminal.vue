@@ -1,11 +1,11 @@
 <template>
-  <div class="terminal-wrapper">
+  <div class="terminal-wrapper" ref="rootEl">
     <div class="terminal">
       <div class="terminal-header">
         <span class="dot red"></span>
         <span class="dot yellow"></span>
         <span class="dot green"></span>
-        <span class="title">terminal</span>
+        <span class="title">tessera new my-restaurant</span>
       </div>
       <div class="terminal-body" ref="terminalBody">
         <div class="line">
@@ -15,62 +15,70 @@
         </div>
       </div>
     </div>
-    <button v-if="showReplay" class="replay-btn" @click="runAnimation">&#9654; Replay</button>
+    <button v-if="showReplay" class="replay-btn" @click="runAnimation">
+      <span aria-hidden="true">▶</span> Replay
+    </button>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
+const rootEl = ref(null)
 const terminalBody = ref(null)
 const typewriter = ref(null)
 const typing = ref(true)
 const showReplay = ref(false)
 
+// Trimmed from ~30 lines to ~16 — keeps the conversational shape but removes
+// padding lines and the obsolete "Peer review (gemini flash)" step (Sprint 1
+// replaced peer review with deterministic quality gates).
 const lines = [
-  { type: 'command', text: 'tessera new my-restaurant', delay: 80 },
-  { type: 'pause', delay: 400 },
+  { type: 'command', text: 'tessera new my-restaurant', delay: 65 },
+  { type: 'pause', delay: 350 },
   { type: 'output', text: '' },
-  { type: 'success', text: '✓ AI: claude, gemini, codex' },
+  { type: 'success', text: '✓ AI: claude, codex' },
   { type: 'success', text: '✓ OS: macos (brew)' },
   { type: 'output', text: '' },
-  { type: 'output', text: 'What AI plans do you have?' },
-  { type: 'accent', text: '  Claude: Max (unlimited)' },
-  { type: 'accent', text: '  Gemini: Free' },
-  { type: 'output', text: '' },
   { type: 'info', text: 'AI: Tell me about the project — what does the client do?' },
-  { type: 'accent', text: '> A restaurant in Split, menu and online reservations' },
+  { type: 'accent', text: '> Restaurant in Split — menu and online reservations' },
   { type: 'output', text: '' },
   { type: 'info', text: 'AI: Which languages?' },
   { type: 'accent', text: '> Croatian and English' },
   { type: 'output', text: '' },
-  { type: 'info', text: 'AI: Will customers be paying online?' },
-  { type: 'accent', text: '> No, just presentation with a reservation form' },
-  { type: 'output', text: '' },
-  { type: 'info', text: 'AI: What design style?' },
-  { type: 'accent', text: '> Modern and warm, earth tones' },
-  { type: 'output', text: '' },
   { type: 'success', text: '✓ Selected: Laravel + Filament' },
   { type: 'output', text: '' },
   { type: 'output', text: '⏳ AI is building your project...' },
-  { type: 'success', text: '  ✓ Database models & services        (claude opus)' },
-  { type: 'success', text: '  ✓ Frontend theme & pages            (claude opus)' },
-  { type: 'success', text: '  ✓ Peer review                       (gemini flash)' },
-  { type: 'success', text: '  ✓ Admin panel                       (claude sonnet)' },
-  { type: 'success', text: '  ✓ Content & seeding                 (claude haiku)' },
-  { type: 'success', text: '  ✓ Tests passing                     ✓' },
+  { type: 'success', text: '  ✓ Database models & services    (claude opus)' },
+  { type: 'success', text: '  ✓ Frontend theme & pages        (claude opus)' },
+  { type: 'success', text: '  ✓ Admin panel                   (claude opus)' },
+  { type: 'success', text: '  ✓ Content & seeding             (claude sonnet)' },
+  { type: 'success', text: '  ✓ All gates passed              (file checks)' },
+  { type: 'success', text: '  ✓ Setup instructions            (claude haiku)' },
   { type: 'output', text: '' },
-  { type: 'success', text: '╔══════════════════════════════════╗' },
-  { type: 'success', text: '║       PROJECT IS READY!          ║' },
-  { type: 'success', text: '╚══════════════════════════════════╝' },
+  { type: 'success', text: '╔════════════════════════════════╗' },
+  { type: 'success', text: '║      PROJECT IS READY!         ║' },
+  { type: 'success', text: '╚════════════════════════════════╝' },
 ]
 
+let currentTimeouts = []
+let observer = null
+
+function clearScheduled() {
+  currentTimeouts.forEach((id) => clearTimeout(id))
+  currentTimeouts = []
+}
+
+function schedule(fn, delay) {
+  const id = setTimeout(fn, delay)
+  currentTimeouts.push(id)
+}
 
 function createLine(type, text) {
   const div = document.createElement('div')
   div.className = 'line'
   if (text === '') {
-    div.textContent = '\u00A0'
+    div.textContent = ' '
   } else {
     const span = document.createElement('span')
     span.className = type
@@ -99,6 +107,7 @@ function runAnimation() {
   const terminal = terminalBody.value
   if (!terminal) return
 
+  clearScheduled()
   typing.value = true
   showReplay.value = false
 
@@ -127,11 +136,11 @@ function runAnimation() {
     if (charIndex < command.length) {
       commandSpan.textContent += command[charIndex]
       charIndex++
-      setTimeout(typeCommand, lines[0].delay)
+      schedule(typeCommand, lines[0].delay)
     } else {
       typing.value = false
       cursorSpan.remove()
-      setTimeout(showOutput, lines[1].delay)
+      schedule(showOutput, lines[1].delay)
     }
   }
 
@@ -142,74 +151,103 @@ function runAnimation() {
     let lineIndex = 2
     function addLine() {
       if (lineIndex >= lines.length) {
-        setTimeout(() => { showReplay.value = true }, 1000)
+        schedule(() => { showReplay.value = true }, 800)
         return
       }
       const line = lines[lineIndex]
       terminal.appendChild(createLine(line.type, line.text))
       terminal.scrollTop = terminal.scrollHeight
       lineIndex++
-      const delay = line.type === 'success' ? 300 : line.type === 'accent' ? 200 : 150
-      setTimeout(addLine, delay)
+      const delay = line.type === 'success' ? 220 : line.type === 'accent' ? 160 : 130
+      schedule(addLine, delay)
     }
     addLine()
   }
 
-  setTimeout(typeCommand, 800)
+  schedule(typeCommand, 600)
 }
 
 onMounted(() => {
-  runAnimation()
+  // Only kick the animation when the terminal is actually visible. Prevents
+  // the 6-second sequence from running and finishing while the user has
+  // scrolled past the hero, which used to leave the replay button as the
+  // first thing they saw on a re-scroll.
+  if (typeof IntersectionObserver === 'undefined') {
+    runAnimation()
+    return
+  }
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          runAnimation()
+          observer.disconnect()
+          observer = null
+          break
+        }
+      }
+    },
+    { threshold: 0.3 },
+  )
+  observer.observe(rootEl.value)
+})
+
+onUnmounted(() => {
+  clearScheduled()
+  observer?.disconnect()
 })
 </script>
 
 <style scoped>
+.terminal-wrapper {
+  width: 100%;
+}
+
 .terminal {
   position: relative;
   width: 100%;
-  border-radius: 0.75rem;
+  border-radius: 0.875rem;
   overflow: hidden;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 24px 48px -12px rgba(15, 23, 42, 0.32),
+    0 8px 16px -8px rgba(249, 115, 22, 0.18);
+}
+
+.terminal-body {
+  height: 360px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 .replay-btn {
-  display: block;
-  margin: 0.75rem auto 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 1rem auto 0;
   border: 1px solid var(--vp-c-divider);
-  border-radius: 20px;
-  padding: 4px 16px;
-  font-size: 13px;
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--vp-c-text-2);
   background: transparent;
   cursor: pointer;
-  transition: color 0.25s, border-color 0.25s;
+  transition: color 0.2s, border-color 0.2s, transform 0.15s;
 }
 
 .replay-btn:hover {
   color: var(--vp-c-brand-1);
   border-color: var(--vp-c-brand-1);
-}
-
-.terminal-wrapper {
-  width: 100%;
-  padding-left: 1rem;
-  margin-right: -4rem;
-}
-
-.terminal-body {
-  height: 340px;
-  overflow-y: auto;
+  transform: translateY(-1px);
 }
 
 @media (max-width: 960px) {
   .terminal-body {
-    height: 280px;
+    height: 320px;
   }
 
   .terminal-wrapper {
-    padding-left: 0;
-    margin-right: 0;
     padding-top: 1.5rem;
   }
 }

@@ -9,6 +9,56 @@ Tessera is **source-available**, not open source. It is free for personal projec
 
 If you build for paying clients, run a SaaS, or use Tessera inside a for-profit company, you need a **commercial licence**.
 
+## What you actually get from a build
+
+A licence is an abstraction. Here's what `tessera new` produces — every tier, every stack:
+
+<div class="deliverables">
+
+<div class="deliverable-col">
+
+**Code**
+
+- Project skeleton (Laravel / Node / Go / Flutter / Static)
+- Domain models, migrations, factories, seeders
+- Authentication scaffold where applicable
+- Admin panel (Filament for Laravel; equivalent dashboards on others)
+- Frontend theme — Tailwind, custom palette, mobile-responsive
+- Realistic seeded content in your project's languages — no lorem ipsum
+- Passing test suite (PHPUnit / Vitest / Go testing / flutter test)
+
+</div>
+
+<div class="deliverable-col">
+
+**Operations**
+
+- `SETUP.md` — junior-friendly deploy guide with every env var explained and where to obtain it
+- `composer audit` / `npm audit` clean (Sprint 2 gate)
+- Git initialised with first commit
+- `.env.example` with every key Tessera generated
+- Production checklist: TLS, backups, queue workers, monitoring
+
+</div>
+
+<div class="deliverable-col">
+
+**Audit & traceability**
+
+- `.tessera/plan.json` — versioned, hash-anchored execution plan
+- `.tessera/events.jsonl` — append-only build trace, every AI call recorded
+- `.tessera/state.json` — resumable build state
+- Three hashes per step (template, context, rendered prompt) for replay
+- Every step's gates pass/fail captured forever
+
+</div>
+
+</div>
+
+<p class="deliverables-foot">
+See an annotated example: <a href="/docs/case/bakery">a Croatian bakery, generated in 9 minutes 39 seconds</a>.
+</p>
+
 ## Commercial tiers
 
 <div class="pricing-grid">
@@ -157,6 +207,89 @@ Probably, as the orchestrator becomes more capable. **Existing licences keep the
 :::
 
 <style>
+.deliverables {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0 0.5rem;
+  padding: 1.75rem;
+  border-radius: 14px;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+}
+
+.deliverable-col {
+  font-size: 0.93rem;
+}
+
+.deliverable-col strong {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--vp-c-brand-1);
+  margin-bottom: 0.7rem;
+}
+
+.deliverable-col ul,
+.deliverable-col p {
+  margin: 0;
+}
+
+.deliverable-col ul {
+  padding: 0;
+  list-style: none;
+}
+
+.deliverable-col li {
+  position: relative;
+  padding: 0.32rem 0 0.32rem 1.1rem;
+  color: var(--vp-c-text-2);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  border-top: 1px solid var(--vp-c-divider-light, rgba(128, 128, 128, 0.08));
+}
+
+.deliverable-col li:first-child {
+  border-top: none;
+}
+
+.deliverable-col li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--vp-c-brand-1);
+  opacity: 0.7;
+}
+
+.deliverables-foot {
+  margin: 0.6rem 0 2rem;
+  font-size: 0.88rem;
+  color: var(--vp-c-text-2);
+  font-style: italic;
+}
+
+.deliverables-foot a {
+  color: var(--vp-c-brand-1);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .deliverables {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

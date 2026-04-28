@@ -1,4 +1,7 @@
-/* Tessera brand colors */
+/* ========================================================================
+   Tessera brand
+   ======================================================================== */
+
 :root {
   --vp-c-brand-1: #f97316;
   --vp-c-brand-2: #ea580c;
@@ -7,11 +10,23 @@
 
   --vp-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Home hero gradient */
+  /* Hero gradient (name + soft glow behind hero image slot) */
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #f59e0b 100%);
-  --vp-home-hero-image-background-image: linear-gradient(135deg, rgba(249,115,22,0.2) 0%, rgba(245,158,11,0.1) 100%);
-  --vp-home-hero-image-filter: blur(40px);
+  --vp-home-hero-image-background-image: linear-gradient(135deg, rgba(249, 115, 22, 0.22) 0%, rgba(245, 158, 11, 0.10) 100%);
+  --vp-home-hero-image-filter: blur(48px);
+
+  /* Tessera-specific tokens (used by custom components) */
+  --tessera-warm-cream: #fef5e7;
+  --tessera-burgundy: #7c2d12;
+  --tessera-ink: #1f2937;
+}
+
+.dark {
+  --vp-c-brand-1: #fb923c;
+  --vp-c-brand-2: #f97316;
+  --vp-c-brand-3: #ea580c;
+  --vp-c-brand-soft: rgba(249, 115, 22, 0.16);
 }
 
 .VPFooter.has-sidebar {
@@ -22,30 +37,27 @@
   margin-bottom: 32px !important;
 }
 
-.dark {
-  --vp-c-brand-1: #fb923c;
-  --vp-c-brand-2: #f97316;
-  --vp-c-brand-3: #ea580c;
-  --vp-c-brand-soft: rgba(249, 115, 22, 0.16);
-}
+/* ========================================================================
+   Terminal demo (rendered by HomeTerminal.vue in the hero-image slot)
+   Component-scoped CSS lives inside the .vue file; only the styles that
+   need to apply globally (through the dynamically inserted child nodes)
+   are here.
+   ======================================================================== */
 
-/* Terminal demo on homepage */
 .terminal {
   max-width: 700px;
   margin: 2rem auto 0;
-  border-radius: 0.75rem;
-  overflow: hidden;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
   text-align: left;
-  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
 }
 
 .terminal-header {
-  background: #374151;
+  background: linear-gradient(180deg, #4b5563 0%, #374151 100%);
   padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .terminal-header .dot {
@@ -55,40 +67,42 @@
   display: inline-block;
 }
 
-.terminal-header .dot.red { background: #ef4444; }
+.terminal-header .dot.red    { background: #ef4444; }
 .terminal-header .dot.yellow { background: #eab308; }
-.terminal-header .dot.green { background: #22c55e; }
+.terminal-header .dot.green  { background: #22c55e; }
 
 .terminal-header .title {
-  color: #9ca3af;
-  font-size: 0.75rem;
+  color: #d1d5db;
+  font-size: 0.78rem;
   margin-left: 0.5rem;
+  font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
+  letter-spacing: 0.01em;
 }
 
 .terminal-body {
-  background: #111827;
+  background: #0f172a;
   padding: 1.25rem;
   font-size: 0.85rem;
-  line-height: 1.8;
-  min-height: 300px;
+  line-height: 1.75;
   color: #d1d5db;
 }
 
-.terminal-body .prompt { color: #22c55e; }
-.terminal-body .command { color: #f1f5f9; }
-.terminal-body .output { color: #9ca3af; }
-.terminal-body .success { color: #22c55e; }
-.terminal-body .accent { color: #f97316; }
-.terminal-body .info { color: #60a5fa; }
+.terminal-body .prompt  { color: #22c55e; font-weight: 600; }
+.terminal-body .command { color: #f8fafc; }
+.terminal-body .output  { color: #94a3b8; }
+.terminal-body .success { color: #34d399; }
+.terminal-body .accent  { color: #fb923c; }
+.terminal-body .info    { color: #60a5fa; }
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  50%      { opacity: 0; }
 }
 
-.cursor {
+.terminal-body .cursor {
   animation: blink 1s step-end infinite;
-  color: #f97316;
+  color: #fb923c;
+  margin-left: 2px;
 }
 
 @media (max-width: 960px) {
@@ -107,15 +121,19 @@
   }
 }
 
-/* Improve contrast for code block language badge */
-div[class*="language-"] > span.lang {
-  color: rgba(235, 235, 235, 0.6);
-}
-
 @media (max-width: 768px) {
   .terminal-body {
-    font-size: 0.7rem;
-    min-height: 240px;
+    font-size: 0.78rem;
     padding: 1rem;
+    line-height: 1.7;
   }
+}
+
+/* ========================================================================
+   Code block language badge — improve contrast over Shiki's default dim
+   ======================================================================== */
+
+div[class*="language-"] > span.lang {
+  color: rgba(235, 235, 235, 0.65);
+  font-weight: 500;
 }
