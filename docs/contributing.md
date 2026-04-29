@@ -152,7 +152,7 @@ These principles guide all contributions:
 - **Deterministic gates over AI grading** — every meaningful step ends with a `gates:` block in YAML. Prefer `exists_any` / `exists_all` / `command_passes` over a second AI call to "review" the first.
 - **Schema-versioned artefacts** — every persistent file (`state.json`, `events.jsonl`, `plan.json`) carries `tessera.<artifact>/v<N>`. Bump the version, never silently change the shape.
 - **Atomic state** — use temp file + rename for crash safety. Never write state directly. Memory writes happen *before* the matching audit event so resume stays correct on Ctrl+C.
-- **Minimal dependencies** — runtime is PHP 8.2+ and `symfony/yaml`. Adding a third dependency requires a strong reason.
+- **Minimal dependencies** — runtime is PHP 8.4+ and `symfony/yaml`. Adding a third dependency requires a strong reason.
 
 ## What to Avoid
 

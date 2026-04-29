@@ -43,7 +43,7 @@ tessera new my-project
 <div class="step">
 <div class="step-number">1</div>
 <h3>Install</h3>
-<p>One Composer command. Works on Windows, macOS, and Linux. Needs PHP 8.2+ and at least one AI tool (Claude, Codex, or Gemini).</p>
+<p>One Composer command. Works on Windows, macOS, and Linux. Needs PHP 8.4+ and at least one AI tool (Claude, Codex, or Gemini).</p>
 </div>
 
 <div class="step-arrow">&#8594;</div>

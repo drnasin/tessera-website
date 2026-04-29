@@ -21,7 +21,7 @@ The most complete stack in Tessera's AI project generator. Websites, CMS, e-comm
 
 | Component | Version |
 |---|---|
-| PHP | 8.2+ |
+| PHP | 8.4+ |
 | Laravel | 13 |
 | Filament | 5 |
 | Livewire | 4 |

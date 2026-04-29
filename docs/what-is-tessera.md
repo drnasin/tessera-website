@@ -27,7 +27,7 @@ The result is a working project you can run locally and deploy to production.
 
 ## What do I need?
 
-- **PHP 8.2+** — the programming language Tessera is built with
+- **PHP 8.4+** — the programming language Tessera is built with
 - **Composer** — a package manager for PHP (like npm for JavaScript)
 - **At least one AI tool** — Claude, Codex, or Gemini installed on your machine
 

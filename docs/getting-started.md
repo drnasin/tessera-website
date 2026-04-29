@@ -63,7 +63,7 @@ Optional (depends on stack):
 
 **Required:**
 
-### PHP 8.2+
+### PHP 8.4+
 
 PHP is the programming language Tessera is built with. Check if you have it:
 
