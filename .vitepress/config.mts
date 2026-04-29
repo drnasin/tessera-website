@@ -157,6 +157,7 @@ export default defineConfig({
         text: 'Case studies',
         items: [
           { text: 'Pekarnica Ognjište — 9m 39s build', link: '/docs/case/bakery' },
+          { text: 'Vinarija Split — 5-resume Laravel build', link: '/docs/case/wine-shop' },
         ]
       },
       {
