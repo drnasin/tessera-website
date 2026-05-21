@@ -4,6 +4,8 @@ const hostname = 'https://tessera-ai.net'
 
 export default defineConfig({
   base: '/',
+  cleanUrls: true,
+  srcExclude: ['README.md'],
 
   vite: {
     server: {
@@ -24,7 +26,7 @@ export default defineConfig({
     ['meta', { property: 'og:image', content: `${hostname}/og-image.png` }],
     ['meta', { property: 'og:image:width', content: '1200' }],
     ['meta', { property: 'og:image:height', content: '630' }],
-    ['meta', { property: 'og:locale', content: 'en_US' }],
+    // og:locale is injected per-page in transformPageData (en_US / hr_HR)
 
     // Twitter Card (static)
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
@@ -90,6 +92,7 @@ export default defineConfig({
   ],
 
   transformPageData(pageData) {
+    const isHr = pageData.relativePath.startsWith('hr/')
     const pagePath = pageData.relativePath.replace(/index\.md$/, '').replace(/\.md$/, '')
     const pageUrl = `${hostname}/${pagePath}`
     const title = pageData.title || 'Tessera — AI Project Generator'
@@ -103,11 +106,118 @@ export default defineConfig({
       ['meta', { property: 'og:url', content: pageUrl }],
       ['meta', { name: 'twitter:title', content: title }],
       ['meta', { name: 'twitter:description', content: description }],
+      ['meta', { property: 'og:locale', content: isHr ? 'hr_HR' : 'en_US' }],
     )
   },
 
   sitemap: {
     hostname: 'https://tessera-ai.net',
+  },
+
+  locales: {
+    root: {
+      label: 'English',
+      lang: 'en',
+    },
+    hr: {
+      label: 'Hrvatski',
+      lang: 'hr',
+      link: '/hr/',
+      title: 'Tessera',
+      titleTemplate: ':title | Tessera — AI generator projekata',
+      description: 'Tessera je CLI alat koji generira kompletan web projekt iz razgovora. Podržava Laravel, Node.js, Go, Flutter i statičke stranice.',
+      themeConfig: {
+        nav: [
+          { text: 'Dokumentacija', link: '/hr/docs/what-is-tessera' },
+          { text: 'Cijene', link: '/hr/docs/pricing' },
+          { text: 'Licenca', link: '/hr/docs/license' },
+        ],
+
+        sidebar: [
+          {
+            text: 'Početak rada',
+            items: [
+              { text: 'Što je Tessera?', link: '/hr/docs/what-is-tessera' },
+              { text: 'Instalacija i postavljanje', link: '/hr/docs/getting-started' },
+              { text: 'Kreiranje projekta', link: '/hr/docs/creating-project' },
+              { text: 'Nakon builda', link: '/hr/docs/after-building' },
+              { text: 'Rješavanje problema', link: '/hr/docs/troubleshooting' },
+            ],
+          },
+          {
+            text: 'Značajke',
+            items: [
+              { text: 'Usmjeravanje AI poziva', link: '/hr/docs/ai-routing' },
+              { text: 'Nastavak i oporavak', link: '/hr/docs/resume' },
+            ],
+          },
+          {
+            text: 'CLI referenca',
+            items: [
+              { text: 'tessera plan', link: '/hr/docs/cli/plan' },
+            ],
+          },
+          {
+            text: 'Arhitektura',
+            items: [
+              { text: 'YAML stack manifesti', link: '/hr/docs/architecture/yaml-manifests' },
+              { text: 'Trag builda i eventi', link: '/hr/docs/architecture/build-trace' },
+              { text: 'Adapter sustav', link: '/hr/docs/architecture/adapter-system' },
+            ],
+          },
+          {
+            text: 'Studije slučaja',
+            items: [
+              { text: 'Pekarnica Ognjište — 9m 39s build', link: '/hr/docs/case/bakery' },
+              { text: 'Vinarija Split — 5 nastavaka Laravel builda', link: '/hr/docs/case/wine-shop' },
+            ],
+          },
+          {
+            text: 'Stackovi',
+            items: [
+              { text: 'Laravel + Filament', link: '/hr/docs/stacks/laravel' },
+              { text: 'Node.js', link: '/hr/docs/stacks/nodejs' },
+              { text: 'Go', link: '/hr/docs/stacks/go' },
+              { text: 'Flutter', link: '/hr/docs/stacks/flutter' },
+              { text: 'Statička stranica', link: '/hr/docs/stacks/static' },
+            ],
+          },
+          {
+            text: 'Cijene i licenca',
+            items: [
+              { text: 'Cijene', link: '/hr/docs/pricing' },
+              { text: 'Pregled licence', link: '/hr/docs/license' },
+              { text: 'Ugovor o komercijalnoj licenci', link: '/hr/docs/commercial-license' },
+            ],
+          },
+          {
+            text: 'Više',
+            items: [
+              { text: 'Odricanje od odgovornosti', link: '/hr/docs/disclaimer' },
+              { text: 'Doprinos', link: '/hr/docs/contributing' },
+            ],
+          },
+        ],
+
+        footer: {
+          message: 'Izradio Ante Drnasin · Licencirano pod <a href="/hr/docs/license">PolyForm Noncommercial</a> · <a href="/hr/docs/disclaimer">Odricanje od odgovornosti</a>',
+          copyright: '© 2026 Tessera',
+        },
+
+        docFooter: {
+          prev: 'Prethodna stranica',
+          next: 'Sljedeća stranica',
+        },
+
+        outlineTitle: 'Na ovoj stranici',
+        sidebarMenuLabel: 'Izbornik',
+        returnToTopLabel: 'Povratak na vrh',
+        darkModeSwitchLabel: 'Tema',
+        lightModeSwitchTitle: 'Prebaci na svjetlu temu',
+        darkModeSwitchTitle: 'Prebaci na tamnu temu',
+        langMenuLabel: 'Promjena jezika',
+      },
+    },
   },
 
   themeConfig: {

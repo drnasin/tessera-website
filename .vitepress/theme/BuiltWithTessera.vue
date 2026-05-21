@@ -2,40 +2,35 @@
   <section class="proof" aria-labelledby="proof-heading">
     <div class="proof-inner">
       <div class="proof-copy">
-        <div class="eyebrow">Built with Tessera · real run</div>
+        <div class="eyebrow">{{ t.proof.eyebrow }}</div>
         <h2 id="proof-heading">
-          A Croatian bakery website,
-          <span class="accent">generated in 9 minutes 39 seconds.</span>
+          {{ t.proof.heading }}
+          <span class="accent">{{ t.proof.headingAccent }}</span>
         </h2>
-        <p class="lede">
-          The fixture said <code>languages: ["hr"]</code>, so the AI wrote real Croatian copy —
-          the bakery's name, the Split locations, the opening pitch. That's why the preview on
-          the right looks the way it does. One <code>tessera new</code> call produced the full
-          static project: Tailwind theme, JSON-LD schema, mobile menu, and a junior-friendly
-          SETUP.md, with every step audited by deterministic quality gates.
-        </p>
+        <!-- lede contains inline <code> elements — v-html is intentional (static content) -->
+        <p class="lede" v-html="t.proof.lede"></p>
 
         <ul class="metrics">
           <li>
             <span class="num">9m 39s</span>
-            <span class="lbl">total wall time</span>
+            <span class="lbl">{{ t.proof.metrics.wallTime }}</span>
           </li>
           <li>
             <span class="num">3</span>
-            <span class="lbl">AI calls (Opus + Sonnet + Haiku)</span>
+            <span class="lbl">{{ t.proof.metrics.aiCalls }}</span>
           </li>
           <li>
             <span class="num">17</span>
-            <span class="lbl">events traced</span>
+            <span class="lbl">{{ t.proof.metrics.events }}</span>
           </li>
           <li>
             <span class="num">2 / 2</span>
-            <span class="lbl">hard gates passed</span>
+            <span class="lbl">{{ t.proof.metrics.gates }}</span>
           </li>
         </ul>
 
         <a class="cta" href="/docs/case/bakery">
-          See the build trace
+          {{ t.proof.cta }}
           <span class="arrow" aria-hidden="true">→</span>
         </a>
       </div>
@@ -107,15 +102,22 @@
         </div>
 
         <p class="art-caption">
-          Stylised preview of the AI's actual colour and layout choices.
-          <a href="/docs/case/bakery">See annotated screenshots in the case study →</a>
+          {{ t.proof.artCaption }}
+          <a href="/docs/case/bakery">{{ t.proof.artCaptionLink }}</a>
         </p>
       </div>
     </div>
   </section>
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useData } from 'vitepress'
+import messages from './i18n'
+
+const { lang } = useData()
+const t = computed(() => messages[lang.value] ?? messages.en)
+</script>
 
 <style scoped>
 .proof {

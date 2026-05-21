@@ -16,13 +16,18 @@
       </div>
     </div>
     <button v-if="showReplay" class="replay-btn" @click="runAnimation">
-      <span aria-hidden="true">▶</span> Replay
+      <span aria-hidden="true">▶</span> {{ t.terminal.replay }}
     </button>
   </div>
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { useData } from 'vitepress'
+import messages from './i18n'
+
+const { lang } = useData()
+const t = computed(() => messages[lang.value] ?? messages.en)
 
 const rootEl = ref(null)
 const terminalBody = ref(null)

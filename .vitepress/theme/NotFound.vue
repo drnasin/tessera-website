@@ -12,21 +12,30 @@
         <div class="line">&nbsp;</div>
         <div class="line"><span class="error-text">404</span></div>
         <div class="line">&nbsp;</div>
-        <div class="line"><span class="output">AI looked everywhere. This page doesn't exist.</span></div>
-        <div class="line"><span class="output">Maybe it was moved, maybe it never was.</span></div>
+        <div class="line"><span class="output">{{ t.notFound.line1 }}</span></div>
+        <div class="line"><span class="output">{{ t.notFound.line2 }}</span></div>
         <div class="line">&nbsp;</div>
-        <div class="line"><span class="success">Suggested fix:</span></div>
-        <div class="line"><span class="accent">  &gt; Go back to the homepage</span></div>
-        <div class="line"><span class="accent">  &gt; Read the docs</span></div>
+        <div class="line"><span class="success">{{ t.notFound.suggestedFix }}</span></div>
+        <div class="line"><span class="accent">  &gt; {{ t.notFound.goHome }}</span></div>
+        <div class="line"><span class="accent">  &gt; {{ t.notFound.readDocs }}</span></div>
       </div>
     </div>
 
     <div class="actions-404">
-      <a href="/" class="btn-404 brand">Go Home</a>
-      <a href="/docs/what-is-tessera" class="btn-404 alt">Read the Docs</a>
+      <a :href="t.notFound.goHomeHref" class="btn-404 brand">{{ t.notFound.goHome }}</a>
+      <a :href="t.notFound.readDocsHref" class="btn-404 alt">{{ t.notFound.readDocs }}</a>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useData } from 'vitepress'
+import messages from './i18n'
+
+const { lang } = useData()
+const t = computed(() => messages[lang.value] ?? messages.en)
+</script>
 
 <style scoped>
 .not-found {

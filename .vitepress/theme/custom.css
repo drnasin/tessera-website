@@ -137,3 +137,254 @@ div[class*="language-"] > span.lang {
   color: rgba(235, 235, 235, 0.65);
   font-weight: 500;
 }
+
+/* ========================================================================
+   Home page layout — section-divider, install, how-it-works, features
+   Extracted from index.md so hr/index.md can reuse without duplication.
+   ======================================================================== */
+
+.section-divider {
+  border-top: 1px solid var(--vp-c-divider);
+  width: 100%;
+  margin: 0;
+}
+
+.how-it-works {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.how-it-works h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  gap: 0.5rem;
+}
+
+.step-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vp-c-brand-1);
+  font-size: 1.75rem;
+  height: 48px;
+  margin-top: 1.5rem;
+}
+
+.step {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--vp-c-brand-1);
+  color: white;
+  font-weight: 800;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.step h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.step p {
+  color: var(--vp-c-text-2);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .steps {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .step-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+.features-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 2rem;
+}
+
+.features-section h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.feature-hero {
+  border: 1px solid var(--vp-c-brand-1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  background: var(--vp-c-bg-soft);
+  text-align: center;
+}
+
+.feature-hero .feature-icon {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.feature-hero h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.feature-hero p {
+  color: var(--vp-c-text-2);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.features-grid .feature-card {
+  flex: 0 1 calc(33.333% - 1rem);
+  min-width: 250px;
+}
+
+@media (max-width: 768px) {
+  .features-grid .feature-card {
+    flex: 0 1 calc(50% - 0.75rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .features-grid .feature-card {
+    flex: 0 1 100%;
+  }
+}
+
+.feature-card {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: var(--vp-c-bg-soft);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.feature-card:hover {
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 0.85rem;
+  border-radius: 10px;
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.feature-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.06);
+  background: rgba(249, 115, 22, 0.18);
+}
+
+.feature-hero .feature-icon {
+  margin: 0 auto 0.85rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+}
+
+.feature-hero .feature-icon svg {
+  width: 30px;
+  height: 30px;
+}
+
+.feature-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.feature-card p {
+  color: var(--vp-c-text-2);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.install-section {
+  width: 100%;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.install-section h2 {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.install-section div[class*="language-"] {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.install-hint {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--vp-c-text-2);
+}
+
+.install-hint a {
+  color: var(--vp-c-brand-1);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.install-hint a:hover {
+  color: var(--vp-c-brand-2);
+}
