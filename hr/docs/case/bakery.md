@@ -51,7 +51,7 @@ pekarnica-ognjiste/
 └── SETUP.md                # vodič za deploy prilagođen juniorima
 ```
 
-AI je sam dao pekarnicu ime "Ognjište". Spomenuo je stvarne splitske lokacije (Riva, Bačvice, Žnjan). Odabrao Fraunces + Nunito + Caveat kao type stack (topli serif + humanistički body + ručno pisani naglasak — točno prema opisu). Koristio `picsum.photos` placeholder-e ispravnih dimenzija za hero, galeriju i OG sliku.
+AI je sam nazvao pekarnicu "Ognjište". Spomenuo je stvarne splitske lokacije (Riva, Bačvice, Žnjan). Odabrao Fraunces + Nunito + Caveat kao type stack (topli serif + humanistički body + ručno pisani naglasak — točno prema opisu). Koristio `picsum.photos` placeholder-e ispravnih dimenzija za hero, galeriju i OG sliku.
 
 ## Trag builda
 
