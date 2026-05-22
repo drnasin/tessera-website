@@ -29,7 +29,7 @@
           </li>
         </ul>
 
-        <a class="cta" href="/docs/case/bakery">
+        <a class="cta" :href="t.proof.ctaHref">
           {{ t.proof.cta }}
           <span class="arrow" aria-hidden="true">→</span>
         </a>
@@ -103,7 +103,7 @@
 
         <p class="art-caption">
           {{ t.proof.artCaption }}
-          <a href="/docs/case/bakery">{{ t.proof.artCaptionLink }}</a>
+          <a :href="t.proof.artCaptionLinkHref">{{ t.proof.artCaptionLink }}</a>
         </p>
       </div>
     </div>

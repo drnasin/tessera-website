@@ -18,8 +18,10 @@ export interface LocaleMessages {
       gates: string
     }
     cta: string
+    ctaHref: string
     artCaption: string
     artCaptionLink: string
+    artCaptionLinkHref: string
   }
   // NotFound
   notFound: {
@@ -55,8 +57,10 @@ const messages: Record<string, LocaleMessages> = {
         gates: 'hard gates passed',
       },
       cta: 'See the build trace',
+      ctaHref: '/docs/case/bakery',
       artCaption: "Stylised preview of the AI's actual colour and layout choices.",
       artCaptionLink: 'See annotated screenshots in the case study →',
+      artCaptionLinkHref: '/docs/case/bakery',
     },
     notFound: {
       line1: "AI looked everywhere. This page doesn't exist.",
@@ -90,8 +94,10 @@ const messages: Record<string, LocaleMessages> = {
         gates: 'kontrolnih prolaza prošlo',
       },
       cta: 'Pogledaj trag builda',
+      ctaHref: '/hr/docs/case/bakery',
       artCaption: 'Stiliziran prikaz stvarnih odluka AI-ja o bojama i rasporedu.',
       artCaptionLink: 'Anotirani snimci zaslona u studiji slučaja →',
+      artCaptionLinkHref: '/hr/docs/case/bakery',
     },
     notFound: {
       line1: 'AI je pretražio svugdje. Ova stranica ne postoji.',
