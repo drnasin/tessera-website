@@ -32,7 +32,7 @@ Nastavak preskače sve završene korake i nastavlja od mjesta gdje je stao. Nema
 
 ## Atomično stanje
 
-Pisanje stanja koristi obrazac privremena datoteka + preimenovanje. Ako se proces sruši usred pisanja, datoteka stanja ostaje netaknuta — bez korupcije. Isti pristup koriste baze podataka za sigurnost pri rušenju.
+Pisanje stanja koristi atomic rename (privremena datoteka + preimenovanje). Ako se proces sruši usred pisanja, datoteka stanja ostaje netaknuta — bez korupcije. Isti pristup koriste baze podataka za zaštitu od pada procesa.
 
 ## Postavljanje baze pri nastavku
 

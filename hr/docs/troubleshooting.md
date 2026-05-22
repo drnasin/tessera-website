@@ -84,7 +84,7 @@ claude "popravi grešku u src/routes/api.ts"
 
 ### `Access denied for user`
 
-Pogrešni podaci za bazu. Tessera će te zamoliti da ih uneseš ponovo. Provjeri:
+Pogrešni podaci za bazu. Tessera će tražiti da ih uneseš ponovo. Provjeri:
 - MySQL/MariaDB je pokrenut
 - Korisničko ime i lozinka su ispravni
 - Korisnik ima dozvolu za kreiranje baza
@@ -123,7 +123,7 @@ AI pozivi mogu trajati 30–90 sekundi svaki. Ako korak traje dulje od 3 minute:
 
 1. Pritisni `Ctrl+C` za zaustavljanje
 2. Pokreni istu naredbu ponovo — nastavlja
-3. Ako i dalje pada na istom koraku, pokušaj s drugim AI alatom prilagođavanjem dostupnih alata
+3. Ako i dalje pada na istom koraku, pokušaj dodati drugi AI alat ili navedi `--stack=` eksplicitno
 
 ### Testovi padaju nakon builda
 
@@ -150,4 +150,4 @@ claude "popravi test koji pada u tests/Feature/PageTest.php"
 
 ## I dalje zapeo?
 
-Pokreni `tessera doctor` da provjeriš postavljanje sustava, zatim [otvori issue na GitHubu](https://github.com/drnasin/tessera-installer/issues) s outputom.
+Pokreni `tessera doctor` da provjeriš stanje sustava, zatim [otvori issue na GitHubu](https://github.com/drnasin/tessera-installer/issues) s outputom.

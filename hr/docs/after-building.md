@@ -12,8 +12,8 @@ Projekt je spreman. Evo što napraviti dalje.
 Svaki generirani projekt uključuje `SETUP.md` datoteku pisanu specifično za tvoj projekt. Sadrži:
 
 - **Varijable okruženja** — što postaviti, gdje nabaviti vrijednosti
-- **Postavljanje plaćanja** — korak po korak ako projekt ima e-commerce
-- **Produkcijska lista provjera** — sigurnost, baza, email, cachiranje
+- **Postavljanje plaćanja** — korak po korak ako projekt uključuje online prodaju
+- **Produkcijska kontrolna lista** — sigurnost, baza, email, cachiranje
 - **Uobičajeni zadaci** — kako dodati stranice, blokove ili značajke
 
 ```bash
@@ -25,7 +25,7 @@ cat SETUP.md
 SETUP.md je pisan za juniore. Po potrebi objašnjava tehničke koncepte i uključuje linkove na mjesta gdje možeš nabaviti API ključeve.
 :::
 
-## Korak 2: Konfiguriri okruženje
+## Korak 2: Konfiguriraj okruženje
 
 Projekt ima `.env` datoteku s konfiguracijom. Većina je postavljena automatski, ali možda ćeš trebati ažurirati:
 
@@ -118,7 +118,7 @@ npm run dev
 
 Otvori `http://localhost:5173` (ili koji port Vite prikaže).
 
-## Unošenje izmjena
+## Kako napraviti izmjene
 
 Kako unosiš izmjene ovisi o stacku koji je AI odabrao za tvoj projekt.
 

@@ -66,4 +66,4 @@ Za pisanje vlastitog stacka, vidi [YAML stack manifeste](/hr/docs/architecture/y
 
 ## Povezani stackovi
 
-Nije svaki projekt za Laravel. Tessera podržava i [Node.js](/hr/docs/stacks/nodejs) za API-first aplikacije, [Go](/hr/docs/stacks/go) za visoko-performantne backende, [Flutter](/hr/docs/stacks/flutter) za mobilne aplikacije i [Static](/hr/docs/stacks/static) za jednostavne landing stranice.
+Laravel nije pravi izbor za svaki projekt. Tessera podržava i [Node.js](/hr/docs/stacks/nodejs) za API-first aplikacije, [Go](/hr/docs/stacks/go) za visoko-performantne backende, [Flutter](/hr/docs/stacks/flutter) za mobilne aplikacije i [Static](/hr/docs/stacks/static) za jednostavne landing stranice.

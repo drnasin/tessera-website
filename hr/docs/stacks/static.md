@@ -49,7 +49,7 @@ my-site/
 
 AI piše kao copywriter, ne kao developer:
 - Privlačni naslovi i value propositions
-- Realistični testimonijali s lokalno zvučećim imenima
+- Realistični testimonijali s imenima karakterističnima za tržište
 - Pravilna tipografska hijerarhija i razmaci
 - Mobile-first responzivni dizajn
 - WCAG AA pristupačnost (alt tagovi, focus stanja, kontrast)

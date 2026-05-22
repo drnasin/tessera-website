@@ -7,7 +7,7 @@ description: "Važne informacije o potrošnji AI tokena, kvaliteti generiranog k
 
 ## Potrošnja AI tokena
 
-Tessera poziva AI CLI alate instalirane na tvom sustavu (Claude, Gemini, Codex) za generiranje koda. **Svaki poziv troši tokene iz tvog pretplatnog plana ili API kvote.**
+Tessera poziva AI CLI alate instalirane na tvom računalu (Claude, Gemini, Codex) za generiranje koda. **Svaki poziv troši tokene iz tvog pretplatnog plana ili API kvote.**
 
 - Tessera ne pruža, ne upravlja niti plaća za AI pristup
 - Ti si odgovoran za razumijevanje ograničenja, troškova i uvjeta usluge svog plana
@@ -38,10 +38,10 @@ Sav kod koji Tessera producira je **AI-generiran**. Dok Tessera uključuje više
 
 Tessera pokreće AI CLI alate i build naredbe kao subprocese od sebe. Ti subprocesi prolaze kroz mali ojačani sloj:
 
-- **Izvršavanje bez shell-a.** Subprocesi se spawn-aju s array `argv` — nijedan shell ne interpretira naredbeni redak, tako da AI ili korisnički input ne može ubaciti metaznakove (`;`, backtickove, `$(...)`).
+- **Izvršavanje bez shell-a.** Subprocesi se pokreću s array `argv` — nijedan shell ne interpretira naredbeni redak, tako da AI ili korisnički input ne može ubaciti metaznakove (`;`, backtickove, `$(...)`).
 - **Allowlist okoline.** Okolina roditeljskog procesa se filtrira prije nego stigne do djeteta. AI vjerodajnice za jednog pružatelja (npr. `ANTHROPIC_API_KEY`) nikad ne procure u CLI-jeve drugih pružatelja ili u build alate poput composera i npm-a. Svaki AI alat vidi samo vlastite vjerodajnice plus minimum potreban za rad.
-- **Baza podataka vjerodajnice.** Kod konfiguriranja MySQL/MariaDB/PostgreSQL, lozinke putuju kroz designirane env varijable enginea (`PGPASSWORD`, `MYSQL_PWD`) — nikad kao argv zastavice koje bi se pojavile u `ps` ili Task Manageru. Nazivi baze i korisnika validiraju se prema strogom allowlistu prije ugrađivanja u `CREATE DATABASE`. Vrijednosti iz `.env` su sigurno quoted i escaped.
-- **Čuvar direktorija.** `tessera new --force` može uklanjati samo direktorije unutar trenutnog radnog direktorija i nikad ne prati symlinkove.
+- **Baza podataka vjerodajnice.** Kod konfiguriranja MySQL/MariaDB/PostgreSQL, lozinke putuju kroz namijenjene env varijable enginea (`PGPASSWORD`, `MYSQL_PWD`) — nikad kao argv zastavice koje bi se pojavile u `ps` ili Task Manageru. Nazivi baze i korisnika validiraju se prema strogom allowlistu prije ugrađivanja u `CREATE DATABASE`. Vrijednosti iz `.env` su sigurno quoted i escaped.
+- **Zaštita direktorija.** `tessera new --force` može uklanjati samo direktorije unutar trenutnog radnog direktorija i nikad ne prati symlinkove.
 
 ### AI način dozvola (samo Claude)
 
@@ -53,7 +53,7 @@ Ako preferiraš odobravati svaku Claude akciju ručno, postavi `TESSERA_SAFE_AI=
 TESSERA_SAFE_AI=1 tessera new my-project
 ```
 
-Claude će tada pauzirati i čekati tvoje odobrenje za svaku akciju. Installer glasno pada umjesto tihog vješanja ako Claude pokuša nešto što zahtijeva dozvolu.
+Claude će tada pauzirati i čekati tvoje odobrenje za svaku akciju. Installer glasno pada umjesto tihog zamrzavanja ako Claude pokuša nešto što zahtijeva dozvolu.
 
 **Codex i Gemini.** `TESSERA_SAFE_AI` danas utječe samo na Claude, jer je Claude jedini AI CLI koji Tessera pokreće s zastavicom za bypass dozvole. Ostali imaju vlastite modele dozvola koje Tessera trenutno ne konfigurira:
 
@@ -77,7 +77,7 @@ Te integracije se scaffoldaju na temelju AI interpretacije i mogu zahtijevati ru
 
 ## Bez jamstva
 
-OVAJ SOFTVER PRUŽA SE "KAKAV JEST", BEZ IKAKVE JAMSTVA BILO KOJE VRSTE, IZRIČITE ILI PODRAZUMIJEVANE, UKLJUČUJUĆI ALI NE OGRANIČAVAJUĆI SE NA JAMSTVA TRŽIŠNOSTI, PRIKLADNOSTI ZA ODREĐENU SVRHU I NEKRŠENJA PRAVA.
+OVAJ SOFTVER PRUŽA SE "KAKAV JEST", BEZ IKAKVIH JAMSTAVA BILO KOJE VRSTE, IZRIČITIH ILI PODRAZUMIJEVANIH, UKLJUČUJUĆI ALI NE OGRANIČAVAJUĆI SE NA JAMSTVA TRŽIŠNOSTI, PRIKLADNOSTI ZA ODREĐENU SVRHU I NEPOSTOJANJA POVREDE PRAVA.
 
 NI U KAKVIM OKOLNOSTIMA AUTORI ILI NOSITELJI PRAVA NA AUTORSKA PRAVA NEĆE BITI ODGOVORNI ZA BILO KOJI ZAHTJEV, ŠTETU ILI DRUGU ODGOVORNOST, BILO U UGOVORNOJ TUŽBI, DELIKTU ILI NA DRUGI NAČIN, KOJA PROIZLAZI IZ, IZVAN ILI U VEZI S SOFTVEROM ILI KODOM KOJI ON GENERIRA.
 

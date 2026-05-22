@@ -54,7 +54,7 @@ Da — obrazovna upotreba je besplatna, uključujući bootcampove i sveučilišn
 To je komercijalna upotreba — trebaš [plaćenu licencu](/hr/docs/pricing). Čak i jedan plaćeni klijent aktivira komercijalnu razinu.
 :::
 
-::: details Mogu li je koristiti u svom poslodavcu za interne alate?
+::: details Mogu li je koristiti kod svog poslodavca za interne alate?
 Ako je tvoj poslodavac profitna tvrtka i alat je dio načina na koji zarađuje — da, to je komercijalno. Studio razina je uobičajeni izbor.
 :::
 

@@ -14,7 +14,7 @@ Tesserin AI generator projekata gradi cross-platform mobilne aplikacije iz jedne
 - Material 3 tema koja odgovara tvojim dizajnerskim preferencijama
 - Struktura mapa temeljena na značajkama
 - Widget i unit testovi
-- Platform-specifična build konfiguracija
+- Konfiguracija builda za svaku platformu
 - SETUP.md s uputama za deploy na svaku platformu
 
 ## Kad AI bira ovaj stack

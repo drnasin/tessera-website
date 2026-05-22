@@ -5,7 +5,7 @@ description: "Kako je Tessera izgradila puni Laravel + Filament + e-commerce win
 
 # Vinarija Split — Laravel + Filament e-commerce, izgrađen kroz 5 nastavaka
 
-[Studija slučaja Pekarnica Ognjište](/hr/docs/case/bakery) prikazuje sretni put: statički site, tri koraka, 9 minuta, bez drame. Ova stranica je suprotnost — Laravel + Filament e-commerce build koji je pogodio svaku vrstu stvarne greške (timeoutovi, rate limitovi, srednje-stream Claude greške) i još uvijek sletio na `status: complete`.
+[Studija slučaja Pekarnica Ognjište](/hr/docs/case/bakery) prikazuje sretni put: statički site, tri koraka, 9 minuta, bez drame. Ova stranica je suprotnost — Laravel + Filament e-commerce build koji je naišao na svaku moguću vrstu stvarne greške (timeoutovi, rate limitovi, srednje-stream Claude greške) i još uvijek sletio na `status: complete`.
 
 Ovaj wine-shop run **pokrenuo je gate-pass override obrazac** koji je sad dio enginea. Ako hoćeš razumjeti zašto Tessera donosi odluke koje donosi o rukovanju greškama, ovo je stranica za tebe.
 
@@ -73,7 +73,7 @@ Ovo je što se dogodilo, po redu. Svaki red je jedno `tessera new` pozivanje.
 | # | Korak koji je pao | Zašto | Ishod | Pokrenulo |
 |---|---|---|---|---|
 | 1 | `core_models` | Timeout 2400s — Opus + Laravel + e-commerce treba više vremena | Build se zaustavio | Timeout povećan na 3600s |
-| 2 | `core_models` | Subprocess je držao `proc_close` živ past 60-min budžeta na Windowsu; AI je završio, gate je prošao | Build se zaustavio | **Gate-pass-override obrazac (timeout izdanje)** |
+| 2 | `core_models` | Subprocess je držao `proc_close` živ više od 60 minuta na Windowsu; AI je završio, gate je prošao | Build se zaustavio | **Gate-pass-override obrazac (timeout izdanje)** |
 | 3 | `admin` | Sonnet vratio exit 1 srednje streama nakon pisanja svake datoteke koju gate zahtijeva (vjerojatno free-tier rate cap koji se kasno aktivirao u runu) | Build se zaustavio | **Gate-pass-override generaliziran na bilo koji ne-nulti exit** |
 | 4 | `content` | Sonnet pogodio free-tier rate limit za 3.7s, bez gate-a, nije preskočiv | Build se zaustavio | `content` označen kao `skippable: true` da odgovara ostalim stackovima |
 | 5 | (nijedan) | Petlja za self-healing test pogodila PHPUnit 12 / Laravel `--no-interaction` zastavica nekompatibilnost — AI napisao `run-tests.sh` wrapper za filtriranje uvredljive zastavice | Build završen | Potvrđeno da se self-healing stvarno ozdravljuje |
@@ -120,7 +120,7 @@ Tri stvari se ističu čitanjem generiranog koda, od kojih ništa nije direktno 
 
 ## Što ovo dokazuje
 
-- **Override obrazac je neophodan, ne opcionalan.** Dva od pet ciklusa pala su jer se exit kod adaptera nije slagao s rezultatom gate-a. Bez overridea, ovaj build bi se petljao unedogled.
+- **Override obrazac je neophodan, ne opcionalan.** Dva od pet ciklusa pala su jer se exit kod adaptera nije slagao s rezultatom gate-a. Bez overridea, ovaj build bi se vrtio u beskonačnoj petlji.
 - **Preskočivo obogaćivanje je razlika između 25-minutnog djelomičnog uspjeha i 25-minutnog zaustavljenog builda.** Free-tier rate capovi nisu rubni slučajevi; oni su modalni način pada za Sonnet tijekom dugog runa.
 - **Self-healing testovi se stvarno ozdravljuju.** Tri pokušaja, AI popravlja i test setup i runner-level nekompatibilnost, završava projekt u stanju gdje se pokreće, admin se učitava i homepage poslužuje hrvatski sadržaj.
 - **Nastavak je jeftin.** Pre-AI shell sekvenca (composer + filament install) pokrenula se jednom kroz svih pet ciklusa. `completed_steps` iz state.json kratko spaja sve ispod polog koraka na svakom ponovnom pokušaju.

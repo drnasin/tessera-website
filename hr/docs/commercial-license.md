@@ -16,15 +16,15 @@ Potpisana PDF kopija ovog ugovora dostavlja se uz svaku komercijalnu kupovinu. P
 ## 1. Definicije
 
 - **"Softver"** — Tessera Installer command-line alat objavljen na [github.com/drnasin/tessera-installer](https://github.com/drnasin/tessera-installer), uključujući njegov izvorni kod, dokumentaciju i prompt materijale.
-- **"Davatelj licence"** — Ante Drnasin, jedini nositelj autorskih prava Softvera, koji posluje kao samostalni poduzetnik prema hrvatskom pravu.
+- **"Davatelj licence"** — Ante Drnasin, jedini nositelj autorskih prava Softvera, koji posluje kao samostalni poduzetnik po hrvatskom pravu.
 - **"Primatelj licence"** — fizička ili pravna osoba identificirana u evidenciji kupovine (račun i aktivacijski email) kao kupac licence.
-- **"Ovlašteni developer"** — individualni zaposlenik, izvođač ili vlasnik Primatelja licence koji stvarno pokreće Softver na razvojnoj mašini. Broj ovlaštenih developera utvrđuje se razinom licence.
+- **"Ovlašteni developer"** — zaposlenik, izvođač ili vlasnik Primatelja licence koji stvarno pokreće Softver na razvojnoj mašini. Broj ovlaštenih developera utvrđuje se razinom licence.
 - **"Generirani output"** — bilo koji izvorni kod, konfiguracija, promptovi, dokumentacija ili drugi artefakt produciran pokretanjem Softvera, bez obzira koji AI model ga je producirao.
 - **"Razina"** — jedna od razina licence definiranih na [stranici Cijene](/hr/docs/pricing): Solo, Studio ili Enterprise.
 
 ## 2. Dodjela licence
 
-Pod uvjetom plaćanja primjenjive naknade i kontinuiranog usklađivanja s ovim ugovorom, Davatelj licence dodjeljuje Primatelju licence **svjetsku, neekskluzivnu, neprenosivu, nezastupiljevu** licencu za:
+Pod uvjetom plaćanja primjenjive naknade i kontinuiranog usklađivanja s ovim ugovorom, Davatelj licence dodjeljuje Primatelju licence **svjetsku, neekskluzivnu, neprenosivu** licencu **bez prava podlicenciranja** za:
 
 1. **Instaliranje i pokretanje** Softvera na bilo kojem broju mašina, **pod uvjetom da Softver koriste samo Ovlašteni developeri** prema razini.
 2. **Komercijalnu upotrebu Softvera**, uključujući plaćeni klijentski rad, interne poslovne alate, SaaS proizvode i druge aktivnosti koje generiraju prihod.
@@ -70,11 +70,11 @@ Generirani output stvaraju AI modeli trećih strana djelujući na promptove i ko
 
 ### 6.1 Trajanje
 
-Licenca se prodaje kao **godišnji termin** od 12 mjeseci od datuma aktivacije.
+Licenca se prodaje kao **godišnje razdoblje** od 12 mjeseci od datuma aktivacije.
 
 ### 6.2 Trajna rezerva
 
-Kad godišnji termin završi, Primatelj licence zadržava **trajno pravo** nastavka korištenja verzije Softvera koja je bila aktualna u trenutku završetka termina. Nema daljnjih ažuriranja, ispravaka ili izdanja.
+Kad godišnje razdoblje završi, Primatelj licence zadržava **trajno pravo** nastavka korištenja verzije Softvera koja je bila aktualna u trenutku završetka termina. Nema daljnjih ažuriranja, ispravaka ili izdanja.
 
 To znači: **nikad ne gubiš pristup radnom alatu jer si prestao plaćati.** Gubiš samo pristup *novim* izdanjima.
 
@@ -112,7 +112,7 @@ Ako revizija otkrije više developera nego što razina dozvoljava, Primatelj lic
 
 ## 9. Odricanje od jamstva
 
-SOFTVER SE PRUŽA "KAKAV JEST", BEZ IKAKVE JAMSTVA BILO KOJE VRSTE, IZRIČITE ILI PODRAZUMIJEVANE, UKLJUČUJUĆI ALI NE OGRANIČAVAJUĆI SE NA JAMSTVA TRŽIŠNOSTI, PRIKLADNOSTI ZA ODREĐENU SVRHU I NEKRŠENJA PRAVA. OVO ODRICANJE PRIMJENJUJE SE U CIJELOSTI NA BILO KOJI GENERIRANI OUTPUT.
+SOFTVER SE PRUŽA "KAKAV JEST", BEZ IKAKVIH JAMSTAVA BILO KOJE VRSTE, IZRIČITIH ILI PODRAZUMIJEVANIH, UKLJUČUJUĆI ALI NE OGRANIČAVAJUĆI SE NA JAMSTVA TRŽIŠNOSTI, PRIKLADNOSTI ZA ODREĐENU SVRHU I NEPOSTOJANJA POVREDE PRAVA. OVO ODRICANJE PRIMJENJUJE SE U CIJELOSTI NA BILO KOJI GENERIRANI OUTPUT.
 
 Konkretno, Davatelj licence ne jamči:
 
@@ -140,7 +140,7 @@ Ova licenca automatski prestaje ako Primatelj licence:
 
 Po raskidu, Primatelj licence mora prestati koristiti Softver. Odjeljak 5 (Generirani output) preživljava raskid — posao već isporučen klijentima ne mora se povući. Odjeljci 9, 10 i 12 također preživljavaju.
 
-Godišnji termin nije povratljiv pri raskidu zbog kršenja. Ako Davatelj licence raskine bez razloga (što Davatelj licence trenutno ne predviđa ali zadržava pravo u iznimnim okolnostima), neiskorišteni dio godišnje naknade vraća se razmjerno.
+Godišnje razdoblje nije povratljivo pri raskidu zbog kršenja. Ako Davatelj licence raskine bez razloga (što Davatelj licence trenutno ne predviđa ali zadržava pravo u iznimnim okolnostima), neiskorišteni dio godišnje naknade vraća se razmjerno.
 
 ## 12. Mjerodavno pravo i sporovi
 

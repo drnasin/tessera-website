@@ -13,7 +13,7 @@ Tessera je AI generator projekata koji se pokreće kao CLI alat na tvom računal
 composer global require tessera/installer
 ```
 
-Provjeri da je Composerova globalna bin mapa u PATH-u:
+Provjeri da je Composerov globalni bin direktorij u PATH-u:
 - **Windows:** `%APPDATA%\Composer\vendor\bin`
 - **macOS/Linux:** `~/.composer/vendor/bin`
 
@@ -119,7 +119,7 @@ Tessera pita o tvojim AI pretplatnim planovima. Imaš Claude Max (neograničen)?
 
 ## Preskakanje razgovora (dev način)
 
-Znaš već koji stack trebaš i ne treba ti AI intervju? Dvije zastavice ubrzavaju stvari:
+Znaš već koji stack trebaš i ne treba ti AI razgovor? Dvije zastavice ubrzavaju stvari:
 
 ```bash
 # Odaberi stack sam — bez AI poziva za odabir stacka.
@@ -149,7 +149,7 @@ Ovo je korisno uglavnom za ponavljane razvojne iteracije i CI smoke testove.
 
 ## Pregled plana prije trošenja tokena
 
-Tessera ti omogućuje kompajliranje i pregled AI plana **bez pokretanja ijednog AI poziva**:
+Tessera može pokazati plan **bez pokretanja ijednog AI poziva**:
 
 ```bash
 tessera plan compile stacks/laravel.yaml

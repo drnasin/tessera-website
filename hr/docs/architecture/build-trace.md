@@ -1,9 +1,9 @@
 ---
-title: Trag builda — Što se dogodilo tijekom mog builda
+title: Trag builda — Što se dogodilo tijekom builda
 description: Čitaj state.json, events.jsonl i plan.json da rekonstruiraš točno što je Tessera napravila, kad i zašto.
 ---
 
-# Trag builda — Što se dogodilo tijekom mog builda
+# Trag builda — Što se dogodilo tijekom builda
 
 Tessera je radila 25 minuta. AI je potrošio tokene. Nešto nije u redu s outputom. Gdje gledaš?
 
@@ -36,7 +36,7 @@ Odgovor na pitanje "gdje sam sada?". Koristi ga `tessera new` sam za nastavak na
 
 ### `events.jsonl` — event log koji se samo dopisuje (append-only)
 
-Svaka smislena stvar koja se dogodila, jedan JSON event po retku. Sortirano po pojavi. Nikad se ne uređuje, nikad se ne skraćuje.
+Svaki važan događaj koji se dogodio, jedan JSON event po retku. Sortirano po pojavi. Nikad se ne uređuje, nikad se ne skraćuje.
 
 ```json
 {"schema":"tessera.event/v1","type":"build.start","trace_id":"6661a625c1814d2e","occurred_at":"2026-04-28T18:53:05Z","payload":{"stack":"static","plan_hash":"a53a0aa050046435...","step_count":3}}
@@ -55,7 +55,7 @@ Svaki artefakt počinje poljem `"schema": "tessera.<artifact>/v<N>"`:
 - `tessera.plan/v1`
 - `tessera.gate-result/v1` (ugrađen unutar gate eventa)
 
-Kad v2 stigne, v1 čitači moraju odbiti v2 artefakte (glasni pad je bolji od tihe krive interpretacije). v2 čitači MOGU prihvatiti v1 artefakte. Ovo provodi `ArtifactValidator` pri svakom čitanju.
+Kad v2 stigne, v1 čitači moraju odbiti v2 artefakte (eksplicitna greška bolja je od tihe krive interpretacije). v2 čitači MOGU prihvatiti v1 artefakte. Ovo provodi `ArtifactValidator` pri svakom čitanju.
 
 ## Trace ID
 
@@ -131,7 +131,7 @@ Kad korak završi, Tessera piše u `state.json` **prije** nego doda u `events.js
 - Ako se ubijanje dogodi između dva pisanja, audit log nedostaje jedan event ali `state.json` je ispravan. Nastavak se odvija čisto bez dupliciranja posla.
 - Suprotno — eventi zapisani prvi — značilo bi uspješan unos audit loga za posao koji engine za nastavak ne smatra završenim. Nastavak bi ga ponovo pokrenuo. To je gore od nedostajućeg retka loga.
 
-Ovo je namjerna kompromis: **ispravnost nastavka > potpunost audita**.
+Ovo je namjeran kompromis: **ispravnost nastavka > potpunost audita**.
 
 ## Česta pitanja za debugging
 
@@ -156,7 +156,7 @@ Ako nemaš `jq`, datoteka je jedan JSON event po retku — `grep` i oči rade sa
 
 ## Što dolazi u Sprintu 2
 
-`tessera analyze <project>` će sve ovo pretvoriti u jednokratni izvještaj čitljiv čovjeku:
+`tessera analyze <project>` će sve ovo pretvoriti u jednokratni izvještaj razumljiv čovjeku:
 
 ```text
 Build a53a0aa050... — bakery-test

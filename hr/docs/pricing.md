@@ -128,15 +128,15 @@ Cijene su u EUR i ne uključuju PDV. Hrvatska poduzeća dobivaju račun s OIB-om
 
 | Mogućnost | Solo · Studio · Enterprise |
 |---|---|
-| Komercijalna upotreba Softvera | ✓ |
+| Komercijalna upotreba Tessere | ✓ |
 | Svi sadašnji i budući **stackovi** | ✓ |
 | **Generirani output** je tvoj, bez tantijema | ✓ |
-| **Ažuriranja** za vrijeme aktivnog trajanja | ✓ |
+| **Ažuriranja** dok je licenca aktivna | ✓ |
 | **Trajni fallback** na zadnju objavljenu verziju | ✓ |
 | Pristup izvornom kodu putem GitHub repozitorija | ✓ |
 | BYOK — koristiš vlastite AI CLI alate i planove | ✓ |
 
-Tessera **nikad ne posreduje tvoje AI tokene** niti usmjerava pozive kroz našu infrastrukturu. CLI pokreće AI alate koje imaš instalirane prema tvojoj pretplati. Ne naplaćujemo, ne mjerimo niti posredujemo AI upotrebu. Vidi [Usmjeravanje AI poziva](/hr/docs/ai-routing) i [Odricanje od odgovornosti](/hr/docs/disclaimer).
+Tessera **nikad ne prosljeđuje tvoje AI tokene** niti usmjerava pozive kroz našu infrastrukturu. CLI pokreće AI alate koje imaš instalirane prema tvojoj pretplati. Ne naplaćujemo, ne mjerimo niti prosljeđujemo AI upotrebu. Vidi [Usmjeravanje AI poziva](/hr/docs/ai-routing) i [Odricanje od odgovornosti](/hr/docs/disclaimer).
 
 ## Usporedba s besplatnom razinom
 
@@ -155,7 +155,7 @@ Pročitaj cijeli [Ugovor o komercijalnoj licenci](/hr/docs/commercial-license) p
 
 ## Kako funkcionira kupovina (danas)
 
-Trenutni tijek je namjerno ručni. Fakturiramo i potvrđujemo emailom, bez posrednih servisa za naplatu.
+Trenutni tijek je namjerno ručni. Fakturiramo i potvrđujemo emailom, bez platnih posrednika.
 
 1. **Klikni gumb za kupovinu.** Tvoj email klijent otvori se s ispravnom razinom u predmetu.
 2. **Odgovori s poslovnim podacima** — ime, adresa za fakturiranje, OIB / PDV ID ako je primjenjivo, broj programera.
@@ -183,7 +183,7 @@ Zadržavaš pravo korištenja verzije Tessere koju već imaš, **zauvijek**. Sam
 :::
 
 ::: details Narasli smo s 4 na 12 programera usred godine. Što sad?
-Nadograđuješ na Enterprise (ili prilagođenu Studio nadoplatu). Razliku ćemo proporcionalno obračunati za preostale mjesece godišnjeg trajanja. Nema kazne za rast izvan razine — samo za ignoriranje tog rasta.
+Nadograđuješ na Enterprise (ili prilagođenu Studio nadoplatu). Razliku ćemo razmjerno obračunati za preostale mjesece godišnjeg trajanja. Nema kazne za rast izvan razine — samo za ignoriranje tog rasta.
 :::
 
 ::: details Mogu li isprobati Tesserou prije kupovine?
@@ -191,11 +191,11 @@ Da. Koristi je nekomercijalně na osobnom projektu koliko god želiš. Softver j
 :::
 
 ::: details Politika povrata?
-**14 dana bez pitanja** za Solo razinu. Povrati za Studio i Enterprise rješavaju se od slučaja do slučaja, ali uvijek smo se dogovorili kad je zahtjev podnesen u dobroj vjeri u roku 30 dana. Povrati nisu dostupni nakon što je licenca iskorištena za generiranje koda za plaćenog klijenta — generirani output je tvoj u svakom slučaju i upravo to je granica za koju licenca plaća.
+**14 dana bez pitanja** za Solo razinu. Povrati za Studio i Enterprise rješavaju se od slučaja do slučaja, ali uvijek nalazimo rješenje kad je zahtjev podnesen u dobroj vjeri unutar 30 dana. Povrati nisu dostupni nakon što je licenca iskorištena za generiranje koda za plaćenog klijenta — generirani output je tvoj u svakom slučaju i upravo to je granica za koju licenca plaća.
 :::
 
 ::: details Zašto Tessera nema SaaS stranicu s cijenama?
-Jer Tessera ne pokreće AI na našoj infrastrukturi. Ti donosiš vlastitu Claude / Codex / Gemini pretplatu. Cijena koju plaćaš je za orkestraciju — kontrolni prolazi, biblioteka promptova, ugovorni testovi, nastavak — ne za tokene. Vidi [Usmjeravanje AI poziva](/hr/docs/ai-routing).
+Jer Tessera ne pokreće AI na našoj infrastrukturi. Ti koristiš vlastitu Claude / Codex / Gemini pretplatu. Cijena koju plaćaš je za orkestraciju — kontrolni prolazi, biblioteka promptova, ugovorni testovi, nastavak — ne za tokene. Vidi [Usmjeravanje AI poziva](/hr/docs/ai-routing).
 :::
 
 ::: details Mogu li redistribuirati Tesserou zajedno sa svojim proizvodom?

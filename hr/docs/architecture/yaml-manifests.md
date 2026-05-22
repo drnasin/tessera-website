@@ -10,7 +10,7 @@ Do Sprinta 1, svaki Tessera stack bio je velika PHP klasa s promptovima upekanim
 Ovaj vodič je za tebe ako želiš:
 
 - Razumjeti što će `tessera new --stack=static` zapravo napraviti
-- Dotaknuti postojeći prompt
+- Izmijeniti postojeći prompt
 - Napisati novi stack (Python/Django, Rust/Axum, bilo što)
 
 ## Što je stack manifest?
@@ -110,7 +110,7 @@ Ovo kaže: nakon što korak završi, **barem jedan** od ovih puteva mora postoja
 | `exists_any` | Jedan od uzoraka odgovara barem jednoj datoteci. |
 | `exists_all` | Svaki uzorak odgovara barem jednoj datoteci. |
 
-Uzorci mogu biti literalni putevi ili `*`/`?` glob-ovi. `**` namjerno nije podržan u v1 (nema iznenađujuće rekurzije).
+Uzorci mogu biti konkretni putevi ili `*`/`?` glob-ovi. `**` namjerno nije podržan u v1 (nema iznenađujuće rekurzije).
 
 ### Ozbiljnost
 
@@ -123,7 +123,7 @@ Sprint 2 dodaje `not_empty`, `contains`, `min_size` i `command_passes` (npr. "ko
 
 ## Preskočivi koraci — graceful degradation
 
-Stvarnost: AI pozivi za obogaćivanje (prolaz poliranja, generator SETUP.md-a) ponekad dosežu rate limite ili padaju iz prolaznih razloga. Ne želiš da to prekine 25-minutni build koji je već producirao radnu stranicu.
+Stvarnost: AI pozivi za obogaćivanje (prolaz poliranja, generator SETUP.md-a) ponekad dosežu rate limite ili privremeno padaju. Ne želiš da to prekine 25-minutni build koji je već producirao radnu stranicu.
 
 ```yaml
 - id: polish
@@ -133,7 +133,7 @@ Stvarnost: AI pozivi za obogaćivanje (prolaz poliranja, generator SETUP.md-a) p
 
 Kad je `skippable: true`, pad bilježi `step.skip` u events.jsonl i plan nastavlja. Temeljni korak scaffoldinga **nije** preskočiv; sve nizvodno od njega može biti.
 
-Pravilo palca: sve što *poboljšava* output je preskočivo. Sve što *producira* output nije.
+Kao opće pravilo: sve što *poboljšava* output je preskočivo. Sve što *producira* output nije.
 
 ## Zavisnosti — redoslijed izvršavanja
 

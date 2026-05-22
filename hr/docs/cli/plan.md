@@ -5,7 +5,7 @@ description: Pregledaj, usporedi i zamrzni AI recept za build prije nego se potr
 
 # `tessera plan` — Što će AI napraviti?
 
-Spremaš se zamoliti AI da napiše stotine datoteka za tebe. Potrošit će tokene, raditi 5–30 minuta i možda napraviti nešto što nisi očekivao.
+Spremaš se zatražiti od AI-ja da napiše stotine datoteka za tebe. Potrošit će tokene, raditi 5–30 minuta i možda napraviti nešto što nisi očekivao.
 
 `tessera plan` ti omogućuje **pogled na recept prije kuhanja**. Nijedan AI se ne poziva — ove naredbe samo kompajliraju, ispisuju i uspoređuju plan koji bi `tessera new` inače izvršio.
 
@@ -74,7 +74,7 @@ Ovo je točno ono što će `tessera new` izvršiti — tri koraka, ovim redom, s
 
 ### `tessera plan diff <a.json> <b.json>`
 
-Uspoređuje dva plana **semantički** — ne kao sirovi JSON. Govori ti što se promijenilo u *poslu*, ignorirajući šum poput `compiled_at` timestampa.
+Uspoređuje dva plana **semantički** — ne kao sirovi JSON. Govori ti što se zapravo promijenilo, ignorirajući šum poput `compiled_at` timestampa.
 
 ```bash
 $ tessera plan diff /tmp/before.json /tmp/after.json
@@ -98,7 +98,7 @@ Plan diff
 | `1` | Greška u korištenju (loš put, pokvareni JSON) |
 | `2` | Razlike postoje (nije nužno loše — pregledaj ih) |
 
-Nenulti diff je **signal**, ne greška. Koristi ga kao `git diff`: CI job koji pokreće `tessera plan diff origin/main HEAD` aktivirat će se na svakoj izmjeni prompta, pozivajući na ljudski pregled.
+Pronađena razlika je **signal**, ne greška. Koristi ga kao `git diff`: CI job koji pokreće `tessera plan diff origin/main HEAD` pokrenut će se na svakoj izmjeni prompta, pozivajući na ljudski pregled.
 
 ## Što je `plan_hash`?
 

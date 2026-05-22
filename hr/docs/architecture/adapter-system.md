@@ -184,7 +184,7 @@ Tessera pokreće svaki AI subprocess s **očišćenom okolinom**. `AbstractAdapt
 
 Ako tvoj adapter ima dodatne varijable za uklanjanje — obično API ključeve za *druge* pružatelje, da ne mogu procuriti — nadjači `buildChildEnv()` i ukloni ih, kao u primjeru gore.
 
-Ovo je obrana u dubini. Čak i ako korisnikov shell ima exportirane API ključeve svakog pružatelja, tvoj Groq subprocess vidi samo Groq-relevantnu okolinu. Krivo usmjereni tokeni koštaju pravi novac; ovo je jeftino osiguranje.
+Ovo je obrana u dubini. Čak i ako korisnikov shell ima exportirane API ključeve svakog pružatelja, tvoj Groq subprocess vidi samo Groq-relevantnu okolinu. Tokeni poslani pogrešnom AI pružatelju koštaju pravi novac; ovo je jeftino osiguranje.
 
 ## Procjena troška
 

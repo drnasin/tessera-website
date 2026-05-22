@@ -1,11 +1,11 @@
 ---
 title: "Go Stack"
-description: "Tessera generira produkcijski spreman Go backend s Chi/Gin routerom, slojem baze podataka, Dockerom, strukturiranim logiranjem i testovima. Napravljeno za visoko-konkurentne sustave."
+description: "Tessera generira produkcijski spreman Go backend s Chi/Gin routerom, slojem baze podataka, Dockerom, strukturiranim logiranjem i testovima. Napravljeno za sustave s visokim paralelizmom."
 ---
 
 # Go Stack (Backend / API / Mikroservis)
 
-Tesserin AI generator projekata gradi produkcijski Go backende za sustave koji trebaju visoke performanse i tisuće konkurentnih korisnika.
+Tesserin AI generator projekata gradi produkcijski Go backende za sustave koji trebaju visoke performanse i tisuće paralelnih korisnika.
 
 ## Što se generira
 
@@ -22,7 +22,7 @@ Tesserin AI generator projekata gradi produkcijski Go backende za sustave koji t
 
 Tessera preporučuje Go kad opišeš:
 - Visoko-performantni backend ili mikroservis
-- 1000+ očekivanih konkurentnih korisnika
+- 1000+ paralelnih korisnika
 - Procesiranje plaćanja ili financijski sustavi
 - IoT gateway ili real-time data pipeline
 - CLI alate ili DevOps utilitete

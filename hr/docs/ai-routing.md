@@ -3,9 +3,9 @@ title: "Pametno usmjeravanje modela"
 description: "Tessera usmjerava svaki zadatak generiranja koda na najbolji AI alat i model — Claude, Gemini ili Codex. Usmjeravanje ovisno o planu, upravljanje rate limitima i deterministički kontrolni prolazi."
 ---
 
-# Inteligentno usmjeravanje AI poziva
+# Pametno usmjeravanje AI poziva
 
-Tessera ne koristi samo jedan AI alat — svaki zadatak generiranja koda usmjerava na **najbolji alat i model** za posao. Ovaj pristup s više AI alata daje bolje rezultate nego bilo koji jedini alat.
+Tessera ne koristi samo jedan AI alat — svaki zadatak generiranja koda usmjerava na **najbolji alat i model** za posao. Ovaj pristup s više AI alata daje bolje rezultate nego svaki alat zasebno.
 
 ## Kako radi
 
@@ -40,11 +40,11 @@ S Claude Maxom, čak i jednostavni zadaci koriste Claude (Haiku) — nema razlog
 
 Ako alat dosegne rate limit usred builda, Tessera automatski reagira:
 1. Detektira grešku (prepoznaje 13 različitih uzoraka)
-2. Označava alat s 2-minutnim hladnjakom
+2. Označava alat s 2-minutnim cooldown-om
 3. Prebacuje na sljedeći alat u lancu rezerve
 4. Prikazuje što se dogodilo: `claude rate-limited (cooldown: 120s). Trying next tool...`
 
-Nema ručnog posredovanja. Build se nastavlja.
+Bez ručnog zahvata. Build se nastavlja.
 
 ## Kontrolni prolazi — hvatanje "done!" kad nema ničega
 

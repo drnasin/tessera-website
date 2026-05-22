@@ -105,13 +105,13 @@ Svi testovi moraju se pokretati s **nula potrošnje tokena** — nije dopušteno
 // Koristi AiTool::fake() za test instance
 $tool = AiTool::fake('claude');
 
-// Suzbij Console output u testovima
+// Sakrij Console output u testovima
 ob_start();
 // ... tvoj test kod
 ob_end_clean();
 ```
 
-Testiraj logiku odlučivanja i state machine-e, ne kvalitetu AI outputa. AI output je po prirodi nepredvidiv — testiraj kod koji ga obrađuje.
+Testiraj logiku odlučivanja i state machine logiku, ne kvalitetu AI outputa. AI output je po prirodi nepredvidiv — testiraj kod koji ga obrađuje.
 
 ```bash
 # Pokreni sve testove
@@ -147,12 +147,12 @@ vendor/bin/phpunit --filter=testResolveComplexDefaultsToClaudeOpus
 
 Ovi principi vode sve doprinose:
 
-- **Principijelni promptovi** — koristi 2-3 univerzalna pravila umjesto dugih kontrolnih lista. AI bolje radi s principima nego instrukcijama.
+- **Promptovi temeljeni na principima** — koristi 2-3 univerzalna pravila umjesto dugih kontrolnih lista. AI bolje radi s principima nego instrukcijama.
 - **Neovisnost o verziji** — nikad tvrdo kodiraj verzije frameworka. Čitaj ih iz `vendor/` ili `package.json` pri pokretanju.
 - **Deterministički gate-ovi umjesto AI ocjenjivanja** — svaki smisleni korak završava s `gates:` blokom u YAML-u. Preferira se `exists_any` / `exists_all` / `command_passes` nad drugim AI pozivom za "pregled" prvog.
-- **Shemom verzionirana artefakti** — svaka perzistentna datoteka (`state.json`, `events.jsonl`, `plan.json`) nosi `tessera.<artifact>/v<N>`. Povećaj verziju, nikad tiho mijenjaj oblik.
+- **Verzionirana shema artefakata** — svaka perzistentna datoteka (`state.json`, `events.jsonl`, `plan.json`) nosi `tessera.<artifact>/v<N>`. Povećaj verziju, nikad tiho mijenjaj oblik.
 - **Atomično stanje** — koristi privremenu datoteku + preimenovanje za sigurnost pri rušenju. Nikad ne piši stanje direktno. Memory pisanja se događaju *prije* odgovarajućeg audit eventa da nastavak ostane ispravan na Ctrl+C.
-- **Minimalne zavisnosti** — runtime je PHP 8.4+ i `symfony/yaml`. Dodavanje treće zavisnosti zahtijeva jak razlog.
+- **Minimalne zavisnosti** — runtime je PHP 8.4+ i `symfony/yaml`. Dodavanje treće zavisnosti zahtijeva dobar razlog.
 
 ## Što izbjegavati
 

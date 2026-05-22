@@ -94,7 +94,7 @@ Za [Laravel projekt](/hr/docs/stacks/laravel), AI kreira:
 
 Ostali stackovi generiraju ekvivalentni output — vidi [Node.js](/hr/docs/stacks/nodejs), [Go](/hr/docs/stacks/go), [Flutter](/hr/docs/stacks/flutter) i [Static](/hr/docs/stacks/static) za detalje.
 
-## Plaćanje s obzirom na državu
+## Platni sustavi po državi
 
 AI generator koda zna koje su platforme za plaćanje popularne u svakoj državi:
 
@@ -133,7 +133,7 @@ Ako AI-ju kažeš da koristi određeni paket, pristup ili stil — koristit će 
 - "Hoću tamnu temu"
 - "Koristi PostgreSQL, ne MySQL"
 
-Ovo se prosljeđuje svim AI koracima gradnje kao obvezne upute.
+Ovo se šalje svim AI koracima gradnje kao obvezne upute.
 
 ## Što se događa ako nešto pođe po krivu?
 
