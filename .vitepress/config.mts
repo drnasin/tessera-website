@@ -2,12 +2,30 @@ import { defineConfig } from 'vitepress'
 
 const hostname = 'https://tessera-ai.net'
 
+async function fetchLatestVersion(): Promise<string> {
+  try {
+    const res = await fetch('https://api.github.com/repos/drnasin/tessera-installer/tags', {
+      headers: { Accept: 'application/vnd.github+json', 'User-Agent': 'tessera-website' },
+    })
+    if (!res.ok) return ''
+    const tags: Array<{ name: string }> = await res.json()
+    return tags[0]?.name ?? ''
+  } catch {
+    return ''
+  }
+}
+
+const latestVersion = await fetchLatestVersion()
+
 export default defineConfig({
   base: '/',
   cleanUrls: true,
   srcExclude: ['README.md'],
 
   vite: {
+    define: {
+      __TESSERA_VERSION__: JSON.stringify(latestVersion),
+    },
     server: {
       host: 'tessera-website.test',
     },

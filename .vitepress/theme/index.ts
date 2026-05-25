@@ -3,6 +3,7 @@ import { h } from 'vue'
 import HomeTerminal from './HomeTerminal.vue'
 import BuiltWithTessera from './BuiltWithTessera.vue'
 import NotFound from './NotFound.vue'
+import VersionBadge from './VersionBadge.vue'
 import './custom.css'
 
 export default {
@@ -15,6 +16,7 @@ export default {
       // is the differentiator the site needs (see design audit).
       'home-hero-after': () => h(BuiltWithTessera),
       'not-found': () => h(NotFound),
+      'nav-bar-content-after': () => h(VersionBadge),
     })
   },
 }
