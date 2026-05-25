@@ -7,7 +7,7 @@ const version = __TESSERA_VERSION__
   <a
     v-if="version"
     class="tessera-version-badge"
-    href="https://github.com/drnasin/tessera-installer/releases"
+    href="https://github.com/drnasin/tessera-installer/tags"
     target="_blank"
     rel="noopener noreferrer"
     :aria-label="`Tessera ${version} release notes`"
