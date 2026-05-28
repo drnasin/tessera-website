@@ -204,13 +204,18 @@ export default defineConfig({
             text: 'Početak rada',
             items: [
               { text: 'Što je Tessera?', link: '/hr/docs/what-is-tessera' },
-              { text: 'Tessera vs. ručni scaffolding', link: '/hr/docs/comparison' },
-              { text: 'Tessera vs. ChatGPT', link: '/hr/docs/comparison-chatgpt' },
-              { text: 'Tessera vs. GitHub Copilot', link: '/hr/docs/comparison-copilot' },
               { text: 'Instalacija i postavljanje', link: '/hr/docs/getting-started' },
               { text: 'Kreiranje projekta', link: '/hr/docs/creating-project' },
               { text: 'Nakon builda', link: '/hr/docs/after-building' },
               { text: 'Rješavanje problema', link: '/hr/docs/troubleshooting' },
+            ],
+          },
+          {
+            text: 'Usporedi',
+            items: [
+              { text: 'vs. ručni scaffolding', link: '/hr/docs/comparison' },
+              { text: 'vs. ChatGPT', link: '/hr/docs/comparison-chatgpt' },
+              { text: 'vs. GitHub Copilot', link: '/hr/docs/comparison-copilot' },
             ],
           },
           {
@@ -305,13 +310,18 @@ export default defineConfig({
         text: 'Getting Started',
         items: [
           { text: 'What is Tessera?', link: '/docs/what-is-tessera' },
-          { text: 'Tessera vs. Manual Scaffolding', link: '/docs/comparison' },
-          { text: 'Tessera vs. ChatGPT', link: '/docs/comparison-chatgpt' },
-          { text: 'Tessera vs. GitHub Copilot', link: '/docs/comparison-copilot' },
           { text: 'Installation & Setup', link: '/docs/getting-started' },
           { text: 'Creating a Project', link: '/docs/creating-project' },
           { text: 'After Building', link: '/docs/after-building' },
           { text: 'Troubleshooting', link: '/docs/troubleshooting' },
+        ]
+      },
+      {
+        text: 'Compare',
+        items: [
+          { text: 'vs. Manual Scaffolding', link: '/docs/comparison' },
+          { text: 'vs. ChatGPT', link: '/docs/comparison-chatgpt' },
+          { text: 'vs. GitHub Copilot', link: '/docs/comparison-copilot' },
         ]
       },
       {
