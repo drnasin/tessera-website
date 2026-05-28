@@ -204,6 +204,7 @@ export default defineConfig({
             text: 'Početak rada',
             items: [
               { text: 'Što je Tessera?', link: '/hr/docs/what-is-tessera' },
+              { text: 'Tessera vs. ručni scaffolding', link: '/hr/docs/comparison' },
               { text: 'Instalacija i postavljanje', link: '/hr/docs/getting-started' },
               { text: 'Kreiranje projekta', link: '/hr/docs/creating-project' },
               { text: 'Nakon builda', link: '/hr/docs/after-building' },
@@ -302,6 +303,7 @@ export default defineConfig({
         text: 'Getting Started',
         items: [
           { text: 'What is Tessera?', link: '/docs/what-is-tessera' },
+          { text: 'Tessera vs. Manual Scaffolding', link: '/docs/comparison' },
           { text: 'Installation & Setup', link: '/docs/getting-started' },
           { text: 'Creating a Project', link: '/docs/creating-project' },
           { text: 'After Building', link: '/docs/after-building' },
