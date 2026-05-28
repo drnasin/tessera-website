@@ -283,7 +283,7 @@ export default defineConfig({
           next: 'Sljedeća stranica',
         },
 
-        outlineTitle: 'Na ovoj stranici',
+        outline: { label: 'Na ovoj stranici' },
         sidebarMenuLabel: 'Izbornik',
         returnToTopLabel: 'Povratak na vrh',
         darkModeSwitchLabel: 'Tema',
