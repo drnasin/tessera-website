@@ -1,5 +1,5 @@
 ---
-title: "Tessera vs. Manual Scaffolding — AI Project Generator"
+title: "Tessera vs. Manual Scaffolding"
 description: "Compare AI-generated project scaffolding with manual setup. Tessera generates a production-ready Laravel, Node.js, or Go project in under 10 minutes — including tests, admin panel, and deployment docs."
 ---
 

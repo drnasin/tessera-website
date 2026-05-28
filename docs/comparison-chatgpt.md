@@ -1,5 +1,5 @@
 ---
-title: "Tessera vs. ChatGPT for Web Project Generation"
+title: "Tessera vs. ChatGPT"
 description: "ChatGPT generates code snippets. Tessera generates complete, deployable web projects — with tests, admin panels, seed data, and an audit trail. See when to use each."
 ---
 

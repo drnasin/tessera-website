@@ -1,5 +1,5 @@
 ---
-title: "Tessera vs. GitHub Copilot for Project Generation"
+title: "Tessera vs. GitHub Copilot"
 description: "GitHub Copilot autocompletes code inside your editor. Tessera generates a complete, deployable web project from a single conversation. Different tools, different jobs — see which fits your situation."
 ---
 

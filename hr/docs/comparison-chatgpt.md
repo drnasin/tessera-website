@@ -1,5 +1,5 @@
 ---
-title: "Tessera vs. ChatGPT za generiranje web projekata"
+title: "Tessera vs. ChatGPT"
 description: "ChatGPT generira isječke koda. Tessera generira kompletne, deployabilne web projekte — s testovima, admin panelom, seed podacima i tragom builda. Vidi kada koristiti što."
 ---
 

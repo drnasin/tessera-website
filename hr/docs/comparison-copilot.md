@@ -1,5 +1,5 @@
 ---
-title: "Tessera vs. GitHub Copilot za generiranje projekata"
+title: "Tessera vs. GitHub Copilot"
 description: "GitHub Copilot automatski dovršava kod unutar editora. Tessera generira kompletan, deployabilan web projekt iz jednog razgovora. Različiti alati, različiti poslovi — vidi što odgovara tvojoj situaciji."
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Tessera vs. ručni scaffolding — AI generator projekata"
+title: "Tessera vs. ručni scaffolding"
 description: "Usporedi AI generiranje projekata s ručnim postavljanjem. Tessera generira produkcijski spreman Laravel, Node.js ili Go projekt za manje od 10 minuta — uključujući testove, admin panel i dokumentaciju za deploy."
 ---
 
