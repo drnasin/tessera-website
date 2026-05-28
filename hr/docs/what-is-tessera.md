@@ -14,7 +14,7 @@ Tessera je **CLI alat** koji generira kompletne web projekte uz pomoć AI-ja. Op
 - **Agencijama** koje grade više stranica sa sličnim obrascima
 - **Studentima** koji uče kako izgledaju projekti iz stvarnog života
 
-## Što zapravo radi?
+## Što radi AI generator web projekata?
 
 Kad pokreneš `tessera new moj-projekt`, Tessera:
 
@@ -25,7 +25,7 @@ Kad pokreneš `tessera new moj-projekt`, Tessera:
 
 Rezultat je radni projekt koji možeš pokrenuti lokalno i deployati na produkciju.
 
-## Što mi treba?
+## Preduvjeti: PHP, Composer i AI CLI alat
 
 - **PHP 8.4+** — programski jezik u kojem je Tessera napisana
 - **Composer** — package manager za PHP (slično npm-u za JavaScript)
@@ -33,7 +33,7 @@ Rezultat je radni projekt koji možeš pokrenuti lokalno i deployati na produkci
 
 Nemaš još ništa od toga? Vodič za [Instalaciju i postavljanje](/hr/docs/getting-started) vodi te kroz sve korak po korak.
 
-## Kako se ovo razlikuje od ChatGPT-a / Copilota?
+## Tessera vs. ChatGPT i GitHub Copilot
 
 ChatGPT i Copilot pomažu ti pisati kod **jednu datoteku po jednu**. Tessera generira **cijeli projekt** — desetke datoteka koje zajedno funkcioniraju. Razumije kako se modeli vežu na prikaze, kako admin paneli mapiraju tablice baze podataka i kako testovi trebaju pokriti generirani kod.
 

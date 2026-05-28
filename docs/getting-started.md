@@ -7,7 +7,7 @@ description: "Install Tessera CLI in under a minute. Requires PHP, Composer, and
 
 Tessera is an AI project generator that runs as a CLI tool on your machine. Install it globally with Composer and start generating complete web projects from a conversation. New to Tessera? Read [What is Tessera?](/docs/what-is-tessera) first.
 
-## Installation
+## Install Tessera CLI with Composer
 
 ```bash
 composer global require tessera/installer
@@ -105,7 +105,7 @@ These AI tools are installed via npm (Node.js package manager). If you don't hav
 - Go — for the [Go stack](/docs/stacks/go)
 - Flutter SDK — for the [Flutter stack](/docs/stacks/flutter)
 
-## Create Your First Project
+## Generate Your First AI Web Project
 
 ```bash
 tessera new my-project

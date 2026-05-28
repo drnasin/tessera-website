@@ -7,7 +7,7 @@ description: "Tessera's Laravel stack generates a full application with Filament
 
 The most complete stack in Tessera's AI project generator. Websites, CMS, e-commerce, admin panels — AI builds a production-ready Laravel application from a conversation.
 
-## What Gets Generated
+## What Tessera Generates for a Laravel + Filament Project
 
 - **Core models**: Page, Block, Navigation with translations
 - **Theme**: Responsive Tailwind CSS frontend with block-based pages

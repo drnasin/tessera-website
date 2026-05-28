@@ -7,7 +7,7 @@ description: "Instaliraj Tessera CLI za manje od minute. Potrebni su PHP, Compos
 
 Tessera je AI generator projekata koji se pokreće kao CLI alat na tvom računalu. Instaliraj ga globalno putem Composera i počni generirati kompletne web projekte iz razgovora. Nisi čuo za Tesserou prije? Prvo pročitaj [Što je Tessera?](/hr/docs/what-is-tessera).
 
-## Instalacija
+## Instaliraj Tessera CLI pomoću Composera
 
 ```bash
 composer global require tessera/installer
@@ -105,7 +105,7 @@ Ovi AI alati instaliraju se putem npm-a (Node.js upravljač paketa). Ako ga nema
 - Go — za [Go stack](/hr/docs/stacks/go)
 - Flutter SDK — za [Flutter stack](/hr/docs/stacks/flutter)
 
-## Kreiraj prvi projekt
+## Generiraj prvi AI web projekt
 
 ```bash
 tessera new moj-projekt

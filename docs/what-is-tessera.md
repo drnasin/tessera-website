@@ -14,7 +14,7 @@ Tessera is a **command-line tool** (CLI) that generates complete web projects us
 - **Agencies** that build multiple sites with similar patterns
 - **Students** learning how real-world projects are structured
 
-## What does it actually do?
+## What Does an AI Project Generator Do?
 
 When you run `tessera new my-project`, Tessera:
 
@@ -25,7 +25,7 @@ When you run `tessera new my-project`, Tessera:
 
 The result is a working project you can run locally and deploy to production.
 
-## What do I need?
+## Requirements: PHP, Composer, and an AI CLI Tool
 
 - **PHP 8.4+** — the programming language Tessera is built with
 - **Composer** — a package manager for PHP (like npm for JavaScript)
@@ -33,7 +33,7 @@ The result is a working project you can run locally and deploy to production.
 
 Don't have these yet? The [Getting Started](/docs/getting-started) guide walks you through installing everything.
 
-## How is this different from ChatGPT / Copilot?
+## Tessera vs. ChatGPT and GitHub Copilot
 
 ChatGPT and Copilot help you write code **one file at a time**. Tessera generates an **entire project** — dozens of files that work together. It understands how models connect to views, how admin panels map to database tables, and how tests should cover the generated code.
 

@@ -9,7 +9,7 @@ Tessera je **source-available**, a ne open source. Besplatna je za osobne projek
 
 Ako gradiš za plaćene klijente, pokrećeš SaaS ili koristiš Tesserou unutar profitne tvrtke, trebaš **komercijalnu licencu**.
 
-## Što zapravo dobivaš iz builda
+## Što uključuje svaki AI generirani projekt
 
 Licenca je apstrakcija. Evo što `tessera new` proizvodi — svaka razina, svaki stack:
 
@@ -59,7 +59,7 @@ Licenca je apstrakcija. Evo što `tessera new` proizvodi — svaka razina, svaki
 Pogledaj primjer s komentarima: <a href="/docs/case/bakery">hrvatska pekarnica, generirana za 9 minuta i 39 sekundi</a>.
 </p>
 
-## Komercijalni planovi
+## Komercijalne razine licence
 
 <div class="pricing-grid">
 

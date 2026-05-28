@@ -9,7 +9,7 @@ Tessera is **source-available**, not open source. It is free for personal projec
 
 If you build for paying clients, run a SaaS, or use Tessera inside a for-profit company, you need a **commercial licence**.
 
-## What you actually get from a build
+## What Every AI-Generated Project Includes
 
 A licence is an abstraction. Here's what `tessera new` produces — every tier, every stack:
 
@@ -59,7 +59,7 @@ A licence is an abstraction. Here's what `tessera new` produces — every tier, 
 See an annotated example: <a href="/docs/case/bakery">a Croatian bakery, generated in 9 minutes 39 seconds</a>.
 </p>
 
-## Commercial tiers
+## Commercial Licence Tiers
 
 <div class="pricing-grid">
 
