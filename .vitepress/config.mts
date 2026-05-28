@@ -164,33 +164,6 @@ export default defineConfig({
       })])
     }
 
-    // HowTo schema for getting-started pages
-    if (pageData.relativePath === 'docs/getting-started.md' || pageData.relativePath === 'hr/docs/getting-started.md') {
-      const steps = isHr ? [
-        { '@type': 'HowToStep', position: 1, name: 'Instaliraj PHP 8.4+', text: 'Provjeri instalaciju s php -v. Windows: scoop install php ili preuzmi s php.net. macOS: brew install php. Linux: sudo apt install php php-cli php-mbstring php-xml php-curl php-zip.' },
-        { '@type': 'HowToStep', position: 2, name: 'Instaliraj Composer', text: 'Preuzmi i instaliraj Composer s getcomposer.org.' },
-        { '@type': 'HowToStep', position: 3, name: 'Instaliraj Tessera CLI', text: 'Pokreni: composer global require tessera/installer' },
-        { '@type': 'HowToStep', position: 4, name: 'Dodaj Composer bin direktorij u PATH', text: 'Windows: %APPDATA%\\Composer\\vendor\\bin. macOS/Linux: ~/.composer/vendor/bin' },
-        { '@type': 'HowToStep', position: 5, name: 'Provjeri instalaciju i sustav', text: 'Pokreni tessera --version za provjeru, zatim tessera doctor za dijagnostiku sustava.' },
-        { '@type': 'HowToStep', position: 6, name: 'Kreiraj novi projekt', text: 'Pokreni tessera new my-project i slijedi AI razgovor za generiranje kompletnog web projekta.' },
-      ] : [
-        { '@type': 'HowToStep', position: 1, name: 'Install PHP 8.4+', text: 'Check with php -v. Windows: scoop install php or download from php.net. macOS: brew install php. Linux: sudo apt install php php-cli php-mbstring php-xml php-curl php-zip.' },
-        { '@type': 'HowToStep', position: 2, name: 'Install Composer', text: 'Download and install Composer from getcomposer.org.' },
-        { '@type': 'HowToStep', position: 3, name: 'Install Tessera CLI', text: 'Run: composer global require tessera/installer' },
-        { '@type': 'HowToStep', position: 4, name: 'Add Composer bin directory to PATH', text: 'Windows: %APPDATA%\\Composer\\vendor\\bin. macOS/Linux: ~/.composer/vendor/bin' },
-        { '@type': 'HowToStep', position: 5, name: 'Verify installation and system', text: 'Run tessera --version to confirm installation, then tessera doctor for a full system diagnostics check.' },
-        { '@type': 'HowToStep', position: 6, name: 'Create your first project', text: 'Run tessera new my-project and follow the AI conversation to generate your complete web project.' },
-      ]
-      pageData.frontmatter.head.push(['script', { type: 'application/ld+json' }, JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'HowTo',
-        name: isHr ? 'Kako instalirati Tessera CLI' : 'How to Install Tessera CLI',
-        description: isHr
-          ? 'Instaliraj Tessera CLI alat za generiranje kompletnih web projekata uz pomoć AI-ja.'
-          : 'Install the Tessera CLI tool to generate complete web projects from a conversation using AI.',
-        step: steps,
-      })])
-    }
   },
 
   sitemap: {
