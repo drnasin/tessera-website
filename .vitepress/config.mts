@@ -130,6 +130,14 @@ export default defineConfig({
 
   sitemap: {
     hostname: 'https://tessera-ai.net',
+    transformItems(items) {
+      return items.map(item => {
+        if (!item.links) return item
+        const enLink = item.links.find(l => l.lang === 'en')
+        if (!enLink) return item
+        return { ...item, links: [...item.links, { lang: 'x-default', url: enLink.url }] }
+      })
+    },
   },
 
   locales: {
