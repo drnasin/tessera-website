@@ -98,7 +98,7 @@ export default defineConfig({
         {
           '@type': 'Offer',
           name: 'Enterprise Commercial Licence',
-          priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'EUR', price: 'Custom' },
+          priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'EUR' },
           description: 'Custom commercial licence with negotiated developer count, custom SLA, private stack registry, white-label option',
           url: `${hostname}/docs/pricing`,
         },
