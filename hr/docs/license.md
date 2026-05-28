@@ -1,5 +1,5 @@
 ---
-title: "Licenca"
+title: "Tessera Licenca — PolyForm Noncommercial i komercijalne razine"
 description: "Tessera je source-available — besplatna za nekomercijalno korištenje prema PolyForm Noncommercial 1.0.0, a plaćena za komercijalnu upotrebu. Solo, Studio i Enterprise razine."
 ---
 

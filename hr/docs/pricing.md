@@ -1,5 +1,5 @@
 ---
-title: "Cijene"
+title: "Tessera Cijene — Solo, Studio i Enterprise licence"
 description: "Tessera je besplatna za osobnu i nekomercijalnu upotrebu. Komercijalne licence dolaze u tri razine — Solo, Studio i Enterprise — s godišnjim trajanjem i trajnim pravom na posljednju verziju."
 ---
 

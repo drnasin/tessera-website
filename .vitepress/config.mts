@@ -20,6 +20,7 @@ const latestVersion = await fetchLatestVersion()
 export default defineConfig({
   base: '/',
   cleanUrls: true,
+  lastUpdated: true,
   srcExclude: ['README.md'],
 
   vite: {
@@ -126,17 +127,83 @@ export default defineConfig({
       ['meta', { name: 'twitter:description', content: description }],
       ['meta', { property: 'og:locale', content: isHr ? 'hr_HR' : 'en_US' }],
     )
+
+    // BreadcrumbList for all docs pages
+    if (pageData.relativePath.includes('docs/')) {
+      pageData.frontmatter.head.push(['script', { type: 'application/ld+json' }, JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: isHr ? 'Tessera — AI generator projekata' : 'Tessera — AI Project Generator', item: isHr ? `${hostname}/hr/` : `${hostname}/` },
+          { '@type': 'ListItem', position: 2, name: title, item: pageUrl },
+        ],
+      })])
+    }
+
+    // FAQPage schema for pricing pages
+    if (pageData.relativePath === 'docs/pricing.md' || pageData.relativePath === 'hr/docs/pricing.md') {
+      const faq = isHr ? [
+        { '@type': 'Question', name: 'Je li Tessera open source?', acceptedAnswer: { '@type': 'Answer', text: 'Ne, ali izvorni kod je javan. Tessera je source-available: svako može čitati kod, forkati i doprinositi. Pravo na komercijalnu upotrebu zahtijeva plaćenu licencu. Osobna i nekomercijalna upotreba je besplatna pod PolyForm Noncommercial.' } },
+        { '@type': 'Question', name: 'Tko posjeduje kod koji Tessera generira?', acceptedAnswer: { '@type': 'Answer', text: 'Ti. Komercijalna licenca, odjeljak 5, kaže da Licencitor ne polaže pravo na autorsko pravo niti tantijeme na generirani output.' } },
+        { '@type': 'Question', name: 'Što se događa ako ne obnovim licencu?', acceptedAnswer: { '@type': 'Answer', text: 'Nastavljaš koristiti verziju Tessere koju već imaš, zauvijek. Nećeš primati nove značajke ni ispravke grešaka dok ne obnoviš. CLI se neće zaustaviti niti odbiti generirati projekte.' } },
+        { '@type': 'Question', name: 'Mogu li isprobati Tesseru prije plaćanja?', acceptedAnswer: { '@type': 'Answer', text: 'Da. Pokreni je nekomercijalnoj upotrebi na osobnom projektu koliko god želiš. Software je identičan između razina; razlika je licenca.' } },
+        { '@type': 'Question', name: 'Koja je politika povrata novca?', acceptedAnswer: { '@type': 'Answer', text: '14-dnevni povrat bez pitanja za Solo razinu. Studio i Enterprise povrati su od slučaja do slučaja, ali uvijek smo se složili kad se zatraži u dobroj vjeri unutar 30 dana.' } },
+        { '@type': 'Question', name: 'Hoće li se cijene mijenjati?', acceptedAnswer: { '@type': 'Answer', text: 'Vjerojatno, kako orchestrator postaje sposobniji. Postojeće licence zadržavaju originalnu cijenu obnavljanja dok je obnova kontinuirana.' } },
+      ] : [
+        { '@type': 'Question', name: 'Is Tessera open source?', acceptedAnswer: { '@type': 'Answer', text: 'No, but the source is published. Tessera is source-available: anyone can read the code, fork it, and contribute. The right to use Tessera commercially requires a paid licence. Personal and noncommercial use is free under PolyForm Noncommercial.' } },
+        { '@type': 'Question', name: 'Who owns the code Tessera generates?', acceptedAnswer: { '@type': 'Answer', text: 'You do. The Commercial License Section 5 states that Licensor claims no copyright or royalty over Generated Output. Ship it however you want.' } },
+        { '@type': 'Question', name: 'What happens if I do not renew?', acceptedAnswer: { '@type': 'Answer', text: 'You keep using the version of Tessera you already have, forever. You will not receive new features or bug fixes until you renew. The CLI will not stop working or refuse to scaffold.' } },
+        { '@type': 'Question', name: 'Can I trial Tessera before paying?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Run it noncommercially on a personal project as long as you like. The Software is identical between tiers; the licence is the difference.' } },
+        { '@type': 'Question', name: 'What is the refund policy?', acceptedAnswer: { '@type': 'Answer', text: '14-day no-questions-asked for the Solo tier. Studio and Enterprise refunds are case-by-case but we have always agreed when asked in good faith within 30 days.' } },
+        { '@type': 'Question', name: 'Will pricing change?', acceptedAnswer: { '@type': 'Answer', text: 'Probably, as the orchestrator becomes more capable. Existing licences keep their original price for renewal as long as renewal is continuous.' } },
+      ]
+      pageData.frontmatter.head.push(['script', { type: 'application/ld+json' }, JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faq,
+      })])
+    }
+
+    // HowTo schema for getting-started pages
+    if (pageData.relativePath === 'docs/getting-started.md' || pageData.relativePath === 'hr/docs/getting-started.md') {
+      const steps = isHr ? [
+        { '@type': 'HowToStep', position: 1, name: 'Instaliraj PHP 8.4+', text: 'Provjeri instalaciju s php -v. Windows: scoop install php ili preuzmi s php.net. macOS: brew install php. Linux: sudo apt install php php-cli php-mbstring php-xml php-curl php-zip.' },
+        { '@type': 'HowToStep', position: 2, name: 'Instaliraj Composer', text: 'Preuzmi i instaliraj Composer s getcomposer.org.' },
+        { '@type': 'HowToStep', position: 3, name: 'Instaliraj Tessera CLI', text: 'Pokreni: composer global require tessera/installer' },
+        { '@type': 'HowToStep', position: 4, name: 'Dodaj Composer bin direktorij u PATH', text: 'Windows: %APPDATA%\\Composer\\vendor\\bin. macOS/Linux: ~/.composer/vendor/bin' },
+        { '@type': 'HowToStep', position: 5, name: 'Provjeri instalaciju i sustav', text: 'Pokreni tessera --version za provjeru, zatim tessera doctor za dijagnostiku sustava.' },
+        { '@type': 'HowToStep', position: 6, name: 'Kreiraj novi projekt', text: 'Pokreni tessera new my-project i slijedi AI razgovor za generiranje kompletnog web projekta.' },
+      ] : [
+        { '@type': 'HowToStep', position: 1, name: 'Install PHP 8.4+', text: 'Check with php -v. Windows: scoop install php or download from php.net. macOS: brew install php. Linux: sudo apt install php php-cli php-mbstring php-xml php-curl php-zip.' },
+        { '@type': 'HowToStep', position: 2, name: 'Install Composer', text: 'Download and install Composer from getcomposer.org.' },
+        { '@type': 'HowToStep', position: 3, name: 'Install Tessera CLI', text: 'Run: composer global require tessera/installer' },
+        { '@type': 'HowToStep', position: 4, name: 'Add Composer bin directory to PATH', text: 'Windows: %APPDATA%\\Composer\\vendor\\bin. macOS/Linux: ~/.composer/vendor/bin' },
+        { '@type': 'HowToStep', position: 5, name: 'Verify installation and system', text: 'Run tessera --version to confirm installation, then tessera doctor for a full system diagnostics check.' },
+        { '@type': 'HowToStep', position: 6, name: 'Create your first project', text: 'Run tessera new my-project and follow the AI conversation to generate your complete web project.' },
+      ]
+      pageData.frontmatter.head.push(['script', { type: 'application/ld+json' }, JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: isHr ? 'Kako instalirati Tessera CLI' : 'How to Install Tessera CLI',
+        description: isHr
+          ? 'Instaliraj Tessera CLI alat za generiranje kompletnih web projekata uz pomoć AI-ja.'
+          : 'Install the Tessera CLI tool to generate complete web projects from a conversation using AI.',
+        step: steps,
+      })])
+    }
   },
 
   sitemap: {
     hostname: 'https://tessera-ai.net',
     transformItems(items) {
-      return items.map(item => {
-        if (!item.links) return item
-        const enLink = item.links.find(l => l.lang === 'en')
-        if (!enLink) return item
-        return { ...item, links: [...item.links, { lang: 'x-default', url: enLink.url }] }
-      })
+      return items
+        .filter(item => !item.url.includes('test-minimal'))
+        .map(item => {
+          if (!item.links) return item
+          const enLink = item.links.find(l => l.lang === 'en')
+          if (!enLink) return item
+          return { ...item, links: [...item.links, { lang: 'x-default', url: enLink.url }] }
+        })
     },
   },
 

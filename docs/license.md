@@ -1,5 +1,5 @@
 ---
-title: "License"
+title: "Tessera Licence — PolyForm Noncommercial & Commercial Tiers"
 description: "Tessera is source-available — free for noncommercial use under PolyForm Noncommercial 1.0.0, paid for commercial work. Solo, Studio, and Enterprise tiers."
 ---
 

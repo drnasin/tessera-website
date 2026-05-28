@@ -1,5 +1,5 @@
 ---
-title: "Pricing"
+title: "Tessera Pricing — Solo, Studio & Enterprise Licences"
 description: "Tessera is free for personal and noncommercial use. Commercial licences come in three tiers — Solo, Studio, and Enterprise — with annual term plus perpetual fallback."
 ---
 
