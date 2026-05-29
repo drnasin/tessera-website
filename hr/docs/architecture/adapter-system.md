@@ -143,23 +143,13 @@ final class GroqAdapter extends AbstractAdapter
         $outputCost = ($estimatedOutputTokens ?? 0) * self::COST_PER_OUTPUT_TOKEN;
         return round($inputCost + $outputCost, 4);
     }
-
-    /**
-     * Ukloni vjerodajnice DRUGIH pružatelja tako da pogrešno konfigurirana okolina
-     * nikad ne može procuriti (recimo) ANTHROPIC_API_KEY u Groq subprocess.
-     */
-    protected function buildChildEnv(): array
-    {
-        $env = parent::buildChildEnv();
-
-        foreach (['ANTHROPIC_API_KEY', 'OPENAI_API_KEY', 'GOOGLE_API_KEY', 'GEMINI_API_KEY'] as $other) {
-            unset($env[$other]);
-        }
-
-        return $env;
-    }
 }
 ```
+
+Primijeti da **nema metode za upravljanje okolinom koju bi nadjačao**. Izolacija
+vjerodajnica je strukturalna — `AbstractAdapter` već pokreće svaki execute poziv
+kroz `EnvPolicy::forAiTool($this->name())`, pa tvoj adapter dobiva izolaciju po
+pružatelju besplatno. Vidi sljedeću sekciju za jedino mjesto koje doista diraš.
 
 ## Registriranje adaptera
 
@@ -177,14 +167,40 @@ Sprint 2 će uvesti `tessera adapters add groq` kao mehanizam otkrivanja. Do tad
 
 ## Izolacija okoline — važno
 
-Tessera pokreće svaki AI subprocess s **očišćenom okolinom**. `AbstractAdapter::buildChildEnv()` već uklanja:
+Tessera gradi okolinu svakog AI subprocesa iz **allowliste**, a ne čišćenjem
+naslijeđene. Bazna klasa to radi umjesto tebe — nema `buildChildEnv()` za
+nadjačati. `AbstractAdapter::execute()` pokreće dijete kroz
+`EnvPolicy::forAiTool($this->name())`, koji propušta:
 
-- `CLAUDECODE`, `CLAUDE_CODE`, `CLAUDE_CODE_SSE_PORT`, `CLAUDE_CODE_ENTRYPOINT` — da dijete Claude ne odbije pokrenuti misleći da je ugniježđeno
-- `VIPSHOME` — da nasljeđeni Tessera-interni hint ne zatruje djecu
+- PATH, locale i minimalni skup infrastrukturnih varijabli koje svaki CLI treba
+- s odstranjenim AI-nesting markerima (`CLAUDECODE`, `CLAUDE_CODE`, `CLAUDE_CODE_SSE_PORT`, `CLAUDE_CODE_ENTRYPOINT`, `VIPSHOME`) da dijete Claude ne odbije pokrenuti misleći da je ugniježđeno
+- **samo vjerodajnice registrirane za ime tvog pružatelja** — ključevi svih drugih pružatelja, plus nevezane tajne (`GITHUB_TOKEN`, `COMPOSER_AUTH`, ssh-agent socket, `GIT_SSH_COMMAND`, CI tokeni), nikad se ne prosljeđuju
 
-Ako tvoj adapter ima dodatne varijable za uklanjanje — obično API ključeve za *druge* pružatelje, da ne mogu procuriti — nadjači `buildChildEnv()` i ukloni ih, kao u primjeru gore.
+Budući da je allowlista ključana po `name()` tvog adaptera, izolacija je
+automatska: čak i ako korisnikov shell exporta API ključeve svakog pružatelja,
+tvoj Groq subprocess vidi samo Groq-relevantnu okolinu. Detekcijske probe
+(`--version`) idu kroz `EnvPolicy::minimal()` i ne dobivaju nikakve vjerodajnice.
 
-Ovo je obrana u dubini. Čak i ako korisnikov shell ima exportirane API ključeve svakog pružatelja, tvoj Groq subprocess vidi samo Groq-relevantnu okolinu. Tokeni poslani pogrešnom AI pružatelju koštaju pravi novac; ovo je jeftino osiguranje.
+### Registriranje vjerodajnica tvog pružatelja
+
+Jedino mjesto koje *doista* diraš je `EnvPolicy::AI_CREDENTIALS` (u
+`src/EnvPolicy.php`). Mapira svako ime adaptera (`name()`) na env varijable koje
+taj adapter smije primiti:
+
+```php
+private const AI_CREDENTIALS = [
+    'claude' => ['ANTHROPIC_API_KEY', 'ANTHROPIC_AUTH_TOKEN', ...],
+    'codex'  => ['OPENAI_API_KEY', 'OPENAI_ORG_ID', ...],
+    'gemini' => ['GOOGLE_API_KEY', 'GEMINI_API_KEY', ...],
+    // Dodaj svoj:
+    'groq'   => ['GROQ_API_KEY'],
+];
+```
+
+Ako preskočiš ovaj korak, tvoj CLI se pokreće bez vjerodajnica i ne uspijeva se
+autentificirati — to je allowlista koja radi po dizajnu, ne bug. Dodaj samo
+varijable koje tvoj pružatelj stvarno treba (API ključ, opcionalni base-URL/model
+override); build/shell tajne drži vani — one pripadaju build alatima, nikad AI djetetu.
 
 ## Procjena troška
 

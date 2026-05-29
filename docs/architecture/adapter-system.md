@@ -143,23 +143,13 @@ final class GroqAdapter extends AbstractAdapter
         $outputCost = ($estimatedOutputTokens ?? 0) * self::COST_PER_OUTPUT_TOKEN;
         return round($inputCost + $outputCost, 4);
     }
-
-    /**
-     * Drop credentials of OTHER providers so a misconfigured environment can
-     * never leak (say) ANTHROPIC_API_KEY into the Groq subprocess.
-     */
-    protected function buildChildEnv(): array
-    {
-        $env = parent::buildChildEnv();
-
-        foreach (['ANTHROPIC_API_KEY', 'OPENAI_API_KEY', 'GOOGLE_API_KEY', 'GEMINI_API_KEY'] as $other) {
-            unset($env[$other]);
-        }
-
-        return $env;
-    }
 }
 ```
+
+Notice there is **no environment-handling method to override**. Credential
+isolation is structural — `AbstractAdapter` already spawns every execute call
+through `EnvPolicy::forAiTool($this->name())`, so your adapter gets per-provider
+isolation for free. See the next section for the one place you do touch.
 
 ## Registering your adapter
 
@@ -177,14 +167,40 @@ Sprint 2 will introduce `tessera adapters add groq` as a discovery mechanism. Un
 
 ## Environment isolation — important
 
-Tessera runs every AI subprocess with a **scrubbed environment**. `AbstractAdapter::buildChildEnv()` already drops:
+Tessera builds every AI subprocess's environment from an **allowlist**, not by
+scrubbing the inherited one. The base class handles this for you — there is no
+`buildChildEnv()` to override. `AbstractAdapter::execute()` spawns the child
+through `EnvPolicy::forAiTool($this->name())`, which passes:
 
-- `CLAUDECODE`, `CLAUDE_CODE`, `CLAUDE_CODE_SSE_PORT`, `CLAUDE_CODE_ENTRYPOINT` — so a child Claude process doesn't refuse to run thinking it's nested
-- `VIPSHOME` — so an inherited Tessera-internal hint doesn't poison child runs
+- PATH, locale, and a minimal set of infrastructure variables every CLI needs
+- the AI-nesting markers stripped (`CLAUDECODE`, `CLAUDE_CODE`, `CLAUDE_CODE_SSE_PORT`, `CLAUDE_CODE_ENTRYPOINT`, `VIPSHOME`) so a child Claude doesn't refuse to run thinking it's nested
+- **only the credentials registered for your provider name** — every other provider's keys, plus unrelated secrets (`GITHUB_TOKEN`, `COMPOSER_AUTH`, the ssh-agent socket, `GIT_SSH_COMMAND`, CI tokens), are never passed
 
-If your adapter has additional vars to drop — typically API keys for *other* providers, so they can't leak — override `buildChildEnv()` and remove them, like the example above.
+Because it's an allowlist keyed on your adapter's `name()`, isolation is automatic:
+even if the user's shell exports every provider's API key, your Groq subprocess
+only ever sees Groq-relevant env. Detection probes (`--version`) run through
+`EnvPolicy::minimal()` and receive no credentials at all.
 
-This is defence-in-depth. Even if a user's shell has every provider's API key exported, your Groq subprocess only sees Groq-relevant env. Misrouted tokens cost real money; this is cheap insurance.
+### Registering your provider's credentials
+
+The one place you *do* touch is `EnvPolicy::AI_CREDENTIALS` (in
+`src/EnvPolicy.php`). It maps each adapter `name()` to the env vars that adapter
+is allowed to receive:
+
+```php
+private const AI_CREDENTIALS = [
+    'claude' => ['ANTHROPIC_API_KEY', 'ANTHROPIC_AUTH_TOKEN', ...],
+    'codex'  => ['OPENAI_API_KEY', 'OPENAI_ORG_ID', ...],
+    'gemini' => ['GOOGLE_API_KEY', 'GEMINI_API_KEY', ...],
+    // Add yours:
+    'groq'   => ['GROQ_API_KEY'],
+];
+```
+
+If you skip this step, your CLI launches with no credentials and fails to
+authenticate — that's the allowlist working as designed, not a bug. Add only the
+vars your provider genuinely needs (API key, optional base-URL/model override);
+keep build/shell secrets out — they belong to build tools, never to an AI child.
 
 ## Cost estimation
 
