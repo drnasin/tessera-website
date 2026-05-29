@@ -82,6 +82,12 @@ To je sve. `AbstractAdapter` već obrađuje:
 
 ## Potpuni primjer — `GroqAdapter`
 
+> **Groq, ne Grok.** Ovaj primjer cilja [Groq](https://groq.com) — brzog
+> inference pružatelja koji servira Llama, Mixtral i Gemma modele — a **ne** xAI-jev
+> chatbot **Grok**. Imena je lako pobrkati; daje ih model-lista ispod
+> (`llama-*`, `mixtral-*`, `gemma-*`). Adapter za Grok koristio bi `grok-*`
+> ID-jeve modela i xAI-jev vlastiti CLI.
+
 ```php
 <?php
 

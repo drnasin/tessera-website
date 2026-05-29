@@ -82,6 +82,12 @@ That's it. `AbstractAdapter` already handles:
 
 ## A complete example — `GroqAdapter`
 
+> **Groq, not Grok.** This example targets [Groq](https://groq.com) — the
+> high-speed inference provider that serves Llama, Mixtral, and Gemma models —
+> not xAI's **Grok** chatbot. The two names are easy to confuse; the model list
+> below (`llama-*`, `mixtral-*`, `gemma-*`) is what gives it away. An adapter for
+> Grok would use `grok-*` model IDs and xAI's own CLI.
+
 ```php
 <?php
 
