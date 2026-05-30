@@ -36,6 +36,8 @@ export interface LocaleMessages {
   // HomeTerminal
   terminal: {
     replay: string
+    title: string
+    lines: Array<{ type: string; text: string; delay?: number }>
   }
 }
 
@@ -73,6 +75,34 @@ const messages: Record<string, LocaleMessages> = {
     },
     terminal: {
       replay: 'Replay',
+      title: 'tessera new my-restaurant',
+      lines: [
+        { type: 'command', text: 'tessera new my-restaurant', delay: 65 },
+        { type: 'pause', text: '', delay: 350 },
+        { type: 'output', text: '' },
+        { type: 'success', text: '✓ AI: claude, codex' },
+        { type: 'success', text: '✓ OS: macos (brew)' },
+        { type: 'output', text: '' },
+        { type: 'info', text: 'AI: Tell me about the project — what does the client do?' },
+        { type: 'accent', text: '> Restaurant in Split — menu and online reservations' },
+        { type: 'output', text: '' },
+        { type: 'info', text: 'AI: Which languages?' },
+        { type: 'accent', text: '> Croatian and English' },
+        { type: 'output', text: '' },
+        { type: 'success', text: '✓ Selected: Laravel + Filament' },
+        { type: 'output', text: '' },
+        { type: 'output', text: '⏳ AI is building your project...' },
+        { type: 'success', text: '  ✓ Database models & services    (claude opus)' },
+        { type: 'success', text: '  ✓ Frontend theme & pages        (claude opus)' },
+        { type: 'success', text: '  ✓ Admin panel                   (claude opus)' },
+        { type: 'success', text: '  ✓ Content & seeding             (claude sonnet)' },
+        { type: 'success', text: '  ✓ All gates passed              (file checks)' },
+        { type: 'success', text: '  ✓ Setup instructions            (claude haiku)' },
+        { type: 'output', text: '' },
+        { type: 'success', text: '╔════════════════════════════════╗' },
+        { type: 'success', text: '║      PROJECT IS READY!         ║' },
+        { type: 'success', text: '╚════════════════════════════════╝' },
+      ],
     },
   },
 
@@ -110,6 +140,34 @@ const messages: Record<string, LocaleMessages> = {
     },
     terminal: {
       replay: 'Ponovi',
+      title: 'tessera new my-restaurant',
+      lines: [
+        { type: 'command', text: 'tessera new my-restaurant', delay: 65 },
+        { type: 'pause', text: '', delay: 350 },
+        { type: 'output', text: '' },
+        { type: 'success', text: '✓ AI: claude, codex' },
+        { type: 'success', text: '✓ OS: macos (brew)' },
+        { type: 'output', text: '' },
+        { type: 'info', text: 'AI: Ispričaj mi o projektu — čime se klijent bavi?' },
+        { type: 'accent', text: '> Restoran u Splitu — jelovnik i online rezervacije' },
+        { type: 'output', text: '' },
+        { type: 'info', text: 'AI: Koji jezici?' },
+        { type: 'accent', text: '> Hrvatski i engleski' },
+        { type: 'output', text: '' },
+        { type: 'success', text: '✓ Odabrano: Laravel + Filament' },
+        { type: 'output', text: '' },
+        { type: 'output', text: '⏳ AI gradi tvoj projekt...' },
+        { type: 'success', text: '  ✓ Modeli baze i servisi         (claude opus)' },
+        { type: 'success', text: '  ✓ Frontend tema i stranice      (claude opus)' },
+        { type: 'success', text: '  ✓ Admin panel                   (claude opus)' },
+        { type: 'success', text: '  ✓ Sadržaj i punjenje            (claude sonnet)' },
+        { type: 'success', text: '  ✓ Svi kontrolni prolazi prošli  (provjere)' },
+        { type: 'success', text: '  ✓ Upute za postavljanje         (claude haiku)' },
+        { type: 'output', text: '' },
+        { type: 'success', text: '╔════════════════════════════════╗' },
+        { type: 'success', text: '║      PROJEKT JE SPREMAN!       ║' },
+        { type: 'success', text: '╚════════════════════════════════╝' },
+      ],
     },
   },
 }
