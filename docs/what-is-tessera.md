@@ -21,7 +21,7 @@ When you run `tessera new my-project`, Tessera:
 1. **Asks you questions** — what the client does, which languages, payments, design style
 2. **Picks a tech stack** — Laravel, Node.js, Go, Flutter, or Static, based on your answers
 3. **Generates everything** — models, pages, admin panel, content, tests, deployment docs
-4. **Reviews its own work** — a second AI checks the first AI's output for mistakes
+4. **Checks its own work** — a deterministic post-check verifies each step actually produced what it claimed (no AI grading another AI)
 
 The result is a working project you can run locally and deploy to production.
 

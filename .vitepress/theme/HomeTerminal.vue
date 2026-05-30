@@ -5,7 +5,7 @@
         <span class="dot red"></span>
         <span class="dot yellow"></span>
         <span class="dot green"></span>
-        <span class="title">tessera new my-restaurant</span>
+        <span class="title">{{ t.terminal.title }}</span>
       </div>
       <div class="terminal-body" ref="terminalBody">
         <div class="line">
@@ -35,37 +35,9 @@ const typewriter = ref(null)
 const typing = ref(true)
 const showReplay = ref(false)
 
-// Trimmed from ~30 lines to ~16 — keeps the conversational shape but removes
-// padding lines and the obsolete "Peer review (gemini flash)" step (Sprint 1
-// replaced peer review with deterministic quality gates).
-const lines = [
-  { type: 'command', text: 'tessera new my-restaurant', delay: 65 },
-  { type: 'pause', delay: 350 },
-  { type: 'output', text: '' },
-  { type: 'success', text: '✓ AI: claude, codex' },
-  { type: 'success', text: '✓ OS: macos (brew)' },
-  { type: 'output', text: '' },
-  { type: 'info', text: 'AI: Tell me about the project — what does the client do?' },
-  { type: 'accent', text: '> Restaurant in Split — menu and online reservations' },
-  { type: 'output', text: '' },
-  { type: 'info', text: 'AI: Which languages?' },
-  { type: 'accent', text: '> Croatian and English' },
-  { type: 'output', text: '' },
-  { type: 'success', text: '✓ Selected: Laravel + Filament' },
-  { type: 'output', text: '' },
-  { type: 'output', text: '⏳ AI is building your project...' },
-  { type: 'success', text: '  ✓ Database models & services    (claude opus)' },
-  { type: 'success', text: '  ✓ Frontend theme & pages        (claude opus)' },
-  { type: 'success', text: '  ✓ Admin panel                   (claude opus)' },
-  { type: 'success', text: '  ✓ Content & seeding             (claude sonnet)' },
-  { type: 'success', text: '  ✓ All gates passed              (file checks)' },
-  { type: 'success', text: '  ✓ Setup instructions            (claude haiku)' },
-  { type: 'output', text: '' },
-  { type: 'success', text: '╔════════════════════════════════╗' },
-  { type: 'success', text: '║      PROJECT IS READY!         ║' },
-  { type: 'success', text: '╚════════════════════════════════╝' },
-]
-
+// Terminal script lines are localized — see terminal.lines in ./i18n. The
+// conversational shape (no padding lines, no obsolete peer-review step) is kept;
+// Sprint 1 replaced peer review with deterministic quality gates.
 let currentTimeouts = []
 let observer = null
 
@@ -111,6 +83,8 @@ function createCommandLine(command) {
 function runAnimation() {
   const terminal = terminalBody.value
   if (!terminal) return
+
+  const lines = t.value.terminal.lines
 
   clearScheduled()
   typing.value = true

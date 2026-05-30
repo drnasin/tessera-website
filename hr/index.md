@@ -7,7 +7,7 @@ description: "Tessera je CLI alat koji generira kompletne web projekte iz razgov
 hero:
   name: Tessera
   text: Manje scaffoldinga. Više isporuke.
-  tagline: Od petominutnog razgovora do gotovog Laravel, Node, Go, Flutter ili statičkog projekta — gradi ga AI, provjeravaju ga deterministički kontrolni prolazi, a svaki prompt i svaki korak ostaju trajno zabilježeni.
+  tagline: Opišeš projekt u petominutnom razgovoru. AI gradi kompletan, spreman-za-deploy Laravel, Node, Go, Flutter ili statički projekt — a svaki korak se automatski provjerava, pa možeš vjerovati onome što izađe.
   actions:
     - theme: brand
       text: Kreni
@@ -80,8 +80,8 @@ tessera new moj-projekt
 
 <div class="feature-hero">
 <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg></div>
-<h3>AI generira cijeli projekt</h3>
-<p>Opiši projekt normalnim jezikom. AI generator koda stvara modele, temu, admin panel, testove i dokumentaciju za deploy — bez boilerplate koda, bez copy-pastanja.</p>
+<h3>Cijeli projekt, ne isječci</h3>
+<p>Većina AI alata daje ti jednu datoteku po jednu. Tessera generira cijeli projekt — modele, temu, admin panel, testove i deploy dokumentaciju — povezane i spremne za pokretanje.</p>
 </div>
 
 <div class="features-grid">
@@ -94,25 +94,25 @@ tessera new moj-projekt
 <div class="feature-card">
 <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
 <h3>Ugrađene provjere kvalitete</h3>
-<p>Svaki korak završava determinističkom provjerom deklariranom u YAML-u — postojanje datoteka, sintaksa, ugovorene provjere. Bez AI-ja koji ocjenjuje drugog AI-ja. Provjera prolazi ili pada, a rezultat ostaje u events.jsonl zauvijek.</p>
+<p>Svaki korak provjerava automatska kontrola — ne drugi AI koji nagađa. Ili prolazi ili se build zaustavlja, a svaki rezultat se bilježi pa točno vidiš što se dogodilo.</p>
 </div>
 
 <div class="feature-card">
 <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg></div>
 <h3>Nastavak nakon greške</h3>
-<p>Build pao ili si pritisnuo Ctrl+C? Napredak se atomarno sprema. Pokreni istu naredbu — nastavlja od mjesta gdje je stao. Stanje se uvijek sprema prije eventa — nijedan korak se nikad ne ponavlja.</p>
+<p>Build pao ili si pritisnuo Ctrl+C? Pokreni istu naredbu i nastavlja točno gdje je stao — nijedan korak se ne pokreće dvaput, ništa se ne gubi.</p>
 </div>
 
 <div class="feature-card">
 <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></div>
-<h3>5 stackova, jedno računalo</h3>
-<p>Laravel, Node, Go, Flutter, Static — svaki stack živi u verzioniranom YAML manifestu. AI bira pravi ili ti navedeš <code>--stack=node</code>. Dodavanje šestog znači pisanje jednog YAML-a.</p>
+<h3>5 stackova, jedan engine</h3>
+<p>Laravel, Node, Go, Flutter, Static — AI bira pravi za tvoj projekt, ili ga sam odabereš s <code>--stack=node</code>. Isti workflow, svaki stack.</p>
 </div>
 
 <div class="feature-card">
 <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
 <h3>Self-healing buildovi</h3>
-<p>Testovi padaju? AI ih popravlja, do 3 pokušaja. Preskočivi koraci obogaćivanja ne zaustavljaju 25-minutni build zbog 7-sekundnog rate limita. Temeljni scaffold korak nikad nije preskočiv.</p>
+<p>Testovi padaju? AI ih popravlja i ponavlja, do 3 puta. Kratki rate limit neće srušiti 25-minutni build — sporedni koraci mogu pričekati, a temeljni scaffold uvijek prođe do kraja.</p>
 </div>
 </div>
 </div>
