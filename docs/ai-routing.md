@@ -23,7 +23,7 @@ During setup, Tessera asks about your AI subscription plans to optimize routing 
 
 ```
 What AI plans do you have?
-  Claude plan: [Max (unlimited) / Pro / Free]
+  Claude plan: [Max / Pro / Free]
   Codex plan:  [Plus (ChatGPT Plus) / Free]
   Gemini plan: [Pro (Google One AI Premium) / Free]
 ```
@@ -94,7 +94,7 @@ AI usage: claude: 5 calls (2 opus, 2 sonnet, 1 haiku) | gemini: 2 calls (2 flash
 
 ## Environment Variables
 
-Most users don't need these — the installer asks interactively. For CI/CD or automation:
+Most users don't need these — the installer asks once on first run and remembers your answers (saved to `~/.tessera/config.json`), so later runs skip the questions. These variables override the saved config, useful for CI/CD or automation:
 
 ```bash
 TESSERA_CLAUDE_PLAN=max       # max | pro | free

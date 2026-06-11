@@ -53,6 +53,18 @@ npm install -g @google/gemini-cli
 
 See [Getting Started](/docs/getting-started#at-least-one-ai-cli-tool) for all options.
 
+### AI tool installed but not logged in
+
+`tessera doctor` reports a tool as `installed but not logged in` when the CLI is on your `PATH` but has no active session. Detection alone would pass — but the first real build call would fail. Sign in with the command doctor prints:
+
+```bash
+claude          # opens the Claude login flow
+codex login     # Codex
+gemini          # Gemini login flow
+```
+
+Then re-run `tessera doctor` — it should show the tool as a plain `✓`.
+
 ### AI rate limit errors
 
 If an AI tool hits its rate limit, Tessera automatically switches to the next available tool. If all tools are rate-limited:
