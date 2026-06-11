@@ -59,6 +59,10 @@ Optional (depends on stack):
   All good! Run: tessera new my-project
 ```
 
+::: tip
+`doctor` ne provjerava samo jesu li AI CLI alati instalirani — provjerava i je li svaki prijavljen. Alat koji je prisutan ali odjavljen prikazuje upozorenje s naredbom za prijavu, pa to uhvatiš ovdje umjesto usred builda.
+:::
+
 ## Preduvjeti
 
 **Obavezno:**
@@ -114,14 +118,17 @@ tessera new moj-projekt
 AI vodi prirodan razgovor — pita o poslovanju, jezicima, plaćanju, stilu dizajna — a zatim [automatski gradi sve](/hr/docs/creating-project). Cijeli proces traje nekoliko minuta.
 
 ::: tip
-Tessera pita o tvojim AI pretplatnim planovima. Imaš Claude Max (neograničen)? Tessera će preferirati Claude za sve zadatke jer nema troška. Više o [usmjeravanju AI poziva](/hr/docs/ai-routing).
+Tessera pita o tvojim AI pretplatnim planovima pri prvom pokretanju i pamti ih (sprema u `~/.tessera/config.json`), pa sljedeća pokretanja preskaču pitanja. Imaš Claude Max? Tessera će preferirati Claude za sve zadatke jer nema troška. Više o [usmjeravanju AI poziva](/hr/docs/ai-routing).
 :::
 
 ## Preskakanje razgovora (dev način)
 
-Znaš već koji stack trebaš i ne treba ti AI razgovor? Dvije zastavice ubrzavaju stvari:
+Znaš već koji stack trebaš i ne treba ti AI razgovor? Dvije zastavice ubrzavaju stvari. Pokreni `tessera stacks` za popis dostupnih stackova (i provjeru ima li tvoj sustav alate koje svaki treba):
 
 ```bash
+# Popis imena stackova + spremnost sustava.
+tessera stacks
+
 # Odaberi stack sam — bez AI poziva za odabir stacka.
 tessera new moja-trgovina --stack=laravel
 

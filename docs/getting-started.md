@@ -59,6 +59,10 @@ Optional (depends on stack):
   All good! Run: tessera new my-project
 ```
 
+::: tip
+`doctor` doesn't just check that the AI CLIs are installed — it also verifies each one is logged in. A tool that's present but signed out shows a warning with the login command, so you catch it here instead of mid-build.
+:::
+
 ## Prerequisites
 
 **Required:**
@@ -114,14 +118,17 @@ tessera new my-project
 AI will lead a natural conversation — asking about the business, languages, payments, design style — and then [build everything automatically](/docs/creating-project). The entire process takes a few minutes.
 
 ::: tip
-The installer asks about your AI subscription plans during setup. If you have Claude Max (unlimited), it will prefer Claude for all tasks since there's no cost concern. Learn more about [AI routing](/docs/ai-routing).
+The installer asks about your AI subscription plans on first run and remembers them (saved to `~/.tessera/config.json`), so later runs skip the questions. If you have Claude Max, it will prefer Claude for all tasks since there's no cost concern. Learn more about [AI routing](/docs/ai-routing).
 :::
 
 ## Skipping the conversation (dev mode)
 
-If you already know which stack you want and you don't need AI to interview you, two flags speed things up:
+If you already know which stack you want and you don't need AI to interview you, two flags speed things up. Run `tessera stacks` to list the available stacks (and whether your system has the tools each one needs):
 
 ```bash
+# List stack names + system readiness.
+tessera stacks
+
 # Pick the stack yourself — no AI stack-selection call.
 tessera new my-shop --stack=laravel
 

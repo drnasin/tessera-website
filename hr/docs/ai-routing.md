@@ -23,7 +23,7 @@ Tijekom postavljanja, Tessera pita o tvojim AI pretplatnim planovima radi optimi
 
 ```
 Koje AI planove imaš?
-  Claude plan: [Max (neograničen) / Pro / Besplatni]
+  Claude plan: [Max / Pro / Besplatni]
   Codex plan:  [Plus (ChatGPT Plus) / Besplatni]
   Gemini plan: [Pro (Google One AI Premium) / Besplatni]
 ```
@@ -94,7 +94,7 @@ AI usage: claude: 5 calls (2 opus, 2 sonnet, 1 haiku) | gemini: 2 calls (2 flash
 
 ## Varijable okruženja
 
-Većini korisnika ovo ne treba — installer pita interaktivno. Za CI/CD ili automatizaciju:
+Većini korisnika ovo ne treba — installer pita jednom pri prvom pokretanju i pamti odgovore (sprema u `~/.tessera/config.json`), pa sljedeća pokretanja preskaču pitanja. Ove varijable nadjačavaju spremljenu konfiguraciju, korisno za CI/CD ili automatizaciju:
 
 ```bash
 TESSERA_CLAUDE_PLAN=max       # max | pro | free

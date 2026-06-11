@@ -53,6 +53,18 @@ npm install -g @google/gemini-cli
 
 Vidi [Instalaciju i postavljanje](/hr/docs/getting-started#barem-jedan-ai-cli-alat) za sve opcije.
 
+### AI alat instaliran ali nije prijavljen
+
+`tessera doctor` prijavljuje alat kao `installed but not logged in` kad je CLI na tvom `PATH`-u ali nema aktivnu sesiju. Sama detekcija bi prošla — ali prvi stvarni poziv tijekom builda bi pao. Prijavi se naredbom koju doctor ispiše:
+
+```bash
+claude          # otvara Claude prijavu
+codex login     # Codex
+gemini          # Gemini prijava
+```
+
+Zatim ponovno pokreni `tessera doctor` — alat bi se trebao prikazati kao obični `✓`.
+
 ### Greške rate limita AI alata
 
 Ako AI alat dosegne rate limit, Tessera automatski prebacuje na sljedeći dostupni alat. Ako su svi alati na rate limitu:
