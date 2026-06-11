@@ -1,22 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 const hostname = 'https://tessera-ai.net'
-const fallbackVersion = 'v3.11.3'
-
-async function fetchLatestVersion(): Promise<string> {
-  try {
-    const res = await fetch('https://api.github.com/repos/drnasin/tessera-installer/tags', {
-      headers: { Accept: 'application/vnd.github+json', 'User-Agent': 'tessera-website' },
-    })
-    if (!res.ok) return fallbackVersion
-    const tags: Array<{ name: string }> = await res.json()
-    return tags[0]?.name ?? fallbackVersion
-  } catch {
-    return fallbackVersion
-  }
-}
-
-const latestVersion = await fetchLatestVersion()
+const fallbackVersion = 'v3.12.0'
 
 export default defineConfig({
   base: '/',
@@ -26,7 +11,7 @@ export default defineConfig({
 
   vite: {
     define: {
-      __TESSERA_VERSION__: JSON.stringify(latestVersion),
+      __TESSERA_VERSION__: JSON.stringify(fallbackVersion),
     },
     server: {
       host: 'tessera-website.test',
