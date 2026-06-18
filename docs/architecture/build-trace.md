@@ -9,6 +9,8 @@ Tessera ran for 25 minutes. The AI burned through tokens. Something is wrong wit
 
 Every Tessera build leaves three artefacts in `.tessera/` inside the project directory. Together they answer every question a junior developer might ask about a finished build, and most questions about an in-flight one.
 
+> **Credential safety.** Before any subprocess stderr is written to `events.jsonl` or `state.json`, it passes through `SecretRedactor`, which replaces credential-shaped substrings (`sk-…` tokens, `Bearer` values, `PGPASSWORD`/`MYSQL_PWD` assignments, basic-auth URLs) with `[REDACTED]`. You can inspect these files freely without leaking secrets.
+
 ## The three artefacts
 
 ### `state.json` — current state of the build

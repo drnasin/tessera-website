@@ -9,6 +9,8 @@ Tessera je radila 25 minuta. AI je potrošio tokene. Nešto nije u redu s output
 
 Svaki Tessera build ostavlja tri artefakta u `.tessera/` unutar direktorija projekta. Zajedno odgovaraju na svako pitanje koje junior developer može postaviti o završenom buildu, i većinu pitanja o onom u tijeku.
 
+> **Sigurnost vjerodajnica.** Prije nego što se stderr bilo kojeg subprocesa zapiše u `events.jsonl` ili `state.json`, prolazi kroz `SecretRedactor`, koji zamjenjuje niske nalik vjerodajnicama (`sk-…` tokene, vrijednosti `Bearer`, dodjele `PGPASSWORD`/`MYSQL_PWD`, URL-ove s basic-auth) s `[REDACTED]`. Te datoteke možeš slobodno pregledavati bez rizika od curenja tajnih podataka.
+
 ## Tri artefakta
 
 ### `state.json` — trenutno stanje builda
