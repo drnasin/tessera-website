@@ -103,12 +103,14 @@ gates:
 
 Ovo kaže: nakon što korak završi, **barem jedan** od ovih puteva mora postojati; inače je korak pao.
 
-### Vrste gate-ova (Sprint 1)
+### Vrste gate-ova
 
 | Vrsta | Značenje |
 |---|---|
 | `exists_any` | Jedan od uzoraka odgovara barem jednoj datoteci. |
 | `exists_all` | Svaki uzorak odgovara barem jednoj datoteci. |
+| `non_empty_any` | Jedan od uzoraka odgovara barem jednoj datoteci sa sadržajem (≥ 1 bajt). |
+| `non_empty_all` | Svaki uzorak odgovara barem jednoj datoteci sa sadržajem. |
 
 Uzorci mogu biti konkretni putevi ili `*`/`?` glob-ovi. `**` namjerno nije podržan u v1 (nema iznenađujuće rekurzije).
 
@@ -119,7 +121,9 @@ Uzorci mogu biti konkretni putevi ili `*`/`?` glob-ovi. `**` namjerno nije podr�
 | `hard` | Korak se označava kao pao; plan staje (osim ako je `skippable: true`). |
 | `soft` | Korak se označava kao završen; pad se bilježi u events.jsonl kao upozorenje. |
 
-Sprint 2 dodaje `not_empty`, `contains`, `min_size` i `command_passes` (npr. "korak prolazi samo ako `php -l` uspije na svakoj promijenjenoj datoteci").
+Content gate-ovi su bitni iz još jednog razloga: kad AI subproces istekne (timeout) ili završi s ne-nultim exitom, a svi hard gate-ovi prođu, engine i dalje može promovirati korak u uspjeh (gate-pass override, rođen u [wine-shop buildu](/hr/docs/case/wine-shop)). Samo content-validating gate-ovi (`non_empty_*`) kvalificiraju se za taj override — gate-ovi koji provjeravaju samo postojanje (`exists_*`) ne mogu maskirati timeout ili pali exit, pa stale ostatak ili 0-bajtni djelomični zapis nikad ne vrijedi kao dokaz posla. Run koji završi kroz override javlja `ready_with_warnings` umjesto `ready`.
+
+Budući sprintovi dodaju `contains`, `min_size` i `command_passes` (npr. "korak prolazi samo ako `php -l` uspije na svakoj promijenjenoj datoteci").
 
 ## Preskočivi koraci — graceful degradation
 

@@ -57,7 +57,9 @@ Nakon što svaki AI korak završi, Tessera pokreće **kontrolne prolaze** deklar
    gate: exists_any [app/Filament/Resources/PageResource.php] → pass
 ```
 
-Pad `hard` kontrolnog prolaza zaustavlja korak. Pad `soft` kontrolnog prolaza bilježi se i build nastavlja. Sprint 1 podržava `exists_any` i `exists_all`; Sprint 2 dodaje `not_empty`, `contains`, `min_size` i `command_passes` (npr. "korak prolazi samo ako `php -l` uspije na svakoj promijenjenoj datoteci").
+Pad `hard` kontrolnog prolaza zaustavlja korak. Pad `soft` kontrolnog prolaza bilježi se i build nastavlja. Podržane vrste prolaza: provjere postojanja (`exists_any`, `exists_all`) i provjere sadržaja (`non_empty_any`, `non_empty_all` — pronađena ali prazna datoteka ne prolazi). Budući sprintovi dodaju `contains`, `min_size` i `command_passes` (npr. "korak prolazi samo ako `php -l` uspije na svakoj promijenjenoj datoteci").
+
+Kad AI subproces istekne (timeout) ili završi s ne-nultim exitom, a posao je zapravo na disku, korak može spasiti samo prolazni content-validating hard prolaz (`non_empty_*`) — prolazi koji provjeravaju samo postojanje ne mogu, pa stale ili 0-bajtna datoteka nikad ne maskira pad. Build koji tako završi ima stanje `ready_with_warnings` umjesto čistog `ready`.
 
 Ovo zamjenjuje stariji pristup "peer reviewa" (drugi AI ocjenjuje output prvog AI-ja): kontrolni prolazi su deterministički, ne troše tokene i proizvode strojno čitljive dokaze u `events.jsonl` koje možeš auditirati kasnije. Vidi [trag builda i eventi](/hr/docs/architecture/build-trace) za puni oblik eventa.
 

@@ -57,7 +57,9 @@ After every AI step finishes, Tessera runs **quality gates** declared in the sta
    gate: exists_any [app/Filament/Resources/PageResource.php] → pass
 ```
 
-A `hard` gate failure halts the step. A `soft` gate failure is logged and the build continues. Sprint 1 supports `exists_any` and `exists_all`; Sprint 2 adds `not_empty`, `contains`, `min_size`, and `command_passes` (e.g., "step passes only if `php -l` succeeds on every changed file").
+A `hard` gate failure halts the step. A `soft` gate failure is logged and the build continues. Supported gate types: existence checks (`exists_any`, `exists_all`) and content checks (`non_empty_any`, `non_empty_all` — a matched-but-empty file does not pass). Future sprints add `contains`, `min_size`, and `command_passes` (e.g., "step passes only if `php -l` succeeds on every changed file").
+
+When the AI subprocess times out or exits non-zero but the work is actually on disk, only a passing content-validating hard gate (`non_empty_*`) can rescue the step — existence-only gates cannot, so a stale or 0-byte file never masks a failure. A build finishing this way ends as `ready_with_warnings` instead of a clean `ready`.
 
 This replaces the older "peer review" approach (a second AI grading the first AI's output): gates are deterministic, cost no tokens, and produce machine-readable evidence in `events.jsonl` that you can audit later. See [build trace & events](/docs/architecture/build-trace) for the full event shape.
 

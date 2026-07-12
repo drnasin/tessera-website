@@ -90,7 +90,7 @@ php artisan serve
 
 - **Site:** `http://localhost:8000`
 - **Admin panel:** `http://localhost:8000/admin`
-- **Default login:** `admin@tessera.test` / `password`
+- **Login:** `admin@tessera.test` / the one-time password shown at the end of the build (it is never stored — if you lost it, use "Forgot password" on the login screen)
 
 ### Node.js
 
@@ -167,8 +167,8 @@ SETUP.md includes a production checklist specific to your project. General steps
 4. **Set up a web server** — Nginx or Apache (SETUP.md has example configs)
 5. **Run migrations** on the production database
 
-::: warning
-Change the default admin password before deploying! The generated `admin@tessera.test / password` is for local development only.
+::: tip
+There is no fixed default admin password to change. The installer generates a cryptographically random one-time password per install, shows it exactly once at the end of the build, strips it from `.env` after seeding, and the admin account requires a password change on first login.
 :::
 
 ## Common Questions
