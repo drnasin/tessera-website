@@ -90,7 +90,7 @@ php artisan serve
 
 - **Stranica:** `http://localhost:8000`
 - **Admin panel:** `http://localhost:8000/admin`
-- **Zadani login:** `admin@tessera.test` / `password`
+- **Login:** `admin@tessera.test` / jednokratna lozinka prikazana na kraju builda (nigdje se ne sprema — ako si je izgubio, koristi "Zaboravljena lozinka" na login ekranu)
 
 ### Node.js
 
@@ -167,8 +167,8 @@ SETUP.md uključuje produkcijsku listu provjera specifičnu za tvoj projekt. Op�
 4. **Postavi web server** — Nginx ili Apache (SETUP.md ima primjere konfiguracija)
 5. **Pokreni migracije** na produkcijskoj bazi
 
-::: warning
-Promijeni zadanu admin lozinku prije deploya! Generirani `admin@tessera.test / password` je samo za lokalni razvoj.
+::: tip
+Ne postoji fiksna zadana admin lozinka koju treba mijenjati. Installer generira kriptografski nasumičnu jednokratnu lozinku po instalaciji, prikazuje je točno jednom na kraju builda, briše je iz `.env` nakon seedanja, a admin račun zahtijeva promjenu lozinke pri prvoj prijavi.
 :::
 
 ## Česta pitanja

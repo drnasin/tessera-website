@@ -103,12 +103,14 @@ gates:
 
 This says: after the step finishes, **at least one** of these paths must exist; otherwise the step failed.
 
-### Gate types (Sprint 1)
+### Gate types
 
 | Type | Meaning |
 |---|---|
 | `exists_any` | One of the patterns matches at least one file. |
 | `exists_all` | Every pattern matches at least one file. |
+| `non_empty_any` | One of the patterns matches at least one file with content (≥ 1 byte). |
+| `non_empty_all` | Every pattern matches at least one file with content. |
 
 Patterns can be literal paths or `*`/`?` globs. `**` is intentionally not supported in v1 (no surprise recursion).
 
@@ -119,7 +121,9 @@ Patterns can be literal paths or `*`/`?` globs. `**` is intentionally not suppor
 | `hard` | Step is marked failed; plan halts (unless `skippable: true`). |
 | `soft` | Step is marked complete; failure logged to events.jsonl as a warning. |
 
-Sprint 2 adds `not_empty`, `contains`, `min_size`, and `command_passes` (e.g., "step passes only if `php -l` succeeds on every changed file").
+Content gates matter for one more reason: when the AI subprocess times out or exits non-zero but every hard gate passes, the engine can still promote the step to success (the gate-pass override, born in the [wine-shop build](/docs/case/wine-shop)). Only content-validating gates (`non_empty_*`) qualify for this override — existence-only gates (`exists_*`) cannot mask a timeout or failed exit, so a stale leftover or 0-byte partial write never counts as proof of work. A run that finishes via override reports `ready_with_warnings` instead of `ready`.
+
+Future sprints add `contains`, `min_size`, and `command_passes` (e.g., "step passes only if `php -l` succeeds on every changed file").
 
 ## Skippable steps — graceful degradation
 

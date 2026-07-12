@@ -78,7 +78,7 @@ Nastavi? [Y/n]: Y
 
   Stranica:  http://localhost:8000
   Admin:     http://localhost:8000/admin
-  Login:     admin@tessera.test / password
+  Login:     admin@tessera.test / (jednokratna lozinka — prikazana samo ovdje, promijeni je pri prvoj prijavi)
 ```
 
 ## Što se generira

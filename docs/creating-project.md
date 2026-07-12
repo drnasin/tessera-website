@@ -78,7 +78,7 @@ Continue? [Y/n]: Y
 
   Site:   http://localhost:8000
   Admin:  http://localhost:8000/admin
-  Login:  admin@tessera.test / password
+  Login:  admin@tessera.test / (one-time password — shown only here, change it on first login)
 ```
 
 ## What Gets Generated
